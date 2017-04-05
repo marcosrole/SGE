@@ -3,14 +3,13 @@
 /* @var $model UsuarioRol */
 
 $this->breadcrumbs=array(
-	'Usuario Rols'=>array('index'),
-	'Manage',
+	'Administracion de Roles',
 );
 
 $menu=array();
 require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
 $this->menu=array(
-	array('label'=>'UsuarioRol','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
+	array('label'=>'Opciones','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -30,7 +29,7 @@ $('.search-form form').submit(function(){
 <?php $box = $this->beginWidget(
     'bootstrap.widgets.TbBox',
     array(
-        'title' => 'Manage Usuario Rols',
+        'title' => 'Roles de usuarios',
         'headerIcon' => 'icon- fa fa-tasks',
         'headerButtons' => array(
             array(
@@ -58,69 +57,86 @@ $('.search-form form').submit(function(){
 
 
 <?php echo CHtml::beginForm(array('export')); ?>
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'usuario-rol-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'type' => 'striped hover', //bordered condensed
-	'columns'=>array(
-		array('header'=>'No','value'=>'($this->grid->dataProvider->pagination->currentPage*
-					 $this->grid->dataProvider->pagination->pageSize
-					)+ ($row+1)',
-				'htmlOptions' => array('style' =>'width: 25px; text-align:center;'),
-		),
-			array(
-		        'header' => 'Rol',
-		        'name'=> 'id_rol',
-		        'type'=>'raw',
-		        'value' => '($data->id_rol)',		        
-		    ),
-			
-			array(
-		        'header' => 'Usuario',
-		        'name'=> 'id_usuario',
-		        'type'=>'raw',
-		        'value' => '($data->id_usuario)',
-		    ),
-			
-		//'created',
-			array(
-		        'header' => 'última modificación',
-		        'name'=> 'last_update',
-		        'type'=>'raw',
-		        'value' => '($data->last_update)',
-		    ),
-			
-		/*
-		//Contoh
-		array(
-	        'header' => 'Level',
-	        'name'=> 'ref_level_id',
-	        'type'=>'raw',
-	        'value' => '($data->Level->name)',
-	        // 'value' => '($data->status)?"on":"off"',
-	    ),
-	    */
-	    array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-			'buttons'=>array
-            (
-                'view' => array
-                (    
-                	'url' => '$data->id."|".$data->id_rol',              
-                	'click' => 'function(){
-                		data=$(this).attr("href").split("|")
-                		$("#myModalHeader").html(data[1]);
-	        			$("#myModalBody").load("'.$this->createUrl('view').'&id="+data[0]+"&asModal=true");
-                		$("#myModal").modal();
-                		return false;
-                	}', 
-                ),
-            )
-		),
-	),
-)); ?>
+<?php               
+                    $this->widget('bootstrap.widgets.TbGridView', array(
+                        'id' => 'sucursal-grid',
+                        'dataProvider' => $model,                        
+                        'columns' => array(                                                       
+                            array(
+                                'name' => 'rol_nombre',
+                                'header'=>'Rol',                                
+                            ),
+                            array(
+                                'name' => 'usuario_dni',
+                                'header'=>'DNI',                                
+                            ),
+                            array(
+                                'name' => 'usuario_nombre',
+                                'header'=>'Nombre',                                
+                            ),
+                            array(
+                                'name' => 'usuario_apellido',
+                                'header'=>'Apellido',                                
+                            ),
+                            array(
+                                'name' => 'last_update',
+                                'header'=>'Última modificación',                                
+                            ),
+                            
+                            
+                            array(
+                                'class' => 'bootstrap.widgets.TbButtonColumn',
+                                'template' => '{edit}', // botones a mostrar
+                                'buttons' => array(   
+                                    'edit' => array
+                                    (    
+//                                            'url' => '$data->id."|".$data->nombre',              
+                                            'icon' => 'icon-pencil',
+                                            'label' => 'Editar rol'
+//                                            'click' => 'function(){
+//                                                    data=$(this).attr("href").split("|")
+//                                                    $("#myModalHeader").html(data[1]);
+//                                                            $("#myModalBody").load("'.$this->createUrl('view').'&id="+data[0]+"&asModal=true");
+//                                                    $("#myModal").modal();
+//                                                    return false;
+//                                            }', 
+                                    ),                                                                                          
+                                ),
+                                ),
+                            
+                        ),
+
+                    ));
+                ?>
 
 <?php echo CHtml::endForm(); ?>
 
 <?php $this->endWidget(); ?>
+
+<?php  $this->beginWidget(
+    'bootstrap.widgets.TbModal',
+    array('id' => 'myModal')
+); ?>
+ 
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h4 id="myModalHeader">Modal header</h4>
+    </div>
+ 
+    <div class="modal-body" id="myModalBody">
+        <p>One fine body...</p>
+    </div>
+ 
+    <div class="modal-footer">
+        <?php  $this->widget(
+            'bootstrap.widgets.TbButton',
+            array(
+                'label' => 'Close',
+                'url' => '#',
+                'htmlOptions' => array('data-dismiss' => 'modal'),
+            )
+        ); ?>
+    </div>
+ 
+<?php  $this->endWidget(); ?>
+

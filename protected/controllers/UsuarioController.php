@@ -78,7 +78,7 @@ class UsuarioController extends Controller
 	{
 				
 		$model=new Usuario;
-
+                   
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -108,8 +108,9 @@ class UsuarioController extends Controller
                                             $UsuarioRol = new UsuarioRol();
                                             $UsuarioRol->id_rol='alumno';
                                             $UsuarioRol->id_usuario=$model{'id'};
-                                            if($_POST['Usuario']['esAdmin']=='1') $UsuarioRol->id_rol='admin';
-                                            
+                                            if($_POST['Usuario']['esAdmin']=='1'){
+                                                $UsuarioRol->id_rol='admin';
+                                            }                                            
                                             
                                             $UsuarioRol->save();
 
@@ -180,11 +181,8 @@ class UsuarioController extends Controller
 	{
 		
 		$model=$this->loadModel($id);
-                var_dump($model); die();
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Usuario']))
 		{
 			$messageType='warning';
@@ -236,10 +234,9 @@ class UsuarioController extends Controller
 			}
                         
         public function actionBloquear($id)
-	{
-		
+	{		
 		$model=$this->loadModel($id);
-                $messageType='error';
+                $messageType='error'; 
                 $message = "Se ha producido un error interno ";
                 $transaction = Yii::app()->db->beginTransaction();
                 try{
@@ -248,27 +245,29 @@ class UsuarioController extends Controller
                             $model->estado="BLOQUEADO";
                             $message = "Se ha bloqueado el usuario ";
                         }else{
-                            $model->estado="DEBLOQUEADO";
+                            $model->estado="DESHABILITADO";
                             $message = "Se ha desbloqueado el usuario ";
-                        }
-
-                        if($model->save()){
-                                $transaction->commit();
+                        }                      
+                        if($model->save()){  
+                                $transaction->commit();  
                                 Yii::app()->user->setFlash($messageType, $message);
-                                $this->redirect(array('admin'));
-                        }else{
+                                		
+			}else{
                              $transaction->rollBack();
                              Yii::app()->user->setFlash('warning', "El usuario se encuentra en sesión");
                         }
                 }
                 catch (Exception $e){
                         $transaction->rollBack();
-                        Yii::app()->user->setFlash('error', "{$e->getMessage()}");
+                        Yii::log('actionBloquear', "ERROR", '');
+                        Yii::app()->user->setFlash('error', "Se ha producido un error interno");
                         // $this->refresh(); 
                 }			
 
 
-		$this->render('admin');
+                $model=new Usuario('search');
+		$model->unsetAttributes();
+                $this->render('admin',array('model'=>$model,));		
 		
         }
 

@@ -138,17 +138,25 @@ $this->menu=array(
                 array(
                 'header' => 'Último acceso ',
                 'name'=> 'last_login',
-                'type'=>'raw',
-                'value' => '($data->last_login)',
+                'type'=>'raw',                    
+                'value' => '($data->last_login=="") ? "" : Yii::app()->dateFormatter->format("dd/MM/yyyy HH:mm:ss",strtotime($data->last_login))',
                 ),		
 	    array(
                 'class' => 'bootstrap.widgets.TbButtonColumn',
                    // 'htmlOptions' => array('width' => '10'), //ancho de la columna
-                    'template' => '{view} {bloquear}', // botones a mostrar
+                    'template' => '{view} {bloquear} {desbloquear}', // botones a mostrar
                     'buttons' => array(                        
                        'bloquear' => array(
                             'label' => 'Bloquear',
-                            'icon'=>'lock',
+                            'visible'=> '($data->estado=="DESHABILITADO" || $data->estado=="ACTIVO") ? true : false',     
+                            'icon'=>'icon-lock',
+//                            'click' => 'function(){return confirm("Desea bloquear el usuario?");}',
+                            'url'=> 'Yii::app()->createUrl("usuario/bloquear", array("id"=> ' . '$data["id"])) ',
+                        ),
+                        'desbloquear' => array(
+                            'label' => 'Desbloquear',
+                            'icon'=>'icon-ok',
+                            'visible'=> '($data->estado=="BLOQUEADO") ? true : false',     
 //                            'click' => 'function(){return confirm("Desea bloquear el usuario?");}',
                             'url'=> 'Yii::app()->createUrl("usuario/bloquear", array("id"=> ' . '$data["id"])) ',
                         ),

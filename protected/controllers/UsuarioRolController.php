@@ -242,16 +242,33 @@ class UsuarioRolController extends Controller
 	public function actionAdmin()
 	{
 		
-		$model=new UsuarioRol('search');
-		$model->unsetAttributes();  // clear any default values
+                $usuario_rol= UsuarioRol::model()->findAll();
+                foreach ($usuario_rol as $usuarioRol){
+                    $raw['id']=(int)$usuarioRol{'id'};
+                    $raw['rol_id']=$usuarioRol{'id'};
+                        $rol = Rol::model()->findByAttributes(array('id'=>$usuarioRol{'id_rol'}));
+                        $usuario = Usuario::model()->findByPk($usuarioRol{'id_usuario'});
+                    $raw['rol_nombre']=$rol{'nombre'};
+                    $raw['usuario_nombre']= $usuario{'nombre'};
+                    $raw['usuario_apellido']=$usuario{'apellido'};
+                    $raw['usuario_dni']=$usuario{'dni'};;
+                    $raw['last_update']=$usuarioRol{'last_update'};
+                    $rawData[]=$raw;
+                }                   
+                $DataProviderUsuarioRol=new CArrayDataProvider($rawData, array(
+                   'id'=>'id',
+                   'pagination'=>array(
+                       'pageSize'=>10,
+                   ),
+                 ));
+			
 		if(isset($_GET['UsuarioRol']))
 			$model->attributes=$_GET['UsuarioRol'];
 
-		$this->render('admin',array(
-			'model'=>$model,
-					));
 		
-			}
+                $this->render('admin',array('model'=>$DataProviderUsuarioRol));	
+                
+    }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

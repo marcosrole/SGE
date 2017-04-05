@@ -86,6 +86,12 @@ class SiteController extends Controller
                         
                         if($identity->authenticate()){
                             Yii::app()->user->login($identity); 
+                            $usuarioCorrecto = Usuario::model()->findByAttributes(array('dni'=>$model{'username'}));
+                            $usuarioCorrecto{'last_login'} = date('Y-m-d H:i:s');
+                            if(!$usuarioCorrecto->save()){ 
+                                 Yii::log('actionLogin', "ERROR", '');
+                                 Yii::app()->user->setFlash('error', "{$e->getMessage()}");
+                            }
                             $this->redirect(Yii::app()->user->returnUrl);
                         }else{
                             Yii::app()->user->setFlash('error', "Usuario o contraseña inválido");

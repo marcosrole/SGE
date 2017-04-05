@@ -14,6 +14,6 @@ if(in_array($currAction,array('index','view','update','admin','calendar','import
 $menu[]=array('label'=>'Nuevo Usuario','url'=>array('create'),'icon'=>'plus','active'=>($currAction=='create')?true:false);
 
 if(in_array($currAction,array('index','view','create','update','admin','calendar','import')))
-$menu[]=array('label'=>'Roles','url'=>array('create'),'icon'=>'icon-bookmark','active'=>($currAction=='create')?true:false);
+$menu[]=array('label'=>'Roles','url'=>array('usuarioRol/admin'),'icon'=>'icon-bookmark','active'=>($currAction=='create')?true:false);
 
 
