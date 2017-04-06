@@ -78,7 +78,11 @@ class UsuarioController extends Controller
 	{
 				
 		$model=new Usuario;
-                   
+                
+                $token = Token::model()->createToken('activarCliente', 172800, array('Datos de informacion'));
+                Token::model()->validateToken('activarUsuario', $token, false);
+                
+                var_dump($token); die();
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
