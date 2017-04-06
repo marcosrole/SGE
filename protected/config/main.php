@@ -37,7 +37,6 @@ return array(
 
 	// application components
 	'components'=>array(    
-                'tokenManager'=>array( 'class'=>'ext.token.Token', ),
                 'messages'=>array(
                     'basePath'=>Yiibase::getPathOfAlias('application.messages')
                     ),
