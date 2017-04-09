@@ -1,0 +1,501 @@
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (32)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\column1.php (2)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (32)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\_menu.php (12)
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\main.php (15)
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\column1.php (26)
+2017/04/09 13:54:41 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\_menu.php (12)
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\main.php (15)
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\column1.php (26)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.web.filters.CFilterChain] Running filter UsuarioController.filteraccessControl()
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "db" application component
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `usuario`
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `usuario`
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (30)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.db.ar.CActiveRecord] Usuario.count()
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:54:49 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `usuario` `t`
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:54:49 [trace] [system.db.ar.CActiveRecord] Usuario.findAll()
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:54:49 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `usuario` `t` LIMIT 10
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "coreMessages" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbButtonColumn.php (44)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (125)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "format" application component
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:49 [trace] [system.CModule] Loading "messages" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbEditableField.php (687)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbEditableField.php (442)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbEditableField.php (382)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (32)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\column1.php (2)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (32)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\_menu.php (12)
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\main.php (15)
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\column1.php (26)
+2017/04/09 13:54:54 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\_menu.php (12)
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\main.php (15)
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\column1.php (26)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.web.filters.CFilterChain] Running filter UsuarioController.filteraccessControl()
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "db" application component
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `usuario`
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `usuario`
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (30)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.db.ar.CActiveRecord] Usuario.count()
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:54:56 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `usuario` `t`
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:54:56 [trace] [system.db.ar.CActiveRecord] Usuario.findAll()
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:54:56 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `usuario` `t` LIMIT 10
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "coreMessages" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbButtonColumn.php (44)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (125)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "format" application component
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:54:56 [trace] [system.CModule] Loading "messages" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbEditableField.php (687)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbEditableField.php (442)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbEditableField.php (382)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (72)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\protected\views\site\contact.php (14)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (72)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\protected\views\site\contact.php (14)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (72)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\site\contact.php (34)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (72)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "coreMessages" application component
+in C:\wamp64\www\SGE\protected\views\site\contact.php (38)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (72)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:00 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.web.filters.CFilterChain] Running filter UsuarioController.filteraccessControl()
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "db" application component
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `usuario`
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `usuario`
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (327)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (30)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.db.ar.CActiveRecord] Usuario.count()
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:55:08 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `usuario` `t`
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:55:08 [trace] [system.db.ar.CActiveRecord] Usuario.findAll()
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:55:08 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `usuario` `t` LIMIT 10
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "coreMessages" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbButtonColumn.php (44)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (125)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbGridView.php (68)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "format" application component
+in C:\wamp64\www\SGE\protected\views\usuario\admin.php (180)
+in C:\wamp64\www\SGE\protected\controllers\UsuarioController.php (334)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:08 [trace] [system.CModule] Loading "messages" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbEditableField.php (687)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbEditableField.php (442)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbEditableField.php (382)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+2017/04/09 13:55:10 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+2017/04/09 14:02:29 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+2017/04/09 14:02:30 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+2017/04/09 14:02:31 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:32 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:32 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:32 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 14:02:32 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 14:02:32 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:32 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:32 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:32 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+2017/04/09 14:02:32 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "bootstrap" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (414)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (204)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (402)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (407)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\components\Bootstrap.php (252)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
+2017/04/09 14:02:59 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\protected\extensions\bootstrap\widgets\TbAlert.php (147)
+in C:\wamp64\www\SGE\protected\views\site\login.php (21)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (101)
