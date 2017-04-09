@@ -12,9 +12,13 @@
  */
 class UsuarioRol extends CActiveRecord
 {
-	/**
-	 * @return string the associated database table name
-	 */
+	public $usuario_nombre;
+        public $usuario_apellido;
+        public $usuario_email;
+        public $usuario_dni;
+        public $rol_nombre;
+        public $isAdmin;
+        
 	public function tableName()
 	{
 		return 'usuario_rol';
@@ -41,7 +45,7 @@ class UsuarioRol extends CActiveRecord
           	*/
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, id_rol, id_usuario, created, last_update', 'safe', 'on'=>'search'),
+			array('id, id_rol, id_usuario, created, last_update, rol_nombre, usuario_dni, usuario_nombre, usuario_apellido, usuario_email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,8 +56,10 @@ class UsuarioRol extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-		);
+		 return array(
+                        'usuario' => array(self::BELONGS_TO, 'usuario', 'id_usuario'),
+                        'rol' => array(self::BELONGS_TO, 'rol', 'id_rol'),                        
+                );
 	}
 
 	/**
@@ -66,6 +72,11 @@ class UsuarioRol extends CActiveRecord
 			'id_rol' => 'Id Rol',
 			'id_usuario' => 'Id Usuario',
 			'created' => 'Created',
+                        'usuario_nombre' => 'Nombre',
+                        'usuario_apellido' => 'Apellido',
+                        'usuario_dni' => 'DNI',
+                        'rol_nombre' => 'Rol',                        
+                        'isAdmin' => '',
 			'last_update' => 'Last Update',
 		);
 	}
@@ -87,16 +98,51 @@ class UsuarioRol extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
-
+                $criteria->with = array('usuario', 'rol'); 
+                
 		$criteria->compare('id',$this->id);
 		$criteria->compare('id_rol',$this->id_rol,true);
 		$criteria->compare('id_usuario',$this->id_usuario);
 		$criteria->compare('created',$this->created,true);
-		$criteria->compare('last_update',$this->last_update,true);
+                $criteria->compare('last_update',$this->last_update,true);
+                $criteria->addSearchCondition('usuario.nombre',$this->usuario_nombre,true);
+                $criteria->addSearchCondition('usuario.apellido',$this->usuario_apellido,true);
+                $criteria->addSearchCondition('usuario.email',$this->usuario_email,true);
+                $criteria->addSearchCondition('usuario.dni',$this->usuario_dni,true);
+                $criteria->addSearchCondition('rol.nombre',$this->rol_nombre,true);
+		
+                
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
+                return new CActiveDataProvider( $this, array(
+                    'criteria'=>$criteria,
+                    'sort'=>array(
+                        'attributes'=>array(
+                            'usuario_nombre'=>array(
+                                'asc'=>'usuario.nombre',
+                                'desc'=>'usuario.nombre DESC',
+                            ),
+                            'usuario_apellido'=>array(
+                                'asc'=>'usuario.apellido',
+                                'desc'=>'usuario.apellido DESC',
+                            ),
+                            'usuario_email'=>array(
+                                'asc'=>'usuario.email',
+                                'desc'=>'usuario.email DESC',
+                            ),
+                            'usuario_dni'=>array(
+                                'asc'=>'usuario.dni',
+                                'desc'=>'usuario.dni DESC',
+                            ),
+                            'rol_nombre'=>array(
+                                'asc'=>'rol.nombre',
+                                'desc'=>'rol.nombre DESC',
+                            ),
+                        ),
+                        'defaultOrder' => array(
+                            'rol.nombre' => CSort::SORT_ASC,
+                        ),
+                    ),
+                ));         	
 	}
 
 	/**
@@ -154,5 +200,9 @@ class UsuarioRol extends CActiveRecord
 
         
         return $scope;
+    }
+    
+    public function getUsuario_nombre(){
+        return $this->usuario_nombre;
     }
 }

@@ -49,10 +49,15 @@ return array(
 		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+                        'showScriptName'=>false,
+                        'useStrictParsing'=>true,
+                        'caseSensitive'=>false,
 			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                                ''=>array('site/index', 'urlSuffix'=>''),
+				'<controller:\w+>'=>'<controller>/list',
+                                '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+                                '<controller:\w+>/<id:\d+>/<title>'=>'<controller>/view',
+                                '<controller:\w+>/<id:\d+>'=>'<controller>/view',
 			),
 		),
 		

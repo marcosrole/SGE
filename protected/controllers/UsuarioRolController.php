@@ -55,14 +55,48 @@ class UsuarioRolController extends Controller
 	 */
 	public function actionView($id)
 	{
-		
-		if(isset($_GET['asModal'])){
-			$this->renderPartial('view',array(
-				'model'=>$this->loadModel($id),
+            $messageType = 'error';
+            if(isset($_POST['UsuarioRol'])){ 
+                $model = UsuarioRol::model()->findByPk($id);                
+                if($_POST['UsuarioRol']['isAdmin']=="0"){
+                    $model{'id_rol'}='admin'; 
+                }elseif ($_POST['UsuarioRol']['isAdmin']=='1') { 
+                    $model{'id_rol'}='alumno';
+                }
+                if($model->validate() && $model->update()){
+                    $messageType = 'success';
+                    $message = "Se ha modificado el rol con éxito.";
+                    Yii::log('Usuario guardado con exito', "INFO", '');
+                    Yii::app()->user->setFlash($messageType, $message);
+                }else{
+                    Yii::log('No se almacenó el rol al usuario', "error", '');
+                    Yii::app()->user->setFlash($messageType, $message);
+                }
+                $this->redirect(array('admin'));
+            }
+            
+		if(isset($_GET['asModal'])){                    
+                        $model = new UsuarioRol();
+                        $model = UsuarioRol::model()->findByPk($id);
+                        $usuario = Usuario::model()->findByPk($model{'id_usuario'});
+                        $rol = Rol::model()->findByPk($model{'id_rol'});
+                        $model->usuario_nombre=$usuario{'nombre'};
+                        $model->usuario_apellido=$usuario{'apellido'};
+                        $model->usuario_dni=$usuario{'dni'};
+                        $model->usuario_email=$usuario{'email'};
+                        $model->rol_nombre=$rol{'nombre'};
+                        
+                        if($rol{'id'}=='admin'){
+                            $model->isAdmin=0; //Posicion 0
+                        }else{
+                            $model->isAdmin=1; //Posicion 1
+                        }
+                        
+			$this->renderPartial('modalEdit',array(
+				'model'=>$model,
 			));
 		}
-		else{
-						
+		else{		
 			$this->render('view',array(
 				'model'=>$this->loadModel($id),
 			));
@@ -70,204 +104,15 @@ class UsuarioRolController extends Controller
 		}
 	}
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-				
-		$model=new UsuarioRol;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['UsuarioRol']))
-		{
-			$transaction = Yii::app()->db->beginTransaction();
-			try{
-				$messageType='warning';
-				$message = "There are some errors ";
-				$model->attributes=$_POST['UsuarioRol'];
-				//$uploadFile=CUploadedFile::getInstance($model,'filename');
-				if($model->save()){
-					$messageType = 'success';
-					$message = "<strong>Well done!</strong> You successfully create data ";
-					/*
-					$model2 = UsuarioRol::model()->findByPk($model->id);						
-					if(!empty($uploadFile)) {
-						$extUploadFile = substr($uploadFile, strrpos($uploadFile, '.')+1);
-						if(!empty($uploadFile)) {
-							if($uploadFile->saveAs(Yii::app()->basePath.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.'usuariorol'.DIRECTORY_SEPARATOR.$model2->id.DIRECTORY_SEPARATOR.$model2->id.'.'.$extUploadFile)){
-								$model2->filename=$model2->id.'.'.$extUploadFile;
-								$model2->save();
-								$message .= 'and file uploded';
-							}
-							else{
-								$messageType = 'warning';
-								$message .= 'but file not uploded';
-							}
-						}						
-					}
-					*/
-					$transaction->commit();
-					Yii::app()->user->setFlash($messageType, $message);
-					$this->redirect(array('view','id'=>$model->id));
-				}				
-			}
-			catch (Exception $e){
-				$transaction->rollBack();
-				Yii::app()->user->setFlash('error', "{$e->getMessage()}");
-				//$this->refresh();
-			}
-			
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-					));
-		
-				
-	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
-	{
-		
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['UsuarioRol']))
-		{
-			$messageType='warning';
-			$message = "There are some errors ";
-			$transaction = Yii::app()->db->beginTransaction();
-			try{
-				$model->attributes=$_POST['UsuarioRol'];
-				$messageType = 'success';
-				$message = "<strong>Well done!</strong> You successfully update data ";
-
-				/*
-				$uploadFile=CUploadedFile::getInstance($model,'filename');
-				if(!empty($uploadFile)) {
-					$extUploadFile = substr($uploadFile, strrpos($uploadFile, '.')+1);
-					if(!empty($uploadFile)) {
-						if($uploadFile->saveAs(Yii::app()->basePath.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.'usuariorol'.DIRECTORY_SEPARATOR.$model->id.DIRECTORY_SEPARATOR.$model->id.'.'.$extUploadFile)){
-							$model->filename=$model->id.'.'.$extUploadFile;
-							$message .= 'and file uploded';
-						}
-						else{
-							$messageType = 'warning';
-							$message .= 'but file not uploded';
-						}
-					}						
-				}
-				*/
-
-				if($model->save()){
-					$transaction->commit();
-					Yii::app()->user->setFlash($messageType, $message);
-					$this->redirect(array('view','id'=>$model->id));
-				}
-			}
-			catch (Exception $e){
-				$transaction->rollBack();
-				Yii::app()->user->setFlash('error', "{$e->getMessage()}");
-				// $this->refresh(); 
-			}
-
-			$model->attributes=$_POST['UsuarioRol'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-					));
-		
-			}
-
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
-
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		/*
-		$dataProvider=new CActiveDataProvider('UsuarioRol');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-		*/
-		
-		$model=new UsuarioRol('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['UsuarioRol']))
-			$model->attributes=$_GET['UsuarioRol'];
-
-		$this->render('index',array(
-			'model'=>$model,
-					));
-		
-			}
-
-	/**
+        /**
 	 * Manages all models.
 	 */
 	public function actionAdmin()
-	{
-		
-                $usuario_rol= UsuarioRol::model()->findAll();
-                foreach ($usuario_rol as $usuarioRol){
-                    $raw['id']=(int)$usuarioRol{'id'};
-                    $raw['rol_id']=$usuarioRol{'id'};
-                        $rol = Rol::model()->findByAttributes(array('id'=>$usuarioRol{'id_rol'}));
-                        $usuario = Usuario::model()->findByPk($usuarioRol{'id_usuario'});
-                    $raw['rol_nombre']=$rol{'nombre'};
-                    $raw['usuario_nombre']= $usuario{'nombre'};
-                    $raw['usuario_apellido']=$usuario{'apellido'};
-                    $raw['usuario_dni']=$usuario{'dni'};;
-                    $raw['last_update']=$usuarioRol{'last_update'};
-                    $rawData[]=$raw;
-                }                   
-                $DataProviderUsuarioRol=new CArrayDataProvider($rawData, array(
-                   'id'=>'id',
-                   'pagination'=>array(
-                       'pageSize'=>10,
-                   ),
-                 ));
-			
+	{			
 		if(isset($_GET['UsuarioRol']))
 			$model->attributes=$_GET['UsuarioRol'];
-
 		
-                $this->render('admin',array('model'=>$DataProviderUsuarioRol));	
-                
+                $this->render('admin',array('model'=>new UsuarioRol()));                
     }
 
 	/**
