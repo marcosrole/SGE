@@ -2,7 +2,7 @@
 
 class UserIdentity extends CUserIdentity
 {	
-              
+        public  $_id;      
 	public function authenticate()
 	{
             $usernameIngresado = $this->username; //username es el DNI
@@ -14,8 +14,14 @@ class UserIdentity extends CUserIdentity
                     $this->errorCode=self::ERROR_USERNAME_INVALID;
             elseif($user{'hased_paswword'}!=$password_hasedIngresado)
                     $this->errorCode=self::ERROR_PASSWORD_INVALID;
-            else
-                    $this->errorCode=self::ERROR_NONE;
+            else                    
+                    $this->errorCode=self::ERROR_NONE;                    
+            if($this->errorCode==self::ERROR_NONE){
+                $this->_id = $user{'id'};
+                $UsuarioRol = UsuarioRol::model ()->findByAttributes (array('id_usuario'=>$user{'id'}));
+                $this->setState('rol', $UsuarioRol{'id_rol'});
+            }
+                    
             return !$this->errorCode;
 	}
         
@@ -23,6 +29,10 @@ class UserIdentity extends CUserIdentity
             $user = Usuario::model()->findByAttributes(array('dni'=>$usernameIngresado));
             $this->setState('last_login',$usuario->last_login);
 //            $this->setState('rol',$info_usuario->perfil);
+        }
+        
+        public function getId() {
+            return $this->_id;
         }
         
         

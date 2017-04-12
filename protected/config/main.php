@@ -9,6 +9,7 @@ return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'language'=>'es',
 	'sourceLanguage'=>'en',
+        'defaultController' => 'site/login', 
 	'name'=>'Sistema de Gestión del Estudiante',
 
 	
@@ -54,6 +55,7 @@ return array(
                         'caseSensitive'=>false,
 			'rules'=>array(
                                 ''=>array('site/index', 'urlSuffix'=>''),
+                                'login'=>array('site/login', 'urlSuffix'=>''),
 				'<controller:\w+>'=>'<controller>/list',
                                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
                                 '<controller:\w+>/<id:\d+>/<title>'=>'<controller>/view',

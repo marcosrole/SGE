@@ -2,9 +2,48 @@
 
 class SiteController extends Controller
 {
-	/**
-	 * Declares class-based actions.
-	 */
+    
+        public function filters()
+	{
+		return array(
+						
+			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
+						
+		);
+	}
+        
+        
+	public function accessRules()
+	{
+             
+//            if( Yii::app()->user->getState('rol') == "admin"){ 
+//                 $arr =array('admin','view');   // give all access to admin
+//            }else if( Yii::app()->user->getState('rol') =="alumno"){
+//                    $arr =array('index','staff','staffcalendar','update');   // give all access to staff
+//                }else{
+//                    $arr = array('');          //  no access to other user
+//                  }
+                
+            return array(   
+                        array('allow',  // a todos los usuarios
+				'actions'=>array('login','EnviarMailActivacion'),
+				'users'=>array('*'),
+			),  
+                        array('allow', 
+                                'actions'=>array('index','contact','logout'),
+                                'users'=>array('@'),
+                        ),
+//                        array('allow', 
+//                                'actions'=>$arr,
+//                                'users'=>array('@'),
+//                        ),                                                
+                        array('deny',  // deny all users
+                                'users'=>array('*'),
+                        ),
+                );
+	}
+    
 	public function actions()
 	{
 		return array(
@@ -71,6 +110,42 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
+        
+        
+        public function actionEnviarMailActivacion()
+	{
+		$idUserLogin = Yii::app()->user->getId(); 
+                $userLogin = Usuario::model()->findByPk($idUserLogin);
+                $userLogin{'email'}="";
+                $userLogin{'dni'}="";
+                
+                if(isset($_POST['Usuario'])){
+                    $userLoginTemp = Usuario::model()->findByPk($idUserLogin);                   
+                    //Verifico el DNI si es igual al Loggueado
+                    if($_POST['Usuario']['dni']!=$userLoginTemp{'dni'}){
+                        Yii::app()->user->setFlash('error', "El DNI ingresado es incorrecto");
+                        $this->redirect(array('EnviarMailActivacion'));
+                    }
+                    
+                    //Valido el e-mail
+                    if(!filter_var($_POST['Usuario']['email'], FILTER_VALIDATE_EMAIL)){
+                        Yii::app()->user->setFlash('error', "El e-mail ingresado no es válido");
+                        $this->redirect(array('EnviarMailActivacion'));
+                    }
+                    
+                    //Genero el token
+                    $token = Token::model()->createToken('activarCliente', 172800, array('idUsr'=>$userLogin{'id'}));
+                    
+                    //EnvioEmail
+                    // TODO: Hacer envio de email
+                    
+                    //Vuelvo al Login
+                    Yii::app()->user->setFlash('success', "Se ha enviado un mail a " . $_POST['Usuario']['email']);
+                    $this->redirect(array('login'));
+                }
+                
+                $this->render('enviarMailActivacion',array('model'=>$userLogin));
+        }
 
 	/**
 	 * Displays the login page
@@ -87,6 +162,16 @@ class SiteController extends Controller
                         if($identity->authenticate()){
                             Yii::app()->user->login($identity); 
                             $usuarioCorrecto = Usuario::model()->findByAttributes(array('dni'=>$model{'username'}));
+                            
+                            if($usuarioCorrecto{'estado'}=='DESHABILITADO'){
+                                $this->redirect(array('enviarMailActivacion'));
+                            }
+                            
+                            if($usuarioCorrecto{'estado'}=='BLOQEUADO'){
+                                Yii::app()->user->setFlash('error', "El usuario se encuentra bloqueado");
+                                $this->redirect(array('login'));
+                            }
+                            
                             $usuarioCorrecto{'last_login'} = date('Y-m-d H:i:s');
                             if(!$usuarioCorrecto->save()){ 
                                  Yii::log('actionLogin', "ERROR", '');

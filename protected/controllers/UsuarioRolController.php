@@ -30,23 +30,24 @@ class UsuarioRolController extends Controller
 	 */
 	public function accessRules()
 	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','export','import','editable','toggle',),
-				'users'=>array('*'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
+             
+            if( Yii::app()->user->getState('rol') == "admin"){ 
+                 $arr =array('admin','view');   // give all access to admin
+            }else if( Yii::app()->user->getState('rol') =="alumno"){
+                    $arr =array('index','staff','staffcalendar','update');   // give all access to staff
+                }else{
+                    $arr = array('');          //  no access to other user
+                  }
+                
+            return array(                   
+                array('allow', 
+                                'actions'=>$arr,
+                                'users'=>array('@'),
+                        ),                                                
+                        array('deny',  // deny all users
+                                'users'=>array('*'),
+                        ),
+                );
 	}
 		
 	/**
@@ -63,7 +64,8 @@ class UsuarioRolController extends Controller
                 }elseif ($_POST['UsuarioRol']['isAdmin']=='1') { 
                     $model{'id_rol'}='alumno';
                 }
-                if($model->validate() && $model->update()){
+                $model{'last_update'} = date('Y-m-d H:i:s');
+                if($model->validate() && $model->save()){
                     $messageType = 'success';
                     $message = "Se ha modificado el rol con éxito.";
                     Yii::log('Usuario guardado con exito', "INFO", '');

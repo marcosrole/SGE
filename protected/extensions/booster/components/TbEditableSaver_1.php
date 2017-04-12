@@ -85,7 +85,7 @@ class TbEditableSaver extends CComponent
 		}
 
 		$this->modelClass = $modelClass;
-
+                
 		//for non-namespaced models do ucfirst (for backwards compability)
 		//see https://github.com/vitalets/x-editable-yii/issues/9
 		if (strpos($this->modelClass, '\\') === false) {
@@ -154,7 +154,7 @@ class TbEditableSaver extends CComponent
 
 		//setting new value
 		$this->setAttribute($this->attribute, $this->value);
-
+                
 		//validate attribute
 		$this->model->validate(array($this->attribute));
 		$this->checkErrors();

@@ -23,18 +23,18 @@
     
     <?php 
 
-$form = $this->beginWidget(
-            'bootstrap.widgets.TbActiveForm',
-            array(
-                'id' => 'verticalForm',
-        //        'htmlOptions' => array('class' => 'well'), // for inset effect
-            )
-        );
-         ?>
-    
-    <h3 class="text-info">Ingrese su correo electrónico y siga las instrucciones:</h3>
-    
-    <?php echo $form->errorSummary($model); ?>
+        $form = $this->beginWidget(
+                    'bootstrap.widgets.TbActiveForm',
+                    array(
+                        'id' => 'verticalForm',
+                //        'htmlOptions' => array('class' => 'well'), // for inset effect
+                    )
+                );
+                 ?>
+
+            <h4 class="text-info">Ingrese DNI y su correo electrónico</h4>
+
+            <?php echo $form->errorSummary($model); ?>
     
                 <div style="float:left;padding:10px">
                     <?php echo $form->textFieldRow($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>

@@ -478,9 +478,9 @@ class UsuarioController extends Controller
 	}
 
 	public function actionEditable(){
-		Yii::import('bootstrap.widgets.TbEditableSaver'); 
+	    Yii::import('bootstrap.widgets.TbEditableSaver'); 
 	    $es = new TbEditableSaver('Usuario'); 
-			    $es->update();
+            $es->update(); 
 	}
 
 	public function actions()
