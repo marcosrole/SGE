@@ -38,7 +38,7 @@ class Usuario extends CActiveRecord
                         array('password','compare','compareAttribute'=>'passwordAgain','operator'=>'==','message'=>'Las contraseñas no coinciden', 'on'=>'activarUsuarioSite'),
 			array('nombre, apellido, dni, email, hased_paswword', 'length', 'max'=>20),
                         array('dni', 'unique','message'=>'El DNI ya existe'),
-                        array('email', 'unique','message'=>'El email ingresado ya se encuentra almacenado', 'on'=>'create'),
+                        array('email', 'unique','message'=>'El email ingresado ya se encuentra almacenado'),
                         array('dni', 'numerical', 'integerOnly'=>true),
 			array('estado', 'length', 'max'=>13),
 			array('last_login, created, last_update', 'safe'),
@@ -123,11 +123,15 @@ class Usuario extends CActiveRecord
 	}
 
 	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Usuario the static model class
+	 * Retorna si el email ya se encuentra almacenado en la BD	 
+	 * @param string $email email a buscar
+	 * @return Boolean
 	 */
+        public function validateUniqueEmail($email)
+        {
+            if(Usuario::model()->find('email = :email', array(':email'=>$email)) == null) return true;
+            return false;
+        }
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

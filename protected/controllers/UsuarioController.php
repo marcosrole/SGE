@@ -239,8 +239,9 @@ class UsuarioController extends Controller
 	{		
 		$model=$this->loadModel($id);
                 $messageType='error'; 
-                $message = "Se ha producido un error interno ";
+                $message = Yii::app()->properties->msgERROR_INTERNO;
                 $transaction = Yii::app()->db->beginTransaction();
+                var_dump($model);
                 try{
                         $messageType = 'success';				
                         if($model{'estado'}=='DESBLOQUEADO' || $model{'estado'}=='DESHABILITADO'){
@@ -248,6 +249,7 @@ class UsuarioController extends Controller
                             $message = "Se ha bloqueado el usuario ";
                         }else{
                             $model->estado="DESHABILITADO";
+                            $model->hased_paswword=crypt($model->dni,Yii::app()->properties->hashPassword); 
                             $message = "Se ha desbloqueado el usuario ";
                         }                      
                         if($model->save()){  
@@ -262,7 +264,7 @@ class UsuarioController extends Controller
                 catch (Exception $e){
                         $transaction->rollBack();
                         Yii::log('actionBloquear', "ERROR", '');
-                        Yii::app()->user->setFlash('error', "Se ha producido un error interno");
+                        Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
                         // $this->refresh(); 
                 }			
 

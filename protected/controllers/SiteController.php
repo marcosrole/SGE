@@ -145,6 +145,7 @@ class SiteController extends Controller
                      $UsuarioActualizado->estado="ACTIVO";
                      
                      $UsuarioActualizado->scenario = 'activarUsuarioSite';
+                     $UsuarioActualizado{'last_login'} = date('Y-m-d H:i:s');
                      if($UsuarioActualizado->validate() && $UsuarioActualizado->save()){
                          Token::model()->validateToken('activarUsuario', $tokenParam, true);
                          Yii::app()->user->setFlash('success', "Bienvenido " . $UsuarioActualizado{'nombre'});
@@ -162,8 +163,15 @@ class SiteController extends Controller
 	{
 		$idUserLogin = Yii::app()->user->getId(); 
                 $userLogin = Usuario::model()->findByPk($idUserLogin);
-                $userLogin{'email'}="";
+                $usuarioExistente = true;
+                //Si el usuario ya inició sesión anteriormente, muestro el correo electronico
+                if( !($userLogin{'last_login'}!=null && $userLogin{'last_login'}!="" )){
+                    $userLogin{'email'}="";
+                    $usuarioExistente = false;
+                }
+                
                 $userLogin{'dni'}="";
+                
                 
                 if(isset($_POST['Usuario'])){
                     $userLoginTemp = Usuario::model()->findByPk($idUserLogin);                   
@@ -175,7 +183,6 @@ class SiteController extends Controller
                     
                     //Valido el e-mail
                     if(!filter_var($_POST['Usuario']['email'], FILTER_VALIDATE_EMAIL)){
-                        $this->addError('email','Email ingresado inválido');
                         Yii::app()->user->setFlash('error', "El e-mail ingresado no es válido");
                         $this->redirect(array('EnviarMailActivacion'));
                     }
@@ -183,19 +190,19 @@ class SiteController extends Controller
                     //Guardo el mail en el usuario
                     $userLoginTemp->email=$_POST['Usuario']['email'];
                     $userLoginTemp->save();
-                    
                     //Genero el token
                     $token = Token::model()->createToken('activarUsuario', 172800, array('idUsr'=>$userLogin{'id'}));
-                    
+
                     //EnvioEmail
                     // TODO: Hacer envio de email
-                    
+
                     //Vuelvo al Login
                     Yii::app()->user->setFlash('success', "Se ha enviado un mail a " . $_POST['Usuario']['email']);
                     $this->redirect(array('login'));
+                    
                 }
                 
-                $this->render('enviarMailActivacion',array('model'=>$userLogin));
+                $this->render('enviarMailActivacion',array('model'=>$userLogin, 'usuarioExistente'=>$usuarioExistente));
         }
 
 	/**

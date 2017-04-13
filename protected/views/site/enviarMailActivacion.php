@@ -38,10 +38,17 @@
     
                 <div style="float:left;padding:10px">
                     <?php echo $form->textFieldRow($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>
-                </div>
-                <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'email',array('class'=>'span3','maxlength'=>20)); ?>
-                </div>  
+                </div>           
+                <?php if($usuarioExistente){ ?>
+                    <div style="float:left;padding:10px">
+                        <?php echo $form->textFieldRow($model,'email',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
+                    </div> 
+                <?php }else{ ?>
+                    <div style="float:left;padding:10px">
+                        <?php echo $form->textFieldRow($model,'email',array('class'=>'span3','maxlength'=>20)); ?>
+                    </div>
+                <?php } ?>
+                
                 <br>
                 <div style="padding:10px">
                     <?php $this->widget('bootstrap.widgets.TbButton', array(
