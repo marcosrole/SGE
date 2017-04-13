@@ -3,8 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<?php 
-//            $currController = Yii::app()->controller->id;
-//            $currAction= Yii::app()->controller->action->id;   
+            $currController = Yii::app()->controller->id;
+            $currAction= Yii::app()->controller->action->id;   
 //            
 //            $validateControllerAndView = array(
 //                'site'=>array('login',),);
@@ -33,9 +33,10 @@
 $menu=array();
 require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
 
+$actionNoShow = array('login','enviarmailactivacion', 'activarusuario');
+$controllerNoShow = array('site');
 
-
-if($currAction != "login"){   
+if( !(in_array($currController, $controllerNoShow) && in_array($currAction, $actionNoShow))){   
     $this->widget('bootstrap.widgets.TbNavbar', array(
             'type'=>null, // null or 'inverse'
             'brand'=>'Inicio',

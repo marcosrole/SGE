@@ -27,28 +27,50 @@ $form = $this->beginWidget(
             'bootstrap.widgets.TbActiveForm',
             array(
                 'id' => 'verticalForm',
-        //        'htmlOptions' => array('class' => 'well'), // for inset effect
+                'htmlOptions' => array('class' => 'well'), // for inset effect
             )
         );
          ?>
     
-    <h3 class="text-info">Ingrese su correo electrónico y siga las instrucciones:</h3>
+    <h3 class="text-info">Activación de usuario:</h3>
     
     <?php echo $form->errorSummary($model); ?>
     
                 <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>
+                    <?php echo $form->labelEx($model,'password'); ?>
+                    <?php echo $form->passwordField($model,'password',array('class'=>'span2','maxlength'=>20)); ?>
                 </div>
                 <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'email',array('class'=>'span3','maxlength'=>20)); ?>
-                </div> 
+                    <?php echo $form->labelEx($model,'passwordAgain'); ?>
+                    <?php echo $form->passwordField($model,'passwordAgain',array('class'=>'span2','maxlength'=>20)); ?>
+                </div>
                 
-                <br>
+                <div class="clearfix"></div>
+                    
+                <div style="float:left;padding:10px">
+                    <?php echo $form->textFieldRow($model,'dni',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
+                </div> 
+                <div style="float:left;padding:10px">
+                    <?php echo $form->textFieldRow($model,'apellido',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
+                </div> 
+                <div style="float:left;padding:10px">
+                    <?php echo $form->textFieldRow($model,'nombre',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
+                </div> 
+                                
+                <div class="clearfix"></div>
+                
+                <div style="float:left;padding:10px">
+                    <?php echo $form->textFieldRow($model,'email',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
+                    <?php echo $form->error($model,'email'); ?>
+                </div>
+                               
+                 <div class="clearfix"></div>
+                 
                 <div style="padding:10px">
                     <?php $this->widget('bootstrap.widgets.TbButton', array(
                                         'buttonType'=>'submit',
                                         'type'=>'primary',
-                                        'label'=>'Enviar',
+                                        'label'=>'Activar',
                                 )); ?>
                 </div>
     

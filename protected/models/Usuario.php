@@ -18,6 +18,8 @@
 class Usuario extends CActiveRecord
 {
     public $esAdmin;
+    public $password;
+    public $passwordAgain;
     public function tableName()
 	{
 		return 'usuario';
@@ -31,9 +33,12 @@ class Usuario extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+                        array('password, passwordAgain', 'required', 'on'=>'activarUsuarioSite'),
 			array('nombre, apellido, dni, email, hased_paswword', 'required'),
+                        array('password','compare','compareAttribute'=>'passwordAgain','operator'=>'==','message'=>'Las contraseñas no coinciden', 'on'=>'activarUsuarioSite'),
 			array('nombre, apellido, dni, email, hased_paswword', 'length', 'max'=>20),
-                        array('email','email'),
+                        array('dni', 'unique','message'=>'El DNI ya existe'),
+                        array('email', 'unique','message'=>'El email ingresado ya se encuentra almacenado', 'on'=>'create'),
                         array('dni', 'numerical', 'integerOnly'=>true),
 			array('estado', 'length', 'max'=>13),
 			array('last_login, created, last_update', 'safe'),
@@ -77,6 +82,8 @@ class Usuario extends CActiveRecord
 			'last_login' => 'Last Login',
 			'created' => 'Created',
 			'last_update' => 'Last Update',
+                        'password' => 'Contraseña',
+                        'passwordAgain' => 'Confirmacion de contraseña',
                         $this->esAdmin => 'esAdmin'
 		);
 	}

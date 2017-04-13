@@ -9,7 +9,7 @@
 		$box = $this->beginWidget(
 		    'bootstrap.widgets.TbBox',
 		    array(
-		        'title' => ($currAction=='enviarmailactivacion')?'Envío de mail de activacion':(($currAction=='contact')?'Contact Us':'Home'),
+		        'title' => ($currAction=='enviarmailactivacion')?'Envío de mail de activacion':(($currAction=='activarusuario')?'Datos del usuario':'Home'),
 		        'headerIcon' => 'icon-envelope'
 		    )
 		);

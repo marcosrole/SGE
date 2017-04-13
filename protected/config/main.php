@@ -20,7 +20,7 @@ return array(
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
-		'application.components.*', 
+		'application.components.*',
 	),
 
 	'modules'=>array(
@@ -37,7 +37,10 @@ return array(
 	),
 
 	// application components
-	'components'=>array(    
+	'components'=>array(   
+                'properties' => array(
+                    'class' => 'ext.components.properties',
+                ),
                 'messages'=>array(
                     'basePath'=>Yiibase::getPathOfAlias('application.messages')
                     ),
@@ -56,6 +59,7 @@ return array(
 			'rules'=>array(
                                 ''=>array('site/index', 'urlSuffix'=>''),
                                 'login'=>array('site/login', 'urlSuffix'=>''),
+                                '<action>'=>array('site/<action>', 'urlSuffix'=>''),
 				'<controller:\w+>'=>'<controller>/list',
                                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
                                 '<controller:\w+>/<id:\d+>/<title>'=>'<controller>/view',
@@ -69,7 +73,7 @@ return array(
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
-			'errorAction'=>YII_DEBUG ? null : 'site/error',
+			'errorAction'=>'site/error',
 		),
 
 		'log'=>array(

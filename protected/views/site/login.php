@@ -12,7 +12,6 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 
 ?>
 <body class="margin-top-0">
-
 	<div class="generic-container">
 		
 		<div class="container">
@@ -29,7 +28,9 @@ $this->pageTitle=Yii::app()->name . ' - Login';
                                         )); ?>
                                                 <div>
                                                     <?php echo $form->textFieldRow($model,'username',array('class'=>'span3','maxlength'=>20),  array('label'=>'Usuario')); ?>
-                                                    <?php echo $form->textFieldRow($model,'password',array('class'=>'span3','maxlength'=>20), array('label'=>'Contraseña')); ?>
+                                                    <br>
+                                                    <?php echo $form->labelEx($model,'password'); ?>
+                                                    <?php echo $form->passwordField($model,'password',array('class'=>'span3','maxlength'=>20), array('label'=>'Contraseña')); ?>
                                                 </div>                   
 
                                                 <div>

@@ -25,7 +25,7 @@
     <br>Por favor trate de solucionar el inconveniente lo antes posible.<br>
     Muchas Gracias.<br>
 </address>
-    
+    <?php $myMail{'nombre'}; ?>
 <br>
 <br>
 <address>

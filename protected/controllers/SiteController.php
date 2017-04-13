@@ -25,9 +25,13 @@ class SiteController extends Controller
 //                    $arr = array('');          //  no access to other user
 //                  }
                 
-            return array(   
+            return array(  
+                        array('allow',
+                            'controllers'=>array('site'),
+                            'actions'=>array('error'),
+                        ),
                         array('allow',  // a todos los usuarios
-				'actions'=>array('login','EnviarMailActivacion'),
+				'actions'=>array('login','EnviarMailActivacion','ActivarUsuario'),
 				'users'=>array('*'),
 			),  
                         array('allow', 
@@ -43,6 +47,8 @@ class SiteController extends Controller
                         ),
                 );
 	}
+        
+       
     
 	public function actions()
 	{
@@ -66,6 +72,7 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
+                
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
@@ -112,6 +119,45 @@ class SiteController extends Controller
 	}
         
         
+        public function actionActivarUsuario($tokenParam)
+	{
+            //Verifico token 
+            if(!Token::model()->validateToken('activarUsuario', $tokenParam, false)){
+                Yii::app()->user->setFlash('error', "El token no existe");
+                $this->redirect(array('login'));
+            }
+            $Usuario = new Usuario();
+            $Usuario->unsetAttributes();
+            
+            //Busco el id del usuario por el token
+            $token = Token::model()->findByAttributes(array('token'=>$tokenParam));
+            $idUser = unserialize($token{'informacion'});
+            $idUser = $idUser['idUsr'];
+            $Usuario = Usuario::model()->findByPk($idUser);
+            
+             if(isset($_POST['Usuario'])){
+                 if($_POST['Usuario']['password'] == $_POST['Usuario']['passwordAgain']){
+                     $UsuarioActualizado = $Usuario;
+                     $UsuarioActualizado->password=$_POST['Usuario']['password'];
+                     $UsuarioActualizado->passwordAgain=$_POST['Usuario']['passwordAgain'];
+                     $UsuarioActualizado->hased_paswword= crypt($_POST['Usuario']['password'],'SGE2017');
+                     $UsuarioActualizado->email = $_POST['Usuario']['email'];
+                     $UsuarioActualizado->estado="ACTIVO";
+                     
+                     $UsuarioActualizado->scenario = 'activarUsuarioSite';
+                     if($UsuarioActualizado->validate() && $UsuarioActualizado->save()){
+                         Token::model()->validateToken('activarUsuario', $tokenParam, true);
+                         Yii::app()->user->setFlash('success', "Bienvenido " . $UsuarioActualizado{'nombre'});
+                         $this->redirect(array('index'));
+                     }                    
+                 }else{
+                     Yii::app()->user->setFlash('error', "La contraseña no coincide");
+                 }                
+             }     
+            
+            $this->render('activarUsuario',array('model'=>$Usuario));
+        }
+        
         public function actionEnviarMailActivacion()
 	{
 		$idUserLogin = Yii::app()->user->getId(); 
@@ -129,12 +175,17 @@ class SiteController extends Controller
                     
                     //Valido el e-mail
                     if(!filter_var($_POST['Usuario']['email'], FILTER_VALIDATE_EMAIL)){
+                        $this->addError('email','Email ingresado inválido');
                         Yii::app()->user->setFlash('error', "El e-mail ingresado no es válido");
                         $this->redirect(array('EnviarMailActivacion'));
                     }
                     
+                    //Guardo el mail en el usuario
+                    $userLoginTemp->email=$_POST['Usuario']['email'];
+                    $userLoginTemp->save();
+                    
                     //Genero el token
-                    $token = Token::model()->createToken('activarCliente', 172800, array('idUsr'=>$userLogin{'id'}));
+                    $token = Token::model()->createToken('activarUsuario', 172800, array('idUsr'=>$userLogin{'id'}));
                     
                     //EnvioEmail
                     // TODO: Hacer envio de email
@@ -152,7 +203,7 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
-		$model=new LoginForm;              
+		$model=new LoginForm;    
                 
 		if(isset($_POST['LoginForm']))
 		{
@@ -175,7 +226,7 @@ class SiteController extends Controller
                             $usuarioCorrecto{'last_login'} = date('Y-m-d H:i:s');
                             if(!$usuarioCorrecto->save()){ 
                                  Yii::log('actionLogin', "ERROR", '');
-                                 Yii::app()->user->setFlash('error', "{$e->getMessage()}");
+                                 Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
                             }
                             $this->redirect(Yii::app()->user->returnUrl);
                         }else{

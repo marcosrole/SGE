@@ -79,10 +79,6 @@ class UsuarioController extends Controller
 				
 		$model=new Usuario;
                 
-                $token = Token::model()->createToken('activarCliente', 172800, array('Datos de informacion'));
-                Token::model()->validateToken('activarUsuario', $token, false);
-                
-                var_dump($token); die();
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -96,7 +92,9 @@ class UsuarioController extends Controller
                                 $model->nombre=$_POST['Usuario']['nombre'];
                                 $model->dni=$_POST['Usuario']['dni'];
                                 $model->email="null@null.com";
-				$model->hased_paswword="null";  
+				$model->hased_paswword=crypt($model->dni,Yii::app()->properties->hashPassword); 
+                                
+                                
                                 
                                
 				//$uploadFile=CUploadedFile::getInstance($model,'filename');
