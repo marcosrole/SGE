@@ -240,35 +240,38 @@ class UsuarioController extends Controller
 		$model=$this->loadModel($id);
                 $messageType='error'; 
                 $message = Yii::app()->properties->msgERROR_INTERNO;
-                $transaction = Yii::app()->db->beginTransaction();
-                var_dump($model);
-                try{
-                        $messageType = 'success';				
-                        if($model{'estado'}=='DESBLOQUEADO' || $model{'estado'}=='DESHABILITADO'){
-                            $model->estado="BLOQUEADO";
-                            $message = "Se ha bloqueado el usuario ";
-                        }else{
-                            $model->estado="DESHABILITADO";
-                            $model->hased_paswword=crypt($model->dni,Yii::app()->properties->hashPassword); 
-                            $message = "Se ha desbloqueado el usuario ";
-                        }                      
-                        if($model->save()){  
-                                $transaction->commit();  
-                                Yii::app()->user->setFlash($messageType, $message);
-                                		
-			}else{
-                             $transaction->rollBack();
-                             Yii::app()->user->setFlash('warning', "El usuario se encuentra en sesión");
-                        }
+                if(Yii::app()->user->getId() == $id){
+                    Yii::app()->user->setFlash('warning', "El usuario se encuentra en sesión"); 
+                    $this->redirect(array('admin'));
+                }else{
+                    $transaction = Yii::app()->db->beginTransaction();
+                    try{
+                            $messageType = 'success';				
+                            if($model{'estado'}=='DESBLOQUEADO' || $model{'estado'}=='DESHABILITADO'){
+                                $model->estado="BLOQUEADO";
+                                $message = "Se ha bloqueado el usuario ";
+                            }else{
+                                $model->estado="DESHABILITADO";
+                                $model->hased_paswword=crypt($model->dni,Yii::app()->properties->hashPassword); 
+                                $message = "Se ha desbloqueado el usuario ";
+                            }                      
+                            if($model->save()){  
+                                    $transaction->commit();  
+                                    Yii::app()->user->setFlash($messageType, $message);
+                                    $this->redirect(array('admin'));                     
+
+                            }else{
+                                 $transaction->rollBack();
+                                 Yii::app()->user->setFlash('warning', "El usuario se encuentra en sesión");
+                            }
+                    }
+                    catch (Exception $e){
+                            $transaction->rollBack();
+                            Yii::log('actionBloquear', "ERROR", '');
+                            Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
+                            // $this->refresh(); 
+                    }	
                 }
-                catch (Exception $e){
-                        $transaction->rollBack();
-                        Yii::log('actionBloquear', "ERROR", '');
-                        Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
-                        // $this->refresh(); 
-                }			
-
-
                 $model=new Usuario('search');
 		$model->unsetAttributes();
                 $this->render('admin',array('model'=>$model,));		

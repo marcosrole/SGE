@@ -138,14 +138,14 @@ class Token extends CActiveRecord
      * @param boolean $delete 
      * @return boolean
      */
-    public function validateToken($accion, $token,  $delete = true)
+    public function validateToken($token,  $delete = true)
     {
-        $record = $this->findToken($accion, $token);
+        $record = $this->findToken($token);
         if(!$record instanceof Token || $record->token != $token || ($record->expire_time > 0 && $record->expire_time < time()))
         return false;
         
         if ($delete)
-        $this->deleteByTokenKey($accion, $token);
+        $this->deleteByTokenKey($token);
         return true;
     }
 
@@ -197,9 +197,10 @@ class Token extends CActiveRecord
      * @param string $token 令牌字符串
      * @return TokenRecord
      */
-    protected function findToken($accion, $token)
+    protected function findToken($token)
     {
-        return Token::model()->find('accion = :accion AND token = :token', array(':accion'=>$accion, 'token'=>$token));
+//        return Token::model()->find('accion = :accion AND token = :token', array(':accion'=>$accion, 'token'=>$token));
+        return Token::model()->find('token = :token', array('token'=>$token));
     }
 
     /**
@@ -219,9 +220,10 @@ class Token extends CActiveRecord
      * @param string $tokenKey
      * @return boolean
      */
-    protected function deleteByTokenKey($accion, $tokenKey)
+    protected function deleteByTokenKey($tokenKey)
     {
-        return Token::model()->deleteAll('accion = :accion AND token = :token', array(':accion'=>$accion, ':token'=>$tokenKey));
+//        return Token::model()->deleteAll('accion = :accion AND token = :token', array(':accion'=>$accion, ':token'=>$tokenKey));
+        return Token::model()->deleteAll('token = :token', array(':token'=>$tokenKey));
     }
         
 	public static function model($className=__CLASS__)

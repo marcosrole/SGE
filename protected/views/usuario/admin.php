@@ -1,3 +1,11 @@
+<style>
+    .usuario_bloqueado{
+        color: red;
+    } 
+    .usuario_deshabilitado{
+        color: orange;
+    } 
+</style>
 <?php
 /* @var $this UsuarioController */
 /* @var $model Usuario */
@@ -65,6 +73,7 @@ $this->menu=array(
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'type' => 'striped hover', //bordered condensed
+        'rowCssClassExpression' => '($data->estado == "DESHABILITADO") ? "usuario_deshabilitado" : (($data->estado == "BLOQUEADO") ? "usuario_bloqueado" : "") ',
 	'columns'=>array(
 		array('header'=>'No','value'=>'($this->grid->dataProvider->pagination->currentPage*
 					 $this->grid->dataProvider->pagination->pageSize
@@ -117,7 +126,7 @@ $this->menu=array(
                 'header' => 'Email',
                 'name'=> 'email',
                 'type'=>'raw',
-                'value'=>'$data->estado=="DESHABILITADO" ? "Esperando activación" : $data->email',     
+                'value'=>'$data->email=="null@null.com" ? "Esperando habiltación" : $data->email',     
                 'class' => 'bootstrap.widgets.TbEditableColumn',
                 'headerHtmlOptions' => array(
                             'style' => 'text-align:center'),

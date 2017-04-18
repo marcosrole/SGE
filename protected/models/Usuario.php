@@ -14,6 +14,12 @@
  * @property string $last_login
  * @property string $created
  * @property string $last_update
+ * @property string $sexo
+ * @property string $fecha_nacimiento
+ * @property string $celular
+ * @property string $domicilio
+ * @property integer $id_localidad
+ * @property integer $id_carrera
  */
 class Usuario extends CActiveRecord
 {
@@ -34,14 +40,17 @@ class Usuario extends CActiveRecord
 		// will receive user inputs.
 		return array(
                         array('password, passwordAgain', 'required', 'on'=>'activarUsuarioSite'),
-			array('nombre, apellido, dni, email, hased_paswword', 'required'),
+			array('nombre, apellido, dni, email, hased_paswword, sexo, domicilio, id_localidad, id_carrera', 'required'),
                         array('password','compare','compareAttribute'=>'passwordAgain','operator'=>'==','message'=>'Las contraseñas no coinciden', 'on'=>'activarUsuarioSite'),
+                        array('id_localidad, id_carrera', 'numerical', 'integerOnly'=>true),
 			array('nombre, apellido, dni, email, hased_paswword', 'length', 'max'=>20),
                         array('dni', 'unique','message'=>'El DNI ya existe'),
                         array('email', 'unique','message'=>'El email ingresado ya se encuentra almacenado'),
                         array('dni', 'numerical', 'integerOnly'=>true),
 			array('estado', 'length', 'max'=>13),
-			array('last_login, created, last_update', 'safe'),
+                        array('sexo', 'length', 'max'=>9),
+                        array('celular, domicilio', 'length', 'max'=>30),
+			array('last_login, created, last_update, fecha_nacimiento', 'safe'),
 			/*
 			//Example username
 			array('username', 'match', 'pattern' => '/^[A-Za-z0-9_]+$/u',
@@ -84,6 +93,11 @@ class Usuario extends CActiveRecord
 			'last_update' => 'Last Update',
                         'password' => 'Contraseña',
                         'passwordAgain' => 'Confirmacion de contraseña',
+                        'sexo' => 'Sexo',
+                        'celular' => 'Celular',
+			'domicilio' => 'Domicilio',
+			'id_localidad' => 'Localidad',
+			'id_carrera' => 'Carrera',
                         $this->esAdmin => 'esAdmin'
 		);
 	}
@@ -116,6 +130,12 @@ class Usuario extends CActiveRecord
 		$criteria->compare('last_login',$this->last_login,true);
 		$criteria->compare('created',$this->created,true);
 		$criteria->compare('last_update',$this->last_update,true);
+                $criteria->compare('sexo',$this->sexo,true);
+		$criteria->compare('fecha_nacimiento',$this->fecha_nacimiento,true);
+		$criteria->compare('celular',$this->celular,true);
+		$criteria->compare('domicilio',$this->domicilio,true);
+		$criteria->compare('id_localidad',$this->id_localidad);
+		$criteria->compare('id_carrera',$this->id_carrera);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -149,7 +169,10 @@ class Usuario extends CActiveRecord
         }else{
                         						
         }
-
+        
+                // NOT SURE RUN PLEASE HELP ME -> 
+        	//$from=DateTime::createFromFormat('d/m/Y',$this->fecha_nacimiento);
+        	//$this->fecha_nacimiento=$from->format('Y-m-d');
         
         return parent::beforeSave();
     }
@@ -162,7 +185,9 @@ class Usuario extends CActiveRecord
     }
 
     public function afterFind()    {
-         
+         // NOT SURE RUN PLEASE HELP ME -> 
+        	//$from=DateTime::createFromFormat('Y-m-d',$this->fecha_nacimiento);
+        	//$this->fecha_nacimiento=$from->format('d/m/Y');
         parent::afterFind();
     }
 	

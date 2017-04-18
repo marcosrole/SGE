@@ -53,13 +53,14 @@ return array(
 		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
-                        'showScriptName'=>false,
-                        'useStrictParsing'=>true,
-                        'caseSensitive'=>false,
+                        'showScriptName'=>false,                    
+                        'cacheID' => false,
+//                        'useStrictParsing'=>true,
+//                        'caseSensitive'=>false,
 			'rules'=>array(
                                 ''=>array('site/index', 'urlSuffix'=>''),
                                 'login'=>array('site/login', 'urlSuffix'=>''),
-                                '<action>'=>array('site/<action>', 'urlSuffix'=>''),
+                                '<action>'=>array('site/<action>', 'urlSuffix'=>''),                                
 				'<controller:\w+>'=>'<controller>/list',
                                 '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
                                 '<controller:\w+>/<id:\d+>/<title>'=>'<controller>/view',

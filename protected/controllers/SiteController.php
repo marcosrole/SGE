@@ -122,7 +122,7 @@ class SiteController extends Controller
         public function actionActivarUsuario($tokenParam)
 	{
             //Verifico token 
-            if(!Token::model()->validateToken('activarUsuario', $tokenParam, false)){
+            if(!Token::model()->validateToken($tokenParam, false)){
                 Yii::app()->user->setFlash('error', "El token no existe");
                 $this->redirect(array('login'));
             }
@@ -191,7 +191,8 @@ class SiteController extends Controller
                     $userLoginTemp->email=$_POST['Usuario']['email'];
                     $userLoginTemp->save();
                     //Genero el token
-                    $token = Token::model()->createToken('activarUsuario', 172800, array('idUsr'=>$userLogin{'id'}));
+                    $NombreToken = "activarUsuario" . $userLogin{'id'};
+                    $token = Token::model()->createToken($NombreToken, 172800, array('idUsr'=>$userLogin{'id'}));
 
                     //EnvioEmail
                     // TODO: Hacer envio de email
