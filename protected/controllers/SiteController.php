@@ -121,6 +121,7 @@ class SiteController extends Controller
         
         public function actionActivarUsuario($tokenParam)
 	{
+            date_default_timezone_set('America/Argentina/Buenos_Aires');
             //Verifico token 
             if(!Token::model()->validateToken($tokenParam, false)){
                 Yii::app()->user->setFlash('error', "El token no existe");
@@ -128,6 +129,7 @@ class SiteController extends Controller
             }
             $Usuario = new Usuario();
             $Usuario->unsetAttributes();
+            $Usuario->scenario = 'SITE_actionActivarUsuario';
             
             //Busco el id del usuario por el token
             $token = Token::model()->findByAttributes(array('token'=>$tokenParam));
@@ -136,23 +138,31 @@ class SiteController extends Controller
             $Usuario = Usuario::model()->findByPk($idUser);
             
              if(isset($_POST['Usuario'])){
-                 if($_POST['Usuario']['password'] == $_POST['Usuario']['passwordAgain']){
-                     $UsuarioActualizado = $Usuario;
-                     $UsuarioActualizado->password=$_POST['Usuario']['password'];
-                     $UsuarioActualizado->passwordAgain=$_POST['Usuario']['passwordAgain'];
-                     $UsuarioActualizado->hased_paswword= crypt($_POST['Usuario']['password'],'SGE2017');
-                     $UsuarioActualizado->email = $_POST['Usuario']['email'];
-                     $UsuarioActualizado->estado="ACTIVO";
-                     
-                     $UsuarioActualizado->scenario = 'activarUsuarioSite';
-                     $UsuarioActualizado{'last_login'} = date('Y-m-d H:i:s');
-                     if($UsuarioActualizado->validate() && $UsuarioActualizado->save()){
-                         Token::model()->validateToken('activarUsuario', $tokenParam, true);
-                         Yii::app()->user->setFlash('success', "Bienvenido " . $UsuarioActualizado{'nombre'});
-                         $this->redirect(array('index'));
-                     }                    
-                 }else{
-                     Yii::app()->user->setFlash('error', "La contraseña no coincide");
+                 
+                $UsuarioActualizado = $Usuario;
+                $UsuarioActualizado->password=$_POST['Usuario']['password'];
+                $UsuarioActualizado->passwordAgain=$_POST['Usuario']['passwordAgain'];
+                $UsuarioActualizado->hased_paswword= crypt($_POST['Usuario']['password'],'SGE2017');
+                $UsuarioActualizado->celular=$_POST['Usuario']['celular'];
+                $UsuarioActualizado->id_carrera = $_POST['Usuario']['id_carrera'];
+                $UsuarioActualizado->id_provincia = $_POST['Usuario']['id_provincia'];
+                $UsuarioActualizado->id_localidad = $_POST['Usuario']['id_localidad'];
+                $UsuarioActualizado->sexo = $_POST['Usuario']['sexo'];
+                $UsuarioActualizado->domicilio = $_POST['Usuario']['domicilio'];
+                $UsuarioActualizado->fecha_nacimiento = $_POST['Usuario']['fecha_nacimiento'];
+                $UsuarioActualizado->estado="ACTIVO";
+                $UsuarioActualizado->scenario = 'SITE_actionActivarUsuario';
+                $UsuarioActualizado{'last_login'} = date('Y-m-d H:i:s');               
+                
+                if($UsuarioActualizado->validate()){
+                    $UsuarioActualizado->fecha_nacimiento = DateTime::createFromFormat('d/m/Y', $_POST['Usuario']['fecha_nacimiento'])->format('Y-m-d');
+                    var_dump($UsuarioActualizado->update());
+                    
+                    Token::model()->validateToken($tokenParam, true);
+                    Yii::app()->user->setFlash('success', "Bienvenido " . $UsuarioActualizado{'nombre'});
+                    $this->redirect(array('index'));
+                }else{ 
+                     $Usuario = $UsuarioActualizado;
                  }                
              }     
             
@@ -161,6 +171,7 @@ class SiteController extends Controller
         
         public function actionEnviarMailActivacion()
 	{
+                date_default_timezone_set('America/Argentina/Buenos_Aires');
 		$idUserLogin = Yii::app()->user->getId(); 
                 $userLogin = Usuario::model()->findByPk($idUserLogin);
                 $usuarioExistente = true;
@@ -189,7 +200,7 @@ class SiteController extends Controller
                     
                     //Guardo el mail en el usuario
                     $userLoginTemp->email=$_POST['Usuario']['email'];
-                    $userLoginTemp->save();
+                    $userLoginTemp->save(false);
                     //Genero el token
                     $NombreToken = "activarUsuario" . $userLogin{'id'};
                     $token = Token::model()->createToken($NombreToken, 172800, array('idUsr'=>$userLogin{'id'}));
@@ -212,6 +223,7 @@ class SiteController extends Controller
 	public function actionLogin()
 	{
 		$model=new LoginForm;    
+                date_default_timezone_set('America/Argentina/Buenos_Aires');
                 
 		if(isset($_POST['LoginForm']))
 		{
@@ -232,7 +244,7 @@ class SiteController extends Controller
                             }
                             
                             $usuarioCorrecto{'last_login'} = date('Y-m-d H:i:s');
-                            if(!$usuarioCorrecto->save()){ 
+                            if(!$usuarioCorrecto->save(false)){ 
                                  Yii::log('actionLogin', "ERROR", '');
                                  Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
                             }

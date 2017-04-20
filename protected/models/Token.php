@@ -123,7 +123,7 @@ class Token extends CActiveRecord
     public function createToken($accion, $duration = 0, $informacion = null)
     {
         $identityKey = $this->createIdentityKey($accion);
-        $this->deleteByIdentityKey($accion, $identityKey);
+        $this->deleteByIdentityKey($identityKey);
         $tokenKey = $this->createTokenKey($identityKey);
         $expireTime = $duration > 0 ? $duration + time() : 0;
         $token = $this->saveToken($accion, $identityKey, $tokenKey, $expireTime, serialize($informacion));
@@ -209,9 +209,9 @@ class Token extends CActiveRecord
      * @param string $identityKey
      * @return boolean
      */
-    protected function deleteByIdentityKey($accion, $identityKey)
+    protected function deleteByIdentityKey($identityKey)
     {
-        return Token::model()->deleteAll('accion = :accion AND identity = :identity', array(':accion'=>$accion, ':identity'=>$identityKey));
+        return Token::model()->deleteAll('identity = :identity', array(':identity'=>$identityKey));
     }
 
     /**

@@ -5,7 +5,7 @@
  *
  * The followings are the available columns in table 'localidad':
  * @property integer $id
- * @property integer $id_privincia
+ * @property integer $id_provincia
  * @property string $localidad
  * @property string $created
  * @property string $last_update
@@ -28,8 +28,8 @@ class Localidad extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_privincia, localidad', 'required'),
-			array('id_privincia', 'numerical', 'integerOnly'=>true),
+			array('id_provincia, localidad', 'required'),
+			array('id_provincia', 'numerical', 'integerOnly'=>true),
 			array('localidad', 'length', 'max'=>255),
 			array('created, last_update', 'safe'),
 			/*
@@ -41,7 +41,7 @@ class Localidad extends CActiveRecord
           	*/
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, id_privincia, localidad, created, last_update', 'safe', 'on'=>'search'),
+			array('id, id_provincia, localidad, created, last_update', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +63,7 @@ class Localidad extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'id_privincia' => 'Id Privincia',
+			'id_provincia' => 'Id Provincia',
 			'localidad' => 'Localidad',
 			'created' => 'Created',
 			'last_update' => 'Last Update',
@@ -89,7 +89,7 @@ class Localidad extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('id_privincia',$this->id_privincia);
+		$criteria->compare('id_provincia',$this->id_provincia);
 		$criteria->compare('localidad',$this->localidad,true);
 		$criteria->compare('created',$this->created,true);
 		$criteria->compare('last_update',$this->last_update,true);

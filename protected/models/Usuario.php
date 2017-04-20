@@ -24,6 +24,7 @@
 class Usuario extends CActiveRecord
 {
     public $esAdmin;
+    public $id_provincia;
     public $password;
     public $passwordAgain;
     public function tableName()
@@ -39,17 +40,32 @@ class Usuario extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-                        array('password, passwordAgain', 'required', 'on'=>'activarUsuarioSite'),
-			array('nombre, apellido, dni, email, hased_paswword, sexo, domicilio, id_localidad, id_carrera', 'required'),
-                        array('password','compare','compareAttribute'=>'passwordAgain','operator'=>'==','message'=>'Las contraseñas no coinciden', 'on'=>'activarUsuarioSite'),
-                        array('id_localidad, id_carrera', 'numerical', 'integerOnly'=>true),
-			array('nombre, apellido, dni, email, hased_paswword', 'length', 'max'=>20),
-                        array('dni', 'unique','message'=>'El DNI ya existe'),
-                        array('email', 'unique','message'=>'El email ingresado ya se encuentra almacenado'),
-                        array('dni', 'numerical', 'integerOnly'=>true),
-			array('estado', 'length', 'max'=>13),
+                    //generales
+                        array('dni, nombre, apellido, domicilio, id_localidad, id_provincia, id_carrera, sexo, celular, email, fecha_nacimiento', 'required'),
+                        array('dni', 'numerical', 'integerOnly'=>true, 'min'=>5),
+                        array('dni', 'length', 'min'=>5, 'max'=>9),
+                        array('id_localidad, id_carrera, id_provincia', 'numerical', 'integerOnly'=>true),
+                        array('nombre, apellido, email, hased_paswword', 'length', 'max'=>20),
+                        array('email','email'),
                         array('sexo', 'length', 'max'=>9),
+                        array('estado', 'length', 'max'=>13),
                         array('celular, domicilio', 'length', 'max'=>30),
+                    
+                    //USUARIO_actionCreate
+                        array('dni, nombre, apellido', 'required', 'on'=>'USUARIO_actionCreate'),
+                        array('dni', 'unique','message'=>'El DNI ya existe', 'on'=>'USUARIO_actionCreate'),
+                        
+                    
+                    //SITE_actionActivarUsuario
+                        array('password, passwordAgain', 'required', 'on'=>'SITE_actionActivarUsuario'),
+                        array('fecha_nacimiento', 'type', 'type' => 'date', 'message' => '{attribute}: El formato de fecha es incorrecto: dd/mm/aaaa', 'dateFormat' => 'dd/MM/yyyy'),
+                        array('password','compare','compareAttribute'=>'passwordAgain','operator'=>'==','message'=>'Las contraseñas no coinciden', 'on'=>'SITE_actionActivarUsuario'),
+//                        
+//			                        
+//                        array('email', 'unique','message'=>'El email ingresado ya se encuentra almacenado'),
+//			
+                        
+                        
 			array('last_login, created, last_update, fecha_nacimiento', 'safe'),
 			/*
 			//Example username
@@ -97,6 +113,7 @@ class Usuario extends CActiveRecord
                         'celular' => 'Celular',
 			'domicilio' => 'Domicilio',
 			'id_localidad' => 'Localidad',
+                        'id_provincia' => 'Provincia',
 			'id_carrera' => 'Carrera',
                         $this->esAdmin => 'esAdmin'
 		);

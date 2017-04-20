@@ -1,4 +1,12 @@
 <?php
+    Yii::app()->clientScript->registerScript(
+       'myHideEffect',
+       '$(".alert-success").animate({opacity: 1.0}, 3000).fadeOut("slow");',
+       CClientScript::POS_READY
+    );
+?>
+ 
+<?php
 /* @var $this UsuarioController */
 /* @var $model Usuario */
 
@@ -40,6 +48,6 @@ $this->menu=array(
 		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
 		    ),
 		));
-		?>		
+		?>
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
 <?php $this->endWidget(); ?>

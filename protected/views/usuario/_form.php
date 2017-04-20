@@ -24,20 +24,13 @@ $form = $this->beginWidget(
                 <div style="float:left;padding:10px">
                      <?php echo $form->textFieldRow($model,'nombre',array('class'=>'span3','maxlength'=>20)); ?>
                 </div>
-                <div style="float:left;padding:10px">
-                     <?php echo $form->labelEx($model, 'Administrador'); ?>
-                     <?php echo $form->checkbox($model, 'esAdmin'); ?>
+                <div style="float:left;padding-top: 30px">
+                    <?php $this->widget('bootstrap.widgets.TbButton', array(
+                                        'buttonType'=>'submit',
+                                        'type'=>'primary',
+                                        'label'=>$model->isNewRecord ? 'Guardar' : 'Guardar',
+                                )); ?>
                 </div>
-        
-
-
-<div style="float:right;padding:10px">
-    <?php $this->widget('bootstrap.widgets.TbButton', array(
-			'buttonType'=>'submit',
-			'type'=>'primary',
-			'label'=>$model->isNewRecord ? 'Guardar' : 'Guardar',
-		)); ?>
-</div>
 	
 
 

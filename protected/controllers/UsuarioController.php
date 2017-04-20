@@ -36,11 +36,11 @@ class UsuarioController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update',),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','export','import','editable','toggle','bloquear'),
+				'actions'=>array('admin','delete','export','import','editable','toggle','bloquear', 'SelectLocalidad'),
 				'users'=>array('*'),
 			),
 			array('deny',  // deny all users
@@ -76,7 +76,7 @@ class UsuarioController extends Controller
 	 */
 	public function actionCreate()
 	{
-				
+		date_default_timezone_set('America/Argentina/Buenos_Aires');		
 		$model=new Usuario;
                 
 		// Uncomment the following line if AJAX validation is needed
@@ -91,29 +91,41 @@ class UsuarioController extends Controller
                                 $model->apellido=$_POST['Usuario']['apellido'];
                                 $model->nombre=$_POST['Usuario']['nombre'];
                                 $model->dni=$_POST['Usuario']['dni'];
+                                
                                 $model->email="null@null.com";
 				$model->hased_paswword=crypt($model->dni,Yii::app()->properties->hashPassword); 
                                 
+                                //Pasan a ser NULL
+                                $model->domicilio="-";
+                                $model->id_localidad=1;
+                                $model->id_provincia=1;
+                                $model->id_carrera=1;
+                                $model->sexo='Masculino';
+                                $model->celular="-";
+                                $model->fecha_nacimiento='29/04/1990';
                                 
+                                $model->scenario = 'USUARIO_actionCreate';
                                 
-                               
-				//$uploadFile=CUploadedFile::getInstance($model,'filename');
 				if($model->validate()){
+                                    
+                                    //Pasan a ser NULL
+                                    $model->domicilio=NULL;
+                                    $model->id_localidad=NULL;
+                                    $model->id_provincia=NULL;
+                                    $model->id_carrera=NULL;
+                                    $model->sexo=NULL;
+                                    $model->celular=NULL;
+                                    $model->fecha_nacimiento=NULL;
                                     
                                         //Verifico si no existe otro usuario con el mismo DNI
                                         $usuarioAux = new Usuario();
                                         $usuarioAux = Usuario::model()->findAllByAttributes(array('dni'=>$model{'dni'}));
-                                    
                                         if($usuarioAux==null){
-                                            $model->save();
+                                             $model->save(false);
                                             
                                             $UsuarioRol = new UsuarioRol();
                                             $UsuarioRol->id_rol='alumno';
                                             $UsuarioRol->id_usuario=$model{'id'};
-                                            if($_POST['Usuario']['esAdmin']=='1'){
-                                                $UsuarioRol->id_rol='admin';
-                                            }                                            
-                                            
                                             $UsuarioRol->save();
 
                                             $messageType = 'success';
@@ -173,6 +185,17 @@ class UsuarioController extends Controller
 		
 				
 	}
+        
+        public function actionSelectLocalidad() {
+             $id_provincia = (int) $_POST ['Usuario']['id_provincia'];
+              $lista = CHtml::listData(Localidad::model()->findAll('id_provincia =:id_provincia', array(':id_provincia'=>$id_provincia)), 'id', 'localidad');
+              
+              echo CHtml::tag('option', array('value'=>''), '-- Seleccione Localidad --', true);
+
+             foreach ($lista as $valor=>$localidad) {
+                 echo CHtml::tag('option', array('value'=>$valor), CHtml::encode($localidad), true);
+             }
+         }
 
 	/**
 	 * Updates a particular model.
