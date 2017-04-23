@@ -33,9 +33,8 @@
 $menu=array();
 require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
 
-$actionNoShow = array('login','enviarmailactivacion', 'activarusuario');
+$actionNoShow = array('login','enviarMailActivacion', 'activarUsuario');
 $controllerNoShow = array('site');
-
 if( !(in_array($currController, $controllerNoShow) && in_array($currAction, $actionNoShow))){   
     $this->widget('bootstrap.widgets.TbNavbar', array(
             'type'=>null, // null or 'inverse'

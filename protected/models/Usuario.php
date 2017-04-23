@@ -49,7 +49,7 @@ class Usuario extends CActiveRecord
                         array('email','email'),
                         array('sexo', 'length', 'max'=>9),
                         array('estado', 'length', 'max'=>13),
-                        array('celular, domicilio', 'length', 'max'=>30),
+                        array('celular, domicilio', 'length', 'max'=>100),
                     
                     //USUARIO_actionCreate
                         array('dni, nombre, apellido', 'required', 'on'=>'USUARIO_actionCreate'),
@@ -156,6 +156,9 @@ class Usuario extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'sort' => array(
+                            'defaultOrder' => 'estado ASC, apellido ASC',
+                            ), 
 		));
 	}
 
@@ -173,6 +176,18 @@ class Usuario extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+        
+        public function getDomicilioCompleto()
+        {
+            $localidad = Localidad::model()->findByPk($this->id_localidad);
+            $provincia = Provincia::model()->findByPk($localidad{'id_provincia'});
+            return $this->domicilio . ' - ' . $localidad{'localidad'} . '(' . $provincia{'provincia'} .')';
+        }
+        public function getNombreCarrera()
+        {
+            $carrera = Carrera::model()->findByPk($this->id_carrera);
+            return $carrera{'plan'} . " - " . $carrera{'nombre'};
+        }
 	
 	public function beforeSave() 
     {

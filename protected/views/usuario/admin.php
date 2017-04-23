@@ -80,19 +80,7 @@ $this->menu=array(
 					)+ ($row+1)',
 				'htmlOptions' => array('style' =>'width: 25px; text-align:center;'),
 		),
-                array(
-                'header' => 'Nombre',
-                'name'=> 'nombre',
-                'type'=>'raw',
-                'value' => '($data->nombre)',
-                'class' => 'bootstrap.widgets.TbEditableColumn',
-                'headerHtmlOptions' => array('style' => 'text-align:center'),
-                            'editable' => array(
-                                    'type'    => 'textarea',
-                                    'url'     => $this->createUrl('editable'),
-                                    'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-                            )
-		    ),
+                
 			
                 array(
                 'header' => 'Apellido',
@@ -107,14 +95,27 @@ $this->menu=array(
                                     'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
                             )
 		    ),
-			
+		array(
+                'header' => 'Nombre',
+                'name'=> 'nombre',
+                'type'=>'raw',
+                'value' => '($data->nombre)',
+                'class' => 'bootstrap.widgets.TbEditableColumn',
+                'headerHtmlOptions' => array('style' => 'text-align:center'),
+                            'editable' => array(
+                                    'type'    => 'textarea',
+                                    'url'     => $this->createUrl('editable'),
+                                    'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+                            )
+		    ),
+            
                 array(
                 'header' => 'DNI',
                 'name'=> 'dni',
                 'type'=>'raw',
                 'value' => '($data->dni)',
                 'class' => 'bootstrap.widgets.TbEditableColumn',
-                'headerHtmlOptions' => array('style' => 'text-align:center'),
+                'headerHtmlOptions' => array('style' => 'width: 100px; text-align:center'),
                             'editable' => array(
                                     'type'    => 'textarea',
                                     'url'     => $this->createUrl('editable'),
@@ -144,12 +145,12 @@ $this->menu=array(
                 'value' => '($data->estado)',
 		    ),				
 
-                array(
-                'header' => 'Último acceso ',
-                'name'=> 'last_login',
-                'type'=>'raw',                    
-                'value' => '($data->last_login=="") ? "" : Yii::app()->dateFormatter->format("dd/MM/yyyy HH:mm:ss",strtotime($data->last_login))',
-                ),		
+//                array(
+//                'header' => 'Último acceso ',
+//                'name'=> 'last_login',
+//                'type'=>'raw',                    
+//                'value' => '($data->last_login=="") ? "" : Yii::app()->dateFormatter->format("dd/MM/yyyy HH:mm:ss",strtotime($data->last_login))',
+//                ),		
 	    array(
                 'class' => 'bootstrap.widgets.TbButtonColumn',
                    // 'htmlOptions' => array('width' => '10'), //ancho de la columna
@@ -159,12 +160,14 @@ $this->menu=array(
                             'label' => 'Bloquear',
                             'visible'=> '($data->estado=="DESHABILITADO" || $data->estado=="ACTIVO") ? true : false',     
                             'icon'=>'icon-lock',
+                             'click' => 'function(){return confirm("¿Desea Bloquear el usuario?");}',
 //                            'click' => 'function(){return confirm("Desea bloquear el usuario?");}',
                             'url'=> 'Yii::app()->createUrl("usuario/bloquear", array("id"=> ' . '$data["id"])) ',
                         ),
                         'desbloquear' => array(
                             'label' => 'Desbloquear',
                             'icon'=>'icon-ok',
+                            'click' => 'function(){return confirm("Desea Desbloquear el usuario?");}',
                             'visible'=> '($data->estado=="BLOQUEADO") ? true : false',     
 //                            'click' => 'function(){return confirm("Desea bloquear el usuario?");}',
                             'url'=> 'Yii::app()->createUrl("usuario/bloquear", array("id"=> ' . '$data["id"])) ',
@@ -175,7 +178,7 @@ $this->menu=array(
                                 'click' => 'function(){
                                         data=$(this).attr("href").split("|")
                                         $("#myModalHeader").html(data[1]);
-                                                $("#myModalBody").load("'.$this->createUrl('view').'&id="+data[0]+"&asModal=true");
+                                        $("#myModalBody").load("'.$this->createUrl('view').'?id="+data[0]+"&asModal=true");
                                         $("#myModal").modal();
                                         return false;
                                 }', 
@@ -211,7 +214,7 @@ $this->menu=array(
         <?php  $this->widget(
             'bootstrap.widgets.TbButton',
             array(
-                'label' => 'Close',
+                'label' => 'Cerrar',
                 'url' => '#',
                 'htmlOptions' => array('data-dismiss' => 'modal'),
             )

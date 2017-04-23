@@ -52,22 +52,30 @@ if(!isset($_GET['asModal'])){
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
-			'id',
 		'nombre',
 		'apellido',
 		'dni',
 		'email',
-		'estado',
-		'hased_paswword',
-		'last_login',
-					
-			array(
-		        'name'=> 'created',
-		        'type'=>'raw',
-		        'value' => date("d M Y H:i:s",strtotime($model->created)),
-		    ),
+		'estado',					
+                array(
+                    'label'=>'Última conexión',
+                    'name'=> 'last_login',
+                    'type'=>'raw',
+                    'value' =>  date("d M Y H:i:s",strtotime($model->last_login)),
+                ),
+                array(
+                    'label'=>'Domicilio',
+                    'name'=> 'DomicilioCompleto',
+                    'type'=>'raw',
+                    'value' => $model->DomicilioCompleto,
+                ),
+                array(
+                    'label'=>'Carrera',
+                    'name'=> 'NombreCarrera',
+                    'type'=>'raw',
+                    'value' => $model->NombreCarrera,
+                ),
 			
-		'last_update',
 		/*
 		//CONTOH
 		array(

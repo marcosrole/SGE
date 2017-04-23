@@ -17,9 +17,19 @@ class UserIdentity extends CUserIdentity
             else                    
                     $this->errorCode=self::ERROR_NONE;                    
             if($this->errorCode==self::ERROR_NONE){
-                $this->_id = $user{'id'};
-                $UsuarioRol = UsuarioRol::model ()->findByAttributes (array('id_usuario'=>$user{'id'}));
-                $this->setState('rol', $UsuarioRol{'id_rol'});
+                $this->_id = $user{'id'};                
+                $UsuarioRol = UsuarioRol::model ()->findByAttributes (array('id_usuario'=>$user{'id'})); 
+                
+                if($UsuarioRol{'id_rol'}=='superadmin'){
+                   $this->setState('rol', array('superadmin','admin','alumno')); 
+                }
+                if($UsuarioRol{'id_rol'}=='admin'){
+                   $this->setState('rol', array('admin','alumno')); 
+                }
+                if($UsuarioRol{'id_rol'}=='alumno'){
+                   $this->setState('rol', array('alumno')); 
+                }
+                
             }
                     
             return !$this->errorCode;

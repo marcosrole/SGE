@@ -31,14 +31,10 @@ class UsuarioRolController extends Controller
 	public function accessRules()
 	{
              
-            if( Yii::app()->user->getState('rol') == "admin"){ 
-                 $arr =array('admin','view');   // give all access to admin
-            }else if( Yii::app()->user->getState('rol') =="alumno"){
-                    $arr =array('index','staff','staffcalendar','update');   // give all access to staff
-                }else{
-                    $arr = array('');          //  no access to other user
-                  }
-                
+            if( in_array("superadmin", Yii::app()->user->getState('rol'))){ 
+                 $arr =array('admin','view','index','staff','staffcalendar','update');   // give all access to admin
+            }else $arr = array('');          //  no access to other user
+                                
             return array(                   
                 array('allow', 
                                 'actions'=>$arr,

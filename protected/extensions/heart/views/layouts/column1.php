@@ -5,11 +5,11 @@
 	$currController 	= Yii::app()->controller->id;
 	$currAction			= Yii::app()->controller->action->id;
         
-	if($currController=='site' && $currAction!='login'){
+	if($currController=='site' && ($currAction!='login' || $currAction!='enviarMailActivacion' || $currAction!='activarUsuario')){
 		$box = $this->beginWidget(
 		    'bootstrap.widgets.TbBox',
 		    array(
-		        'title' => ($currAction=='enviarmailactivacion')?'Envío de mail de activacion':(($currAction=='activarusuario')?'Datos del usuario':'Home'),
+		        'title' => ($currAction=='enviarMailActivacion')?'Envío de mail de activacion':(($currAction=='activarUsuario')?'Datos del usuario':'Inicio de Sesión'),
 		        'headerIcon' => 'icon-envelope'
 		    )
 		);
@@ -19,7 +19,7 @@
 	<?php echo $content; ?>
 
 	<?php
-	if($currController=='site' && $currAction!='login'){
+	if($currController=='site' && ($currAction!='login' || $currAction!='enviarMailActivacion' || $currAction!='activarUsuario')){
 		$this->endWidget();
 	}
 	?>

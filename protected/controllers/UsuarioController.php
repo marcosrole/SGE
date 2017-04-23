@@ -28,26 +28,31 @@ class UsuarioController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update',),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','export','import','editable','toggle','bloquear', 'SelectLocalidad'),
-				'users'=>array('*'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
+        
+        public function accessRules(){
+            if( in_array("admin", Yii::app()->user->getState('rol'))){ 
+                 $arr =array('admin','view','bloquear','export','create','update',);   // give all access to admin
+            }else if( in_array("alumno", Yii::app()->user->getState('rol'))){
+                 $arr =array('');   // give all access to staff
+                }else{
+                    $arr = array('');          //  no access to other user
+                }
+                
+            return array(                   
+                array('allow', 
+                                'actions'=>$arr,
+                                'users'=>array('@'),
+                        ), 
+                array('allow', 
+                                'actions'=>array('SelectLocalidad'),
+                                'users'=>array('*'),
+                        ),
+                array('deny',  // deny all users
+                                'users'=>array('*'),
+                        ),
+                );
 	}
+        	
 		
 	/**
 	 * Displays a particular model.
@@ -55,14 +60,15 @@ class UsuarioController extends Controller
 	 */
 	public function actionView($id)
 	{
-		
+            
 		if(isset($_GET['asModal'])){
+                    
 			$this->renderPartial('view',array(
 				'model'=>$this->loadModel($id),
 			));
 		}
 		else{
-						
+				
 			$this->render('view',array(
 				'model'=>$this->loadModel($id),
 			));
@@ -258,8 +264,7 @@ class UsuarioController extends Controller
 		
 			}
                         
-        public function actionBloquear($id)
-	{		
+        public function actionBloquear($id){
 		$model=$this->loadModel($id);
                 $messageType='error'; 
                 $message = Yii::app()->properties->msgERROR_INTERNO;
@@ -275,17 +280,20 @@ class UsuarioController extends Controller
                                 $message = "Se ha bloqueado el usuario ";
                             }else{
                                 $model->estado="DESHABILITADO";
-                                $model->hased_paswword=crypt($model->dni,Yii::app()->properties->hashPassword); 
+                                $model->hased_paswword=crypt($model->dni,Yii::app()->properties->hashPassword);  
                                 $message = "Se ha desbloqueado el usuario ";
-                            }                      
-                            if($model->save()){  
-                                    $transaction->commit();  
+                            }      
+                            
+                            $model{'last_update'} = date('Y-m-d H:i:s');
+                            if($model->save(false)){  
+                                    $transaction->commit(); 
+                                    
                                     Yii::app()->user->setFlash($messageType, $message);
                                     $this->redirect(array('admin'));                     
 
                             }else{
                                  $transaction->rollBack();
-                                 Yii::app()->user->setFlash('warning', "El usuario se encuentra en sesión");
+                                 Yii::app()->user->setFlash('error', $message);
                             }
                     }
                     catch (Exception $e){
