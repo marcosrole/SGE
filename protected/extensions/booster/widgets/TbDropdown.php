@@ -8,14 +8,14 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
 
-Yii::import('booster.widgets.TbBaseMenu');
+Yii::import('bootstrap.widgets.TbBaseMenu');
 
 /**
  *## Bootstrap dropdown menu.
  *
  * @see http://twitter.github.com/bootstrap/javascript.html#dropdowns
  *
- * @package booster.widgets.navigation
+ * @package bootstrap.widgets.navigation
  */
 class TbDropdown extends TbBaseMenu {
 	/**

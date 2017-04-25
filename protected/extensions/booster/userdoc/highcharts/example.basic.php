@@ -1,6 +1,6 @@
 <?php // Basic usage of TbHighCharts
 $this->widget(
-    'booster.widgets.TbHighCharts',
+    'bootstrap.widgets.TbHighCharts',
     array(
         'options' => array(
             'series' => array(

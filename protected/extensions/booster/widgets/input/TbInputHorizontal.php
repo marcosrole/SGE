@@ -7,7 +7,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 
-Yii::import('booster.widgets.input.TbInput');
+Yii::import('bootstrap.widgets.input.TbInput');
 
 /**
  *## TbInputHorizontal class
@@ -15,7 +15,7 @@ Yii::import('booster.widgets.input.TbInput');
  * Bootstrap horizontal form input widget.
  *
  * @since 0.9.8
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 class TbInputHorizontal extends TbInput
 {
@@ -85,7 +85,7 @@ class TbInputHorizontal extends TbInput
 
 		echo $this->getLabel();
 		echo '<div class="controls">';
-		$this->widget('booster.widgets.TbToggleButton', $options);
+		$this->widget('bootstrap.widgets.TbToggleButton', $options);
 		echo $this->getError() . $this->getHint();
 		echo '</div>';
 	}
@@ -203,7 +203,7 @@ class TbInputHorizontal extends TbInput
 		echo '<div class="controls">';
 		echo $this->getPrepend();
 		$this->widget(
-			'booster.widgets.TbPassfield',
+			'bootstrap.widgets.TbPassfield',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -378,7 +378,7 @@ class TbInputHorizontal extends TbInput
 		echo '<div class="controls">';
 		echo $this->getPrepend();
 		$this->widget(
-			'booster.widgets.TbDatePicker',
+			'bootstrap.widgets.TbDatePicker',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -413,7 +413,7 @@ class TbInputHorizontal extends TbInput
 		echo '<div class="controls">';
 		echo $this->getPrepend();
 		$this->widget(
-			'booster.widgets.TbDateTimePicker',
+			'bootstrap.widgets.TbDateTimePicker',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -449,7 +449,7 @@ class TbInputHorizontal extends TbInput
 		echo '<div class="controls">';
 		echo $this->getPrepend();
 		$this->widget(
-			'booster.widgets.TbColorPicker',
+			'bootstrap.widgets.TbColorPicker',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -484,7 +484,7 @@ class TbInputHorizontal extends TbInput
 		echo $this->getLabel();
 		echo '<div class="controls">';
 		$this->widget(
-			'booster.widgets.TbRedactorJs',
+			'bootstrap.widgets.TbRedactorJs',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -518,7 +518,7 @@ class TbInputHorizontal extends TbInput
 		echo '<div class="wmd-panel">';
 		echo '<div id="wmd-button-bar" class="btn-toolbar"></div>';
 		$this->widget(
-			'booster.widgets.TbMarkdownEditorJs',
+			'bootstrap.widgets.TbMarkdownEditorJs',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -555,7 +555,7 @@ class TbInputHorizontal extends TbInput
 		echo $this->getLabel();
 		echo '<div class="controls">';
 		$this->widget(
-			'booster.widgets.TbHtml5Editor',
+			'bootstrap.widgets.TbHtml5Editor',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -584,7 +584,7 @@ class TbInputHorizontal extends TbInput
 		echo $this->getLabel();
 		echo '<div class="controls">';
 		$this->widget(
-			'booster.widgets.TbCKEditor',
+			'bootstrap.widgets.TbCKEditor',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -617,7 +617,7 @@ class TbInputHorizontal extends TbInput
 		echo '<div class="controls">';
 		echo $this->getPrepend();
 		$this->widget(
-			'booster.widgets.TbDateRangePicker',
+			'bootstrap.widgets.TbDateRangePicker',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -652,7 +652,7 @@ class TbInputHorizontal extends TbInput
 		echo '<div class="controls">';
 		echo $this->getPrepend();
 		$this->widget(
-			'booster.widgets.TbTimePicker',
+			'bootstrap.widgets.TbTimePicker',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,
@@ -697,7 +697,7 @@ class TbInputHorizontal extends TbInput
 		echo '<div class="controls">';
 		echo $this->getPrepend();
 		$this->widget(
-			'booster.widgets.TbSelect2',
+			'bootstrap.widgets.TbSelect2',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,

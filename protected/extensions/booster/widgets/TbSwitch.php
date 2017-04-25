@@ -8,7 +8,7 @@
 /**
  *## Class TbToggleButton
  * @see <http://www.bootstrap-switch.org/>
- * @package booster.widgets.forms.buttons
+ * @package bootstrap.widgets.forms.buttons
  * 
  */
 class TbSwitch extends CInputWidget {

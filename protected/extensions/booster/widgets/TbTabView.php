@@ -7,14 +7,14 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php) 
  */
 
-Yii::import('booster.widgets.TbTabs');
+Yii::import('bootstrap.widgets.TbTabs');
 
 /**
  *## Class TbTabView
  *
  * Use TbTabView as replacement for Yii CTabView
  *
- * @package booster.widgets.grouping
+ * @package bootstrap.widgets.grouping
  */
 class TbTabView extends TbTabs
 {

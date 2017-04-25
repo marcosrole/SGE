@@ -7,7 +7,7 @@
         
 	if($currController=='site' && ($currAction!='login' || $currAction!='enviarMailActivacion' || $currAction!='activarUsuario')){
 		$box = $this->beginWidget(
-		    'bootstrap.widgets.TbBox',
+		    'bootstrap.widgets.TbPanel',
 		    array(
 		        'title' => ($currAction=='enviarMailActivacion')?'Envío de mail de activacion':(($currAction=='activarUsuario')?'Datos del usuario':'Inicio de Sesión'),
 		        'headerIcon' => 'icon-envelope'

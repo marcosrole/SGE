@@ -11,7 +11,7 @@
 /**
  * EditableSaver helps to update model by editable widget submit request.
  *
- * @package booster.widgets.supplementary
+ * @package bootstrap.widgets.supplementary
 */
 class TbEditableSaver extends CComponent
 {

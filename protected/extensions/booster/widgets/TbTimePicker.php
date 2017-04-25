@@ -10,10 +10,10 @@
  * @see https://github.com/jdewit/bootstrap-timepicker
  *
  * @since 1.0.3
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 
-Yii::import('booster.widgets.TbBaseInputWidget');
+Yii::import('bootstrap.widgets.TbBaseInputWidget');
 
 class TbTimePicker extends TbBaseInputWidget {
 	

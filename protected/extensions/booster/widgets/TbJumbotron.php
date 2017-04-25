@@ -12,7 +12,7 @@
  *
  * wrapper to the bootstrap Jumbotron component 
  *
- * @package booster.widgets.decoration
+ * @package bootstrap.widgets.decoration
  */
 class TbJumbotron extends CWidget {
 	/**

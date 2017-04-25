@@ -27,7 +27,7 @@
  *
  * Here's simple example how to build login form using this class:
  * <pre>
- * <?php $form = $this->beginWidget('booster.widgets.TbActiveForm', array(
+ * <?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
  *     'type' => 'horizontal',
  *     'htmlOptions' => array('class' => 'well'),
  * )); ?>
@@ -763,7 +763,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function switchGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbSwitch', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbSwitch', $model, $attribute, $options);
 	}
 
 	/**
@@ -783,7 +783,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function datePickerGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbDatePicker', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbDatePicker', $model, $attribute, $options);
 	}
 
 	/**
@@ -803,7 +803,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function dateRangeGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbDateRangePicker', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbDateRangePicker', $model, $attribute, $options);
 	}
 
 	/**
@@ -823,7 +823,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function timePickerGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbTimePicker', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbTimePicker', $model, $attribute, $options);
 	}
 
 	/**
@@ -843,7 +843,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function dateTimePickerGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbDateTimePicker', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbDateTimePicker', $model, $attribute, $options);
 	}
 
 	/**
@@ -863,7 +863,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function select2Group($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbSelect2', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbSelect2', $model, $attribute, $options);
 	}
 
 	/**
@@ -883,7 +883,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function redactorGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbRedactorJs', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbRedactorJs', $model, $attribute, $options);
 	}
 
 	/**
@@ -903,7 +903,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function html5EditorGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbHtml5Editor', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbHtml5Editor', $model, $attribute, $options);
 	}
 
 	/**
@@ -923,7 +923,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function markdownEditorGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbMarkdownEditor', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbMarkdownEditor', $model, $attribute, $options);
 	}
 
 	/**
@@ -943,7 +943,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function ckEditorGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbCKEditor', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbCKEditor', $model, $attribute, $options);
 	}
 
 	/**
@@ -963,7 +963,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function typeAheadGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbTypeahead', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbTypeahead', $model, $attribute, $options);
 	}
 
 	/**
@@ -1003,7 +1003,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function colorPickerGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbColorPicker', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbColorPicker', $model, $attribute, $options);
 	}
 
 	/**
@@ -1055,7 +1055,7 @@ class TbActiveForm extends CActiveForm {
 	 */
 	public function passFieldGroup($model, $attribute, $options = array()) {
 		
-		return $this->widgetGroupInternal('booster.widgets.TbPassfield', $model, $attribute, $options);
+		return $this->widgetGroupInternal('bootstrap.widgets.TbPassfield', $model, $attribute, $options);
 	}
 
 	/**

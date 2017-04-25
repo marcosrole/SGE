@@ -12,10 +12,10 @@
  *
  * @see <http://www.dangrossman.info/2012/08/20/a-date-range-picker-for-twitter-bootstrap/>
  *
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 
-Yii::import('booster.widgets.TbBaseInputWidget');
+Yii::import('bootstrap.widgets.TbBaseInputWidget');
 
 class TbDateRangePicker extends TbBaseInputWidget {
 	

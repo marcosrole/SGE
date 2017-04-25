@@ -7,14 +7,14 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php) 
  */
 
-Yii::import('booster.widgets.TbBaseMenu');
+Yii::import('bootstrap.widgets.TbBaseMenu');
 
 /**
  * Bootstrap menu.
  *
  * @see <http://twitter.github.com/bootstrap/components.html#navs>
  *
- * @package booster.widgets.navigation
+ * @package bootstrap.widgets.navigation
  */
 class TbMenu extends TbBaseMenu {
 	
@@ -83,7 +83,7 @@ class TbMenu extends TbBaseMenu {
 
 		if (isset($this->scrollspy)) {
 			$scrollspy = is_string($this->scrollspy) ? array('target' => $this->scrollspy) : $this->scrollspy;
-			$this->widget('booster.widgets.TbScrollSpy', $scrollspy);
+			$this->widget('bootstrap.widgets.TbScrollSpy', $scrollspy);
 		}
 
 		if (!empty($classes)) {

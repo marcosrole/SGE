@@ -12,7 +12,7 @@
  *
  * @see http://ivaynberg.github.io/select2/
  *
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 class TbSelect2 extends CInputWidget {
 	

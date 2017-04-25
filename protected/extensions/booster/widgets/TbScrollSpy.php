@@ -13,7 +13,7 @@
  * @see <http://twitter.github.com/bootstrap/javascript.html#scrollspy>
  *
  * @since 1.0.0
- * @package booster.widgets.supplementary
+ * @package bootstrap.widgets.supplementary
  */
 class TbScrollSpy extends CWidget
 {

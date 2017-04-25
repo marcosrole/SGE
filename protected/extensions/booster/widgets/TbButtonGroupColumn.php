@@ -7,14 +7,14 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
 
-Yii::import('booster.widgets.TbButtonColumn');
+Yii::import('bootstrap.widgets.TbButtonColumn');
 
 /**
  *## Enhanced bootstrap button column widget.
  *
  * Renders the buttons as a button group
  *
- * @package booster.widgets.grids.columns
+ * @package bootstrap.widgets.grids.columns
  */
 class TbButtonGroupColumn extends TbButtonColumn {
 

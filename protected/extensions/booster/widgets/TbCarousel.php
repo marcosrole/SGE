@@ -17,7 +17,7 @@
  *
  * @see <http://twitter.github.com/bootstrap/javascript.html#carousel>
  *
- * @package booster.widgets.grouping
+ * @package bootstrap.widgets.grouping
  */
 class TbCarousel extends CWidget {
 	

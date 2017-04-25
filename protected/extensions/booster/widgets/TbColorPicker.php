@@ -12,16 +12,16 @@
  *
  * ------------------------------------------------------------------------
  *   in yii  use this to register the necessary js and css files :
- *   <?php  $this->widget('booster.widgets.TbColorPicker', array( )); ?>
+ *   <?php  $this->widget('bootstrap.widgets.TbColorPicker', array( )); ?>
  *   and the rest usage you'd better refer the original plugin
  *
  * @see <http://www.eyecon.ro/bootstrap-colorpicker/>
  * ------------------------------------------------------------------------
  *
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 
-Yii::import('booster.widgets.TbBaseInputWidget');
+Yii::import('bootstrap.widgets.TbBaseInputWidget');
 
 class TbColorPicker extends TbBaseInputWidget {
 

@@ -13,7 +13,7 @@
  * @see https://github.com/jschr/bootstrap-modal/
  *
  * @since 0.9.3
- * @package booster.widgets.modals
+ * @package bootstrap.widgets.modals
  */
 class TbModalManager extends CWidget
 {

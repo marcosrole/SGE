@@ -13,7 +13,7 @@
  * Implements the bootstrap-wysihtml5 editor
  * @see https://github.com/jhollingworth/bootstrap-wysihtml5
  *
-* @package booster.widgets.forms.inputs.wysiwyg
+* @package bootstrap.widgets.forms.inputs.wysiwyg
  */
 class TbHtml5Editor extends CInputWidget {
 	

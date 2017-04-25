@@ -12,7 +12,7 @@
  *
  * @see <http://docs.ckeditor.com/>
  *
- * @package booster.widgets.forms.inputs.wysiwyg
+ * @package bootstrap.widgets.forms.inputs.wysiwyg
  */
 class TbCKEditor extends CInputWidget
 {

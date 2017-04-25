@@ -13,7 +13,7 @@
  *
  * @see <http://toopay.github.io/bootstrap-markdown/>
  *
- * @package booster.widgets.forms.inputs.wysiwyg
+ * @package bootstrap.widgets.forms.inputs.wysiwyg
  * 
  * TODO: test [add] support of Events and Editor Panel
  * 

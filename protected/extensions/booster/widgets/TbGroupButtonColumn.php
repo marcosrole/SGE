@@ -14,7 +14,7 @@ Yii::import('zii.widgets.grid.CButtonColumn');
  *
  * Used to set buttons group.
  *
- * @package booster.widgets.grids.columns
+ * @package bootstrap.widgets.grids.columns
  */
 class TbGroupButtonColumn extends CButtonColumn
 {

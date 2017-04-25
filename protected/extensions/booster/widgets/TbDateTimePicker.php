@@ -6,12 +6,12 @@
  * @copyright
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
-Yii::import('booster.widgets.TbBaseInputWidget');
+Yii::import('bootstrap.widgets.TbBaseInputWidget');
 /**
  * Bootstrap DateTimePicker widget
  * @see http://www.malot.fr/bootstrap-datetimepicker/
  *
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 class TbDateTimePicker extends TbBaseInputWidget {
 	

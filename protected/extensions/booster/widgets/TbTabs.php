@@ -7,14 +7,14 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
 
-Yii::import('booster.widgets.TbMenu');
+Yii::import('bootstrap.widgets.TbMenu');
 
 /**
  *## Bootstrap Javascript tabs widget.
  *
  * @see <http://twitter.github.com/bootstrap/javascript.html#tabs>
  *
- * @package booster.widgets.grouping
+ * @package bootstrap.widgets.grouping
  */
 class TbTabs extends CWidget {
 	
@@ -134,7 +134,7 @@ class TbTabs extends CWidget {
 
 		ob_start();
 		$this->controller->widget(
-			'booster.widgets.TbMenu',
+			'bootstrap.widgets.TbMenu',
 			array(
 				'stacked' => $this->stacked,
 				'justified' => $this->justified,

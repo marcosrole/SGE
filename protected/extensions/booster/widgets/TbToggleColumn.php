@@ -12,7 +12,7 @@
  *
  * Modified version of jToggle column of Nikola Trifunović <http://www.trifunovic.me/>
  *
- * @package booster.widgets.grids.columns
+ * @package bootstrap.widgets.grids.columns
  */
 class TbToggleColumn extends TbDataColumn {
 
@@ -251,7 +251,7 @@ function() {
 			echo CHtml::link('<span class="glyphicon glyphicon-' . $button['icon'] . '"></span>', $button['url'], $button['htmlOptions']);
 		} else {
 			$button['label'] = $this->getButtonLabel($checked);
-			$button['class'] = 'booster.widgets.TbButton';
+			$button['class'] = 'bootstrap.widgets.TbButton';
 			$widget = Yii::createComponent($button);
 			$widget->init();
 			$widget->run();

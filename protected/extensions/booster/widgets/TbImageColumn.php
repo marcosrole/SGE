@@ -12,7 +12,7 @@ Yii::import('zii.widgets.grid.CGridColumn');
 /**
  * TbImageColumn widget class
  *
- * @package booster.widgets.grids.columns
+ * @package bootstrap.widgets.grids.columns
  */
 class TbImageColumn extends CGridColumn
 {

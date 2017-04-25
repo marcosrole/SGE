@@ -27,31 +27,31 @@ $this->pageTitle=Yii::app()->name . ' - Login';
                                                 'enableAjaxValidation'=>false,
                                         )); ?>
                                                 <div>
-                                                    <?php echo $form->textFieldRow($model,'username',array('class'=>'span3','maxlength'=>20),  array('label'=>'Usuario')); ?>
-                                                    <br>
-                                                    <?php echo $form->labelEx($model,'password'); ?>
-                                                    <?php echo $form->passwordField($model,'password',array('class'=>'span3','maxlength'=>20), array('label'=>'Contraseña')); ?>
+                                                    <?php echo $form->textFieldGroup($model,'username',array('class'=>'span3','maxlength'=>20),  array('label'=>'Usuario')); ?>
+                                                   
+                                                    <?php echo $form->passwordFieldGroup($model,'password',array('class'=>'span3','maxlength'=>20), array('label'=>'Contraseña')); ?>
                                                 </div>                   
 
-                                                <div>
-                                                    <?php $this->widget('bootstrap.widgets.TbButton', array(
-                                                                        'buttonType'=>'submit',
-                                                                        'type'=>'primary',
-                                                                        'label'=>'Iniciar',
-                                                                )); ?>
+                                                <div class="text-right">
+                                                    <?php $this->widget(
+                                                        'bootstrap.widgets.TbButton',
+                                                            array('buttonType' => 'submit',
+                                                                'context' => 'success', 
+                                                                'label' => 'Entrar')
+                                                    ); ?>
                                                 </div>
                                         <?php $this->endWidget(); ?>
                                     
+                                        <br>
                                         <?php $this->widget('bootstrap.widgets.TbAlert', array(
-                                            'block'=>false, // display a larger alert block?
                                             'fade'=>true, // use transitions?
                                             'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
                                             'alerts'=>array( // configurations per alert type
-                                                'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                                                'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                                                'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                                                'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                                                'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                                'success'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                                'info'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                                'warning'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                                'error'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                                'danger'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
                                             ),
                                         ));
                                         ?>

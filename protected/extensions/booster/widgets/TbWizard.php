@@ -8,7 +8,7 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
 
-Yii::import('booster.widgets.TbMenu');
+Yii::import('bootstrap.widgets.TbMenu');
 
 /**
  *## Twitter Bootstrap Wizard widget
@@ -16,7 +16,7 @@ Yii::import('booster.widgets.TbMenu');
  * @see <https://github.com/VinceG/twitter-bootstrap-wizard>
  * @see <http://vadimg.com/twitter-bootstrap-wizard-example/>
  *
- * @package booster.widgets.grouping
+ * @package bootstrap.widgets.grouping
  */
 class TbWizard extends CWidget
 {
@@ -135,7 +135,7 @@ class TbWizard extends CWidget
 			echo '<div class="navbar"><div class="navbar-inner">';
 		}
 		$this->controller->widget(
-			'booster.widgets.TbMenu',
+			'bootstrap.widgets.TbMenu',
 			array(
 				'stacked' => $this->stacked,
 				'type' => $this->type,

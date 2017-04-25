@@ -15,7 +15,7 @@
  * Thanks to Christphe Boulain for suggesting content capturing.
  * @see <http://twitter.github.com/bootstrap/components.html#typography>
  *
- * @package booster.widgets.decoration
+ * @package bootstrap.widgets.decoration
  */
 class TbHeroUnit extends CWidget
 {

@@ -1,6 +1,6 @@
 <?php // Example from the official demo of HighCharts: http://www.highcharts.com/demo/
 $this->widget(
-    'booster.widgets.TbHighCharts',
+    'bootstrap.widgets.TbHighCharts',
     array(
         'options' => array(
             'title' => array(

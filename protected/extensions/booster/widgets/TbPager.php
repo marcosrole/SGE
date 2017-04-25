@@ -12,7 +12,7 @@
  *
  * @see <http://twitter.github.com/bootstrap/components.html#pagination>
  *
- * @package booster.widgets.supplementary
+ * @package bootstrap.widgets.supplementary
  */
 class TbPager extends CLinkPager {
 	

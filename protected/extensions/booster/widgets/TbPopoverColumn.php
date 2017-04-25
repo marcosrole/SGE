@@ -7,7 +7,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 
-Yii::import('booster.widgets.TbDataColumn');
+Yii::import('bootstrap.widgets.TbDataColumn');
 
 /**
  *## Class TbPickerColumn
@@ -22,7 +22,7 @@ Yii::import('booster.widgets.TbDataColumn');
  * - setting the content to a "js:finction(){ return 'Some Content!'; }" is not working
  * -
  * 
- * @package booster.widgets.grids.columns
+ * @package bootstrap.widgets.grids.columns
  */
 class TbPopoverColumn extends TbDataColumn {
 	

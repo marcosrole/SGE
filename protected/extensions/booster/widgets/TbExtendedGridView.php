@@ -7,9 +7,9 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php) 
  */
 
-Yii::import('booster.widgets.TbGridView');
+Yii::import('bootstrap.widgets.TbGridView');
 
-/**type
+/**
  *## TbExtendedGridView is an extended version of TbGridView.
  *
  * Features are:
@@ -22,7 +22,7 @@ Yii::import('booster.widgets.TbGridView');
  * @property CActiveDataProvider $dataProvider the data provider for the view.
  * @property TbDataColumn[] $columns
  *
- * @package booster.widgets.grids
+ * @package bootstrap.widgets.grids
  */
 class TbExtendedGridView extends TbGridView {
 	
@@ -220,7 +220,7 @@ class TbExtendedGridView extends TbGridView {
 		}
 		if ($this->bulkActions !== array() && isset($this->bulkActions['actionButtons'])) {
 			if (!isset($this->bulkActions['class'])) {
-				$this->bulkActions['class'] = 'booster.widgets.TbBulkActions';
+				$this->bulkActions['class'] = 'bootstrap.widgets.TbBulkActions';
 			}
 
 			$this->bulk = Yii::createComponent($this->bulkActions, $this);
@@ -416,7 +416,7 @@ class TbExtendedGridView extends TbGridView {
 		// render switch buttons
 		$buttons = Yii::createComponent(
 			array(
-				'class' => 'booster.widgets.TbButtonGroup',
+				'class' => 'bootstrap.widgets.TbButtonGroup',
 				'toggle' => 'radio',
 				'buttons' => array(
 					array(
@@ -558,7 +558,7 @@ class TbExtendedGridView extends TbGridView {
 			";
 		}
 		$configChart = array(
-			'class' => 'booster.widgets.TbHighCharts',
+			'class' => 'bootstrap.widgets.TbHighCharts',
 			'id' => $chartId,
 			'options' => $options,
 			'htmlOptions' => $this->chartOptions['htmlOptions']
@@ -877,7 +877,7 @@ class TbExtendedGridView extends TbGridView {
  *
  * Abstract class where all types of operations extend from
  *
- * @package booster.widgets.grids.operations
+ * @package bootstrap.widgets.grids.operations
  */
 abstract class TbOperation extends CWidget
 {
@@ -946,7 +946,7 @@ abstract class TbOperation extends CWidget
  *
  * Displays a total of specified column name.
  *
- * @package booster.widgets.grids.operations
+ * @package bootstrap.widgets.grids.operations
  */
 class TbSumOperation extends TbOperation
 {
@@ -1028,7 +1028,7 @@ class TbSumOperation extends TbOperation
  * Renders a summary based on the count of specified types. For example, if a value has a type 'blue', this class will
  * count the number of times the value 'blue' has on that column.
  *
- * @package booster.widgets.grids.operations
+ * @package bootstrap.widgets.grids.operations
  */
 class TbCountOfTypeOperation extends TbOperation
 {
@@ -1125,7 +1125,7 @@ class TbCountOfTypeOperation extends TbOperation
  * Renders a summary based on the percent count of specified types. For example, if a value has a type 'blue', this class will
  * count the percentage number of times the value 'blue' has on that column.
  *
- * @package booster.widgets.grids.operations
+ * @package bootstrap.widgets.grids.operations
  */
 class TbPercentOfTypeOperation extends TbCountOfTypeOperation
 {
@@ -1187,7 +1187,7 @@ class TbPercentOfTypeOperation extends TbCountOfTypeOperation
  *
  * Displays a Google visualization  pie chart based on the percentage count of type.
  *
- * @package booster.widgets.grids.operations
+ * @package bootstrap.widgets.grids.operations
  */
 class TbPercentOfTypeGooglePieOperation extends TbPercentOfTypeOperation
 {
@@ -1242,7 +1242,7 @@ class TbPercentOfTypeGooglePieOperation extends TbPercentOfTypeOperation
 	{
 		$chart = Yii::createComponent(
 			array(
-				'class' => 'booster.widgets.TbGoogleVisualizationChart',
+				'class' => 'bootstrap.widgets.TbGoogleVisualizationChart',
 				'visualization' => 'PieChart',
 				'containerId' => $this->getId(),
 				'data' => $this->data,
@@ -1270,7 +1270,7 @@ class TbPercentOfTypeGooglePieOperation extends TbPercentOfTypeOperation
  *
  * Displays an chart based on jquery.easy.pie plugin
  *
- * @package booster.widgets.grids.operations
+ * @package bootstrap.widgets.grids.operations
  */
 class TbPercentOfTypeEasyPieOperation extends TbPercentOfTypeOperation
 {

@@ -11,7 +11,7 @@
  * Implementation of Bootstrap Image Gallery
  * @link https://github.com/blueimp/Bootstrap-Image-Gallery/
  *
- * @package booster.widgets.grouping
+ * @package bootstrap.widgets.grouping
  */
 class TbImageGallery extends CWidget
 {

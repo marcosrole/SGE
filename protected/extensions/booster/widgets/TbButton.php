@@ -10,13 +10,13 @@
  * @author Amr Bedair <amr.bedair@gmail.com>
  * @since v4.0.0 - upgraded to bootstrap 3.1.1
  */
-Yii::import('booster.widgets.TbWidget');
+Yii::import('bootstrap.widgets.TbWidget');
 /**
  * Bootstrap button widget.
  *
  * @see http://getbootstrap.com/css/#buttons
  *
- * @package booster.widgets.forms.buttons
+ * @package bootstrap.widgets.forms.buttons
  */
 class TbButton extends TbWidget {
 	
@@ -295,7 +295,7 @@ class TbButton extends TbWidget {
 			echo $this->createButton();
 		
 			$this->controller->widget(
-				'booster.widgets.TbDropdown',
+				'bootstrap.widgets.TbDropdown',
 				array(
 					'encodeLabel' => $this->encodeLabel,
 					'items' => $this->items,

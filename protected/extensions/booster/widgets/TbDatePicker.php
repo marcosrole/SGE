@@ -11,10 +11,10 @@
  * Bootstrap DatePicker widget
  * @see http://www.eyecon.ro/bootstrap-datepicker/
  *
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 
-Yii::import('booster.widgets.TbBaseInputWidget');
+Yii::import('bootstrap.widgets.TbBaseInputWidget');
 
 class TbDatePicker extends TbBaseInputWidget {
 	

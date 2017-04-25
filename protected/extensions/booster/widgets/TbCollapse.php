@@ -13,7 +13,7 @@
  *## Bootstrap collapse widget.
  * @see <http://twitter.github.com/bootstrap/javascript.html#collapse>
  *
- * @package booster.widgets.grouping
+ * @package bootstrap.widgets.grouping
  * @todo is this really a widget!?
  */
 class TbCollapse extends CWidget {

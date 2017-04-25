@@ -6,13 +6,13 @@
  * @copyright Copyright &copy; Christoffer Niska 2011-
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
-Yii::import('booster.widgets.TbWidget');
+Yii::import('bootstrap.widgets.TbWidget');
 /**
  *## Bootstrap progress bar widget.
  *
  * @see <http://twitter.github.com/bootstrap/components.html#progress>
  *
- * @package booster.widgets.decoration
+ * @package bootstrap.widgets.decoration
  * @since 0.9.10
  */
 class TbProgress extends TbWidget {

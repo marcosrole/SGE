@@ -2,6 +2,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    <?php
+        $cs        = Yii::app()->clientScript;
+        $themePath = Yii::app()->theme->baseUrl;
+
+        /**
+         * StyleSHeets
+         */
+        $cs->registerCssFile('/SGE/css/bootstrap.css');
+        $cs->registerCssFile('/SGE/css/bootstrap-theme.css');
+
+        /**
+         * JavaScripts
+         */
+        $cs->registerCoreScript('jquery', CClientScript::POS_END);
+        $cs->registerCoreScript('jquery.ui', CClientScript::POS_END);
+        $cs->registerScriptFile('/SGE/js/bootstrap.min.js', CClientScript::POS_END);
+        $cs->registerScript('tooltip', "$('[data-toggle=\"tooltip\"]').tooltip();$('[data-toggle=\"popover\"]').tooltip()", CClientScript::POS_READY);
+        ?>
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="<?php
+        echo Yii::app()->theme->baseUrl . '/SGE/js/html5shiv.js';
+        ?>"></script>
+            <script src="<?php
+        echo Yii::app()->theme->baseUrl . '/SGE/js/respond.min.js';
+        ?>"></script>
+        <![endif]-->
 	<?php 
             $currController = Yii::app()->controller->id;
             $currAction= Yii::app()->controller->action->id;   
@@ -10,18 +37,7 @@
 //                'site'=>array('login',),);
             
         ?> 
-    
-        <?php // if(in_array($currAction, $validateControllerAndView{$currController})){?>
-    
-<!--         Latest compiled and minified CSS 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-         Optional theme 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-         Latest compiled and minified JavaScript 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
-
-        <?php // } ?>
-        <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/sge.css">        
+                      
         <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/SGEicon.png" type="image/x-icon" />
        
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>

@@ -537,7 +537,7 @@ class TbEditable extends CWidget
             /** @var $widget TbDatePicker */
             $widget = Yii::app()->widgetFactory->createWidget(
                 $this->getOwner(),
-                'booster.widgets.TbDatePicker',
+                'bootstrap.widgets.TbDatePicker',
                 array('options' => isset($this->options['datepicker']) ? $this->options['datepicker'] : array())
             );
             $widget->registerLanguageScript();
@@ -547,7 +547,7 @@ class TbEditable extends CWidget
             /** @var $widget TbDateTimePicker */
             $widget = Yii::app()->widgetFactory->createWidget(
                 $this->getOwner(),
-                'booster.widgets.TbDateTimePicker',
+                'bootstrap.widgets.TbDateTimePicker',
                 array('options' => $this->options['datetimepicker'])
             );
             $widget->registerLanguageScript();

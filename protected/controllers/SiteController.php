@@ -45,6 +45,7 @@ class SiteController extends Controller
                         array('deny',  // deny all users
                                 'users'=>array('*'),
                         ),
+                        array('booster.filters.BootstrapFilter - delete')
                 );
 	}
         

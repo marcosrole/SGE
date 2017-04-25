@@ -8,8 +8,8 @@
  * @version 1.3.1
  */
 
-Yii::import('booster.widgets.TbEditable');
-Yii::import('booster.widgets.TbEditableField');
+Yii::import('bootstrap.widgets.TbEditable');
+Yii::import('bootstrap.widgets.TbEditableField');
 Yii::import('zii.widgets.grid.CDataColumn');
 
 /**

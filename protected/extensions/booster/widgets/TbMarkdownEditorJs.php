@@ -13,7 +13,7 @@
  * @see <https://code.google.com/p/pagedown/wiki/PageDown>
  * @see <https://github.com/arhpreston/jquery-markdown>
  *
- * @package booster.widgets.forms.inputs.wysiwyg
+ * @package bootstrap.widgets.forms.inputs.wysiwyg
  * @deprecated replaced with TbMarkdownEditor
  */
 class TbMarkdownEditorJS extends CInputWidget

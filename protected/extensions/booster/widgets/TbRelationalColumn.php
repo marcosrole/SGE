@@ -13,7 +13,7 @@
  * Displays a clickable column that will make an ajax request and display its resulting data
  * into a new row.
  *
- * @package booster.widgets.grids.columns
+ * @package bootstrap.widgets.grids.columns
  */
 class TbRelationalColumn extends TbDataColumn {
 	

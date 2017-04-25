@@ -7,7 +7,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 
-Yii::import('booster.widgets.input.TbInputVertical');
+Yii::import('bootstrap.widgets.input.TbInputVertical');
 
 /**
  *## TbInputInline class
@@ -15,7 +15,7 @@ Yii::import('booster.widgets.input.TbInputVertical');
  * Bootstrap vertical form input widget.
  *
  * @since 0.9.8
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 class TbInputInline extends TbInputVertical
 {
@@ -106,7 +106,7 @@ class TbInputInline extends TbInputVertical
         echo $this->setPlaceholder();
         echo $this->getPrepend();
         $this->widget(
-            'booster.widgets.TbDatePicker',
+            'bootstrap.widgets.TbDatePicker',
             array(
                 'model' => $this->model,
                 'attribute' => $this->attribute,
@@ -139,7 +139,7 @@ class TbInputInline extends TbInputVertical
         echo $this->setPlaceholder();
         echo $this->getPrepend();
         $this->widget(
-            'booster.widgets.TbDateTimePicker',
+            'bootstrap.widgets.TbDateTimePicker',
             array(
                 'model' => $this->model,
                 'attribute' => $this->attribute,
@@ -172,7 +172,7 @@ class TbInputInline extends TbInputVertical
         echo $this->setPlaceholder();
 		echo $this->getPrepend();
 		$this->widget(
-			'booster.widgets.TbDateRangePicker',
+			'bootstrap.widgets.TbDateRangePicker',
 			array(
 				'model' => $this->model,
 				'attribute' => $this->attribute,

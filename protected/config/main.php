@@ -5,6 +5,7 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+Yii::setPathOfAlias('bootstrap', dirname(__FILE__) . DIRECTORY_SEPARATOR . '../extensions/booster');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'language'=>'es',
@@ -94,8 +95,8 @@ return array(
 				*/
 			),
 		),		
-		'bootstrap'=>array(
-			'class'=>'ext.bootstrap.components.Bootstrap',
+		'booster'=>array(
+			'class'=>'booster.components.Bootstrap',
 			'responsiveCss' => true,
 			//'fontAwesomeCss'=>true,
 			//'minify'=>true,

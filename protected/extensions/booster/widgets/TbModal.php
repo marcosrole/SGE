@@ -13,7 +13,7 @@
  * @see <http://twitter.github.com/bootstrap/javascript.html#modals>
  *
  * @since 0.9.3
- * @package booster.widgets.modals
+ * @package bootstrap.widgets.modals
  */
 class TbModal extends CWidget {
 	

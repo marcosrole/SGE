@@ -18,7 +18,7 @@ Yii::import('zii.widgets.jui.CJuiInputWidget');
  *
  * Modified version from the great implementation of XUpload Yii Extension
  *
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 class TbFileUpload extends CJuiInputWidget
 {

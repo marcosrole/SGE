@@ -7,7 +7,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 
-Yii::import('booster.widgets.input.TbInputInline');
+Yii::import('bootstrap.widgets.input.TbInputInline');
 
 /**
  *## TbInputSearch class
@@ -15,7 +15,7 @@ Yii::import('booster.widgets.input.TbInputInline');
  * Bootstrap vertical form input widget.
  *
  * @since 0.9.8
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 class TbInputSearch extends TbInputInline
 {

@@ -7,12 +7,12 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 
-Yii::import('booster.widgets.TbDataColumn');
+Yii::import('bootstrap.widgets.TbDataColumn');
 
 /**
  *## TbTotalSumColumn widget class
  *
- * @package booster.widgets.grids.columns
+ * @package bootstrap.widgets.grids.columns
  */
 class TbTotalSumColumn extends TbDataColumn
 {

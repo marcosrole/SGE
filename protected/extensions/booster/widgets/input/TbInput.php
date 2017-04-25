@@ -12,7 +12,7 @@
  *
  * Used for rendering inputs according to Bootstrap standards.
  *
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 abstract class TbInput extends CInputWidget
 {

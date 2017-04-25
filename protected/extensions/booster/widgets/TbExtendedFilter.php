@@ -15,7 +15,7 @@ Yii::import('booster.components.JSONStorage', true);
  * This widget displays an extra row to the grid is attached to and renders a visual feedback of the filter values used
  * plus an option to save them for later use.
  *
- * @package booster.widgets.supplementary
+ * @package bootstrap.widgets.supplementary
  */
 class TbExtendedFilter extends CWidget {
 	

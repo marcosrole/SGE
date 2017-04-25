@@ -11,7 +11,7 @@
  * Bootstrap Pass*Field widget
  * @see http://antelle.github.io/passfield/
  *
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 class TbPassfield extends CInputWidget
 {

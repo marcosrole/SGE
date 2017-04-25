@@ -13,7 +13,7 @@
  * Encapsulates the Bootstrap Tags plugin by Maxwells
  * @see <https://github.com/maxwells/bootstrap-tags>
  *
- * @package booster.widgets.forms.inputs
+ * @package bootstrap.widgets.forms.inputs
  */
 class TbTags extends CInputWidget {
 	
