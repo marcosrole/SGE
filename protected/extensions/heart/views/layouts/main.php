@@ -17,7 +17,7 @@
          */
         $cs->registerCoreScript('jquery', CClientScript::POS_END);
         $cs->registerCoreScript('jquery.ui', CClientScript::POS_END);
-        $cs->registerScriptFile('/SGE/js/bootstrap.min.js', CClientScript::POS_END);
+//        $cs->registerScriptFile('/SGE/js/bootstrap.min.js', CClientScript::POS_END);
         $cs->registerScript('tooltip', "$('[data-toggle=\"tooltip\"]').tooltip();$('[data-toggle=\"popover\"]').tooltip()", CClientScript::POS_READY);
         ?>
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -71,13 +71,12 @@ if( !(in_array($currController, $controllerNoShow) && in_array($currAction, $act
                 'type' => 'navbar',
                 'htmlOptions' => array('class' => 'pull-right'),
                 'items' => array(
-                    array('label'=>'Iniciar Sesión', 'url'=>array('/site/login'), 'icon'=>'unlock', 'visible'=>Yii::app()->user->isGuest),
                     array('label'=>Yii::app()->user->name, 'url'=>'#', 'icon'=>'user', 'itemOptions' => array('class' => 'user'), 'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
                                 array('label'=>'Ver perfil', 'url'=>array('site/logout'), 'icon'=>'glyphicon glyphicon-list-alt',),
                                 array('label'=>'Cerrar sesión ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'icon'=>'glyphicon glyphicon-off',),
 
                         )),
-                    array('label'=>'', 'url'=>array('site/logout'), 'icon'=>'glyphicon glyphicon-off',),
+                    array('label'=>'', 'url'=>array('site/logout'), 'icon'=>'glyphicon glyphicon-off','visible'=>!Yii::app()->user->isGuest),
                     ),
                     
                 ),

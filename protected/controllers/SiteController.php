@@ -31,7 +31,7 @@ class SiteController extends Controller
                             'actions'=>array('error'),
                         ),
                         array('allow',  // a todos los usuarios
-				'actions'=>array('login','EnviarMailActivacion','ActivarUsuario'),
+				'actions'=>array('login','EnviarMailActivacion','ActivarUsuario','OlvideMiContrasenia'),
 				'users'=>array('*'),
 			),  
                         array('allow', 
@@ -171,6 +171,91 @@ class SiteController extends Controller
             $this->render('activarUsuario',array('model'=>$Usuario));
         }
         
+        public function actionOlvideMiContrasenia($token = null){
+            date_default_timezone_set('America/Argentina/Buenos_Aires');
+            $model = new Usuario();
+            $flagConToken = false;
+            
+            if($token == NULL){
+                    if(isset($_POST['Usuario'])){
+                        $usuario = Usuario::model()->findByAttributes(array('dni'=>$_POST['Usuario']['dni']));
+
+                        //Valido el dni
+                        if($usuario==NULL){
+                            Yii::app()->user->setFlash('error', 'El DNI ingresado es incorrecto');
+                            $this->redirect('olvideMiContrasenia',array('model'=>$model,'flagConToken'=>$flagConToken));
+                        }
+
+                        //Valido el email ingresado
+                        if(strtoupper($_POST['Usuario']['email']) != strtoupper($usuario{'email'})){
+                            Yii::app()->user->setFlash('error', 'El usuario no posee asociado el email ingresado');
+                            $this->redirect('olvideMiContrasenia',array('model'=>$model,'flagConToken'=>$flagConToken));
+                        }
+
+                         //Genero el token
+                        $NombreToken = "activarUsuario" . $usuario{'id'};
+                        $token = Token::model()->createToken($NombreToken, 21600, array('idUsr'=>$usuario{'id'}));
+
+                        //EnvioEmail
+                        // TODO: Hacer envio de email
+
+
+                        //Vuelvo al Login
+                        Yii::app()->user->setFlash('success', "Se ha enviado un mail a " . $_POST['Usuario']['email']);
+                        $this->redirect(array('login'));
+                    } 
+                    
+                    $this->render('olvideMiContrasenia',array('model'=>$model, 'flagConToken'=>$flagConToken));
+                    
+            }else{
+                    $flagConToken = true;
+                    //Verifico token 
+                    if(!Token::model()->validateToken($token, false)){
+                        Yii::app()->user->setFlash('error', "El token no existe");
+                        $this->redirect(array('login'));
+                    }
+                    
+                    //Busco el id del usuario por el token
+                    $token = Token::model()->findByAttributes(array('token'=>$token));
+                    $idUser = unserialize($token{'informacion'});
+                    $idUser = $idUser['idUsr'];
+                    $Usuario = Usuario::model()->findByPk($idUser);
+                    if(isset($_POST['Usuario'])){
+                        $passwordActual = $_POST['Usuario']['password'];
+                        $passwordNew = $_POST['Usuario']['passwordNew'];
+                        $passwordNewAgain = $_POST['Usuario']['passwordAgain'];
+                        
+                        //Verifico password actual
+                        if($Usuario{'hased_paswword'}!=crypt($passwordActual,'SGE2017')){
+                            Yii::app()->user->setFlash('error', 'La contraseña actual no es correcta');
+                            $this->redirect('olvideMiContrasenia?token=' . $token{'token'},array('model'=>$model,'flagConToken'=>$flagConToken));
+                        }
+                        
+                        //Verifico nuevo password y el re-intento de password
+                        if($passwordNew != $passwordNewAgain){
+                            Yii::app()->user->setFlash('error', 'La nueva contraseña no coincide');
+                            $this->redirect('olvideMiContrasenia?token=' . $token{'token'},array('model'=>$model,'flagConToken'=>$flagConToken));
+                        }
+                        
+                        
+                        $Usuario->scenario = 'SITE_actionOlvideMiContrasenia_true';
+                        
+                        //Guardo nueva contraseña
+                        $Usuario{'hased_paswword'} = crypt($passwordNew,'SGE2017');
+                        if($Usuario->save(false)){
+                            Yii::app()->user->setFlash('success', "Se ha actualizado su contraseña");
+                             $this->redirect(array('login'));
+                        }
+                        
+                    }
+                    
+                    $this->render('olvideMiContrasenia',array('model'=>$model, 'flagConToken'=>$flagConToken));
+            }    
+
+            
+            
+        }
+        
         public function actionEnviarMailActivacion()
 	{
                 date_default_timezone_set('America/Argentina/Buenos_Aires');
@@ -205,7 +290,7 @@ class SiteController extends Controller
                     $userLoginTemp->save(false);
                     //Genero el token
                     $NombreToken = "activarUsuario" . $userLogin{'id'};
-                    $token = Token::model()->createToken($NombreToken, 172800, array('idUsr'=>$userLogin{'id'}));
+                    $token = Token::model()->createToken($NombreToken, 21600, array('idUsr'=>$userLogin{'id'}));
 
                     //EnvioEmail
                     // TODO: Hacer envio de email

@@ -26,6 +26,7 @@ class Usuario extends CActiveRecord
     public $esAdmin;
     public $id_provincia;
     public $password;
+    public $passwordNew;
     public $passwordAgain;
     public function tableName()
 	{
@@ -60,6 +61,9 @@ class Usuario extends CActiveRecord
                         array('password, passwordAgain', 'required', 'on'=>'SITE_actionActivarUsuario'),
                         array('fecha_nacimiento', 'type', 'type' => 'date', 'message' => '{attribute}: El formato de fecha es incorrecto: dd/mm/aaaa', 'dateFormat' => 'dd/MM/yyyy'),
                         array('password','compare','compareAttribute'=>'passwordAgain','operator'=>'==','message'=>'Las contraseñas no coinciden', 'on'=>'SITE_actionActivarUsuario'),
+                    
+//                    SITE_actionOlvideMiContrasenia_true
+                        array('password, passwordAgain, passwordNew', 'required', 'on'=>'SITE_actionOlvideMiContrasenia_true'),
 //                        
 //			                        
 //                        array('email', 'unique','message'=>'El email ingresado ya se encuentra almacenado'),
@@ -109,6 +113,7 @@ class Usuario extends CActiveRecord
 			'last_update' => 'Last Update',
                         'password' => 'Contraseña',
                         'passwordAgain' => 'Confirmacion de contraseña',
+                        'passwordNew' => 'Nueva contraseña',
                         'sexo' => 'Sexo',
                         'celular' => 'Celular',
 			'domicilio' => 'Domicilio',

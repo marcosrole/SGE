@@ -57,7 +57,7 @@ $this->pageTitle=Yii::app()->name . ' - Login';
                                                 </div>
 
                                                 <div class="panel-footer">
-                                                        <a href="" >Olvidé mi contraseña</a>
+                                                        <a href="<?php echo $this->createUrl( 'site/Olvidemicontrasenia'); ?>">Olvidé mi constraseña</a>                                                       
                                                         <div class="text-right">
                                                                 <?php $this->widget(
                                                                     'booster.widgets.TbButton',

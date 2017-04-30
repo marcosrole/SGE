@@ -32,7 +32,7 @@ $this->menu=array(
     'booster.widgets.TbPanel',
     array(
         'title' => 'Usuarios',
-        'headerIcon' => 'icon- fa fa-tasks',
+        'headerIcon' => 'glyphicon glyphicon-user',
         'headerButtons' => array(
             array(
                 'class' => 'booster.widgets.TbButtonGroup',
