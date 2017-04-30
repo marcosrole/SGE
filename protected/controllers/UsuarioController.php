@@ -210,42 +210,32 @@ class UsuarioController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-		
+		date_default_timezone_set('America/Argentina/Buenos_Aires');
 		$model=$this->loadModel($id);
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+                $model{'fecha_nacimiento'} = date("d/m/Y", strtotime($model{'fecha_nacimiento'}));               
+                
+                $localidad = Localidad::model()->findByPk($model{'id_localidad'});
+                $model{'id_provincia'} = $localidad{'id_provincia'};
 		if(isset($_POST['Usuario']))
-		{
-			$messageType='warning';
-			$message = "There are some errors ";
+		{                        
+                        $messageType='warning';
+			$message = "Existen errores en los datos ";
 			$transaction = Yii::app()->db->beginTransaction();
 			try{
-				$model->attributes=$_POST['Usuario'];
+				$model->attributes=$_POST['Usuario'];                                
 				$messageType = 'success';
-				$message = "<strong>Well done!</strong> You successfully update data ";
-
-				/*
-				$uploadFile=CUploadedFile::getInstance($model,'filename');
-				if(!empty($uploadFile)) {
-					$extUploadFile = substr($uploadFile, strrpos($uploadFile, '.')+1);
-					if(!empty($uploadFile)) {
-						if($uploadFile->saveAs(Yii::app()->basePath.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.'usuario'.DIRECTORY_SEPARATOR.$model->id.DIRECTORY_SEPARATOR.$model->id.'.'.$extUploadFile)){
-							$model->filename=$model->id.'.'.$extUploadFile;
-							$message .= 'and file uploded';
-						}
-						else{
-							$messageType = 'warning';
-							$message .= 'but file not uploded';
-						}
-					}						
-				}
-				*/
-
-				if($model->save()){
-					$transaction->commit();
-					Yii::app()->user->setFlash($messageType, $message);
-					$this->redirect(array('view','id'=>$model->id));
-				}
+				$message = "Los datos se han actualizado correctamente ";  
+                                
+                                if($model->validate()){
+                                    $model{'last_update'} = date('Y-m-d H:i:s');
+                                    $date = str_replace('/', '-', $model{'fecha_nacimiento'});
+                                    $model{'fecha_nacimiento'} = date("Y-m-d", strtotime($date));                                  
+                                    if($model->save(false)){                                    
+                                       $transaction->commit(); 
+                                       Yii::app()->user->setFlash($messageType, $message);
+                                       $this->redirect('admin');
+                                   }   
+                                }
 			}
 			catch (Exception $e){
 				$transaction->rollBack();

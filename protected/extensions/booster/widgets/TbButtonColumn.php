@@ -11,11 +11,11 @@
 Yii::import('zii.widgets.grid.CButtonColumn');
 
 /**
- *## Bootstrap button column widget.
+ *## booster button column widget.
  *
  * Used to set buttons to use Glyphicons instead of the defaults images.
  *
- * @package bootstrap.widgets.grids.columns
+ * @package booster.widgets.grids.columns
  */
 class TbButtonColumn extends CButtonColumn {
 	

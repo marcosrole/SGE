@@ -11,9 +11,9 @@
 Yii::import('zii.widgets.CDetailView');
 
 /**
- *## Bootstrap Zii detail view.
+ *## booster Zii detail view.
  *
- * @package bootstrap.widgets.grouping
+ * @package booster.widgets.grouping
  */
 class TbDetailView extends CDetailView
 {

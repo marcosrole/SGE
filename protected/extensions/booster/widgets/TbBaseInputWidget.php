@@ -10,7 +10,7 @@
 /**
  *## A Base class of all Input Widgets
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 class TbBaseInputWidget extends CInputWidget {
 	

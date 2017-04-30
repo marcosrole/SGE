@@ -8,11 +8,11 @@
  */
 
 /**
- *## Bootstrap input widget.
+ *## booster input widget.
  *
- * Used for rendering inputs according to Bootstrap standards.
+ * Used for rendering inputs according to booster standards.
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 abstract class TbInput extends CInputWidget
 {
@@ -780,7 +780,7 @@ abstract class TbInput extends CInputWidget
 	/**
 	 *### .ckEditor()
 	 *
-	 * Renders a bootstrap CKEditor wysiwyg editor.
+	 * Renders a booster CKEditor wysiwyg editor.
 	 *
 	 * @abstract
 	 * @return mixed
@@ -790,7 +790,7 @@ abstract class TbInput extends CInputWidget
 	/**
 	 *### .html5Editor()
 	 *
-	 * Renders a bootstrap wysihtml5 editor.
+	 * Renders a booster wysihtml5 editor.
 	 *
 	 * @abstract
 	 * @return mixed

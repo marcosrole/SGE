@@ -8,16 +8,16 @@
  * @since 0.9.10
  * 
  * @author Amr Bedair <amr.bedair@gmail.com>
- * @since v4.0.0 - modified to work with bootstrap 3.1.1
+ * @since v4.0.0 - modified to work with booster 3.1.1
  * 
  */
 
 /**
- *## Bootstrap carousel widget.
+ *## booster carousel widget.
  *
- * @see <http://twitter.github.com/bootstrap/javascript.html#carousel>
+ * @see <http://twitter.github.com/booster/javascript.html#carousel>
  *
- * @package bootstrap.widgets.grouping
+ * @package booster.widgets.grouping
  */
 class TbCarousel extends CWidget {
 	
@@ -47,7 +47,7 @@ class TbCarousel extends CWidget {
 	public $items = array();
 
 	/**
-	 * @var array the options for the Bootstrap Javascript plugin.
+	 * @var array the options for the booster Javascript plugin.
 	 */
 	public $options = array();
 

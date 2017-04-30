@@ -3,6 +3,8 @@
 class UserIdentity extends CUserIdentity
 {	
         public  $_id;      
+        public  $_fullName;
+        
 	public function authenticate()
 	{
             $usernameIngresado = $this->username; //username es el DNI
@@ -17,7 +19,9 @@ class UserIdentity extends CUserIdentity
             else                    
                     $this->errorCode=self::ERROR_NONE;                    
             if($this->errorCode==self::ERROR_NONE){
-                $this->_id = $user{'id'};                
+                $this->_id = $user{'id'};  
+                $this->_fullName=$user{'nombre'} . " " . $user{'apellido'};
+                $this->setState('fullName',$user{'nombre'} . " " . $user{'apellido'});
                 $UsuarioRol = UsuarioRol::model ()->findByAttributes (array('id_usuario'=>$user{'id'})); 
                 
                 if($UsuarioRol{'id_rol'}=='superadmin'){
@@ -43,6 +47,10 @@ class UserIdentity extends CUserIdentity
         
         public function getId() {
             return $this->_id;
+        }
+        
+        public function getFullName() {
+            return $this->_fullName;
         }
         
         

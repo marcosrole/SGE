@@ -11,11 +11,11 @@
 /**
  *## Class TbHeroUnit
  *
- * Modest bootstrap hero unit widget.
+ * Modest booster hero unit widget.
  * Thanks to Christphe Boulain for suggesting content capturing.
- * @see <http://twitter.github.com/bootstrap/components.html#typography>
+ * @see <http://twitter.github.com/booster/components.html#typography>
  *
- * @package bootstrap.widgets.decoration
+ * @package booster.widgets.decoration
  */
 class TbHeroUnit extends CWidget
 {

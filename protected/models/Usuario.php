@@ -45,7 +45,7 @@ class Usuario extends CActiveRecord
                         array('dni', 'numerical', 'integerOnly'=>true, 'min'=>5),
                         array('dni', 'length', 'min'=>5, 'max'=>9),
                         array('id_localidad, id_carrera, id_provincia', 'numerical', 'integerOnly'=>true),
-                        array('nombre, apellido, email, hased_paswword', 'length', 'max'=>20),
+                        array('nombre, apellido, email, hased_paswword', 'length', 'max'=>50),
                         array('email','email'),
                         array('sexo', 'length', 'max'=>9),
                         array('estado', 'length', 'max'=>13),

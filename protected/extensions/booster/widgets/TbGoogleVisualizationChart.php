@@ -13,7 +13,7 @@
  * Makes use of the Google Visualization service to render charts
  * @see https://developers.google.com/chart/interactive/docs/gallery
  *
- * @package bootstrap.widgets.charts
+ * @package booster.widgets.charts
  */
 class TbGoogleVisualizationChart extends CWidget
 {

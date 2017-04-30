@@ -10,11 +10,11 @@
 Yii::import('zii.widgets.grid.CDataColumn');
 
 /**
- *## Bootstrap grid data column.
+ *## booster grid data column.
  *
  * @property TbGridView|TbExtendedGridView $grid the grid view object that owns this column.
  *
- * @package bootstrap.widgets.grids.columns
+ * @package booster.widgets.grids.columns
  */
 class TbDataColumn extends CDataColumn
 {

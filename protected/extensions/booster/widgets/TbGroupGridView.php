@@ -10,7 +10,7 @@
  * @author         antonio ramirez <antonio@clevertech.biz>
  */
 
-Yii::import('bootstrap.widgets.TbGridView');
+Yii::import('booster.widgets.TbGridView');
 
 /**
  *## TbGroupGridView widget
@@ -19,7 +19,7 @@ Yii::import('bootstrap.widgets.TbGridView');
  *
  * @property TbDataColumn[] $columns
  *
- * @package bootstrap.widgets.grids
+ * @package booster.widgets.grids
  */
 class TbGroupGridView extends TbGridView
 {

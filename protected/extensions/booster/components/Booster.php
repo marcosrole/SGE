@@ -200,7 +200,6 @@ class Booster extends CApplicationComponent {
 	 * Initializes the component.
 	 */
 	public function init() {
-		
 		// Prevents the extension from registering scripts and publishing assets when ran from the command line.
 		if ($this->isInConsoleMode() && !$this->isInTests())
 			return;

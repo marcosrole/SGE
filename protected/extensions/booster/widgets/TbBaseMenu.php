@@ -12,7 +12,7 @@ Yii::import('zii.widgets.CMenu');
 /**
  *## Base class for menu in Booster
  *
- * @package bootstrap.widgets.navigation
+ * @package booster.widgets.navigation
  */
 abstract class TbBaseMenu extends CMenu {
 	/**
@@ -117,7 +117,7 @@ abstract class TbBaseMenu extends CMenu {
 						);
 						$dropdownOptions['id'] = isset($dropdownOptions['htmlOptions']['id']) ? 
 							$dropdownOptions['htmlOptions']['id'] : null;
-						$this->controller->widget('bootstrap.widgets.TbDropdown', $dropdownOptions);
+						$this->controller->widget('booster.widgets.TbDropdown', $dropdownOptions);
 					}
 
 					echo "</li>\n";

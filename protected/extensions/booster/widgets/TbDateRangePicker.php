@@ -8,14 +8,14 @@
  */
 
 /**
- *## A simple implementation for date range picker for Twitter Bootstrap
+ *## A simple implementation for date range picker for Twitter booster
  *
- * @see <http://www.dangrossman.info/2012/08/20/a-date-range-picker-for-twitter-bootstrap/>
+ * @see <http://www.dangrossman.info/2012/08/20/a-date-range-picker-for-twitter-booster/>
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 
-Yii::import('bootstrap.widgets.TbBaseInputWidget');
+Yii::import('booster.widgets.TbBaseInputWidget');
 
 class TbDateRangePicker extends TbBaseInputWidget {
 	
@@ -140,8 +140,8 @@ class TbDateRangePicker extends TbBaseInputWidget {
 	public function registerClientScript() {
 		
         $booster = Booster::getBooster();
-        $booster->registerAssetCss('bootstrap-daterangepicker.css');
-        $booster->registerAssetJs('bootstrap.daterangepicker.js');
+        $booster->registerAssetCss('booster-daterangepicker.css');
+        $booster->registerAssetJs('booster.daterangepicker.js');
         $booster->registerPackage('moment');
 	}
 }

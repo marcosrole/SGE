@@ -153,15 +153,16 @@ class SiteController extends Controller
                 $UsuarioActualizado->fecha_nacimiento = $_POST['Usuario']['fecha_nacimiento'];
                 $UsuarioActualizado->estado="ACTIVO";
                 $UsuarioActualizado->scenario = 'SITE_actionActivarUsuario';
-                $UsuarioActualizado{'last_login'} = date('Y-m-d H:i:s');               
+                $UsuarioActualizado{'last_login'} = date('Y-m-d H:i:s'); 
                 
                 if($UsuarioActualizado->validate()){
                     $UsuarioActualizado->fecha_nacimiento = DateTime::createFromFormat('d/m/Y', $_POST['Usuario']['fecha_nacimiento'])->format('Y-m-d');
-                    var_dump($UsuarioActualizado->update());
                     
                     Token::model()->validateToken($tokenParam, true);
                     Yii::app()->user->setFlash('success', "Bienvenido " . $UsuarioActualizado{'nombre'});
-                    $this->redirect(array('index'));
+                    Yii::app()->user->logout();
+                    
+                    $this->redirect(Yii::app()->homeUrl);
                 }else{ 
                      $Usuario = $UsuarioActualizado;
                  }                

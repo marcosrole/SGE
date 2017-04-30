@@ -1,4 +1,4 @@
-<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+<?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
 	'id'=>'usuario-rol-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
@@ -18,7 +18,7 @@
 
 
 <div class="form-actions">
-	<?php $this->widget('bootstrap.widgets.TbButton', array(
+	<?php $this->widget('booster.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
 			'label'=>$model->isNewRecord ? 'Create' : 'Save',

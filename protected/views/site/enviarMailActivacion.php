@@ -6,25 +6,22 @@
 </head>
 
 <body>
-    <?php $this->widget('bootstrap.widgets.TbAlert', array(
-        'block'=>false, // display a larger alert block?
+    <?php $this->widget('booster.widgets.TbAlert', array(
         'fade'=>true, // use transitions?
         'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
         'alerts'=>array( // configurations per alert type
-            'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-            'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-            'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-            'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-            'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'success'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'info'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'warning'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'error'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'danger'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
         ),
     ));
     ?>
     
-    
-    <?php 
-
-        $form = $this->beginWidget(
-                    'bootstrap.widgets.TbActiveForm',
+    <div class="container">
+        <?php $form = $this->beginWidget(
+                    'booster.widgets.TbActiveForm',
                     array(
                         'id' => 'verticalForm',
                 //        'htmlOptions' => array('class' => 'well'), // for inset effect
@@ -37,29 +34,30 @@
             <?php echo $form->errorSummary($model); ?>
     
                 <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>
+                    <?php echo $form->textFieldGroup($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>
                 </div>           
                 <?php if($usuarioExistente){ ?>
                     <div style="float:left;padding:10px">
-                        <?php echo $form->textFieldRow($model,'email',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
+                        <?php echo $form->textFieldGroup($model,'email',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
                     </div> 
                 <?php }else{ ?>
                     <div style="float:left;padding:10px">
-                        <?php echo $form->textFieldRow($model,'email',array('class'=>'span3','maxlength'=>20)); ?>
+                        <?php echo $form->textFieldGroup($model,'email',array('class'=>'span3','maxlength'=>20)); ?>
                     </div>
                 <?php } ?>
                 
                 <br>
                 <div style="padding:10px">
-                    <?php $this->widget('bootstrap.widgets.TbButton', array(
+                    <?php $this->widget('booster.widgets.TbButton', array(
                                         'buttonType'=>'submit',
-                                        'type'=>'primary',
+                                        'context'=>'primary',
                                         'label'=>'Enviar',
                                 )); ?>
                 </div>
     
                 <?php $this->endWidget(); ?>
-    
+    </div>    
+        
 </body>
 
 </html>

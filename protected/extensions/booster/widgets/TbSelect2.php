@@ -12,7 +12,7 @@
  *
  * @see http://ivaynberg.github.io/select2/
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 class TbSelect2 extends CInputWidget {
 	
@@ -121,7 +121,7 @@ class TbSelect2 extends CInputWidget {
 	/**
 	 *### .registerClientScript()
 	 *
-	 * Registers required client script for bootstrap select2. It is not used through bootstrap->registerPlugin
+	 * Registers required client script for booster select2. It is not used through booster->registerPlugin
 	 * in order to attach events if any
 	 */
 	public function registerClientScript($id) {

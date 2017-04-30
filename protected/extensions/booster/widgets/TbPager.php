@@ -8,11 +8,11 @@
  */
 
 /**
- *## Bootstrap pager.
+ *## booster pager.
  *
- * @see <http://twitter.github.com/bootstrap/components.html#pagination>
+ * @see <http://twitter.github.com/booster/components.html#pagination>
  *
- * @package bootstrap.widgets.supplementary
+ * @package booster.widgets.supplementary
  */
 class TbPager extends CLinkPager {
 	

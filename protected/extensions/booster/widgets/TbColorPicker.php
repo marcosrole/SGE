@@ -12,16 +12,16 @@
  *
  * ------------------------------------------------------------------------
  *   in yii  use this to register the necessary js and css files :
- *   <?php  $this->widget('bootstrap.widgets.TbColorPicker', array( )); ?>
+ *   <?php  $this->widget('booster.widgets.TbColorPicker', array( )); ?>
  *   and the rest usage you'd better refer the original plugin
  *
- * @see <http://www.eyecon.ro/bootstrap-colorpicker/>
+ * @see <http://www.eyecon.ro/booster-colorpicker/>
  * ------------------------------------------------------------------------
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 
-Yii::import('bootstrap.widgets.TbBaseInputWidget');
+Yii::import('booster.widgets.TbBaseInputWidget');
 
 class TbColorPicker extends TbBaseInputWidget {
 
@@ -39,7 +39,7 @@ class TbColorPicker extends TbBaseInputWidget {
 
 	/**
 	 * @var string[] the JavaScript event handlers.
-	 * @see <http://www.eyecon.ro/bootstrap-colorpicker/> events section
+	 * @see <http://www.eyecon.ro/booster-colorpicker/> events section
 	 *  show    This event fires immediately when the color picker is displayed.
 	 *  hide    This event is fired immediately when the color picker is hidden.
 	 *  changeColor    This event is fired when the color is changed.
@@ -91,8 +91,8 @@ class TbColorPicker extends TbBaseInputWidget {
 	public function registerClientScript($id) {
 		
 		Booster::getBooster()->cs->registerPackage('colorpicker');
-        // Booster::getBooster()->registerAssetJs('bootstrap.colorpicker.js', CClientScript::POS_HEAD);
-        // Booster::getBooster()->registerAssetCss('bootstrap-colorpicker.css');
+        // Booster::getBooster()->registerAssetJs('booster.colorpicker.js', CClientScript::POS_HEAD);
+        // Booster::getBooster()->registerAssetCss('booster-colorpicker.css');
 
 		$options = !empty($this->format) ? CJavaScript::encode(array('format' => $this->format)) : '';
 

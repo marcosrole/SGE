@@ -13,7 +13,7 @@
  * The TbJsonPickerColumn works with TbJsonGridView and allows you to create a column that will display a picker element
  * The picker is a special plugin that renders a dropdown on click, which contents can be dynamically updated.
  *
- * @package bootstrap.widgets.grids.columns.json
+ * @package booster.widgets.grids.columns.json
  */
 class TbJsonPickerColumn extends TbJsonDataColumn
 {
@@ -23,12 +23,12 @@ class TbJsonPickerColumn extends TbJsonDataColumn
 	public $class = 'picker';
 
 	/**
-	 * @var array $pickerOptions the javascript options for the picker bootstrap plugin. The picker bootstrap plugin
+	 * @var array $pickerOptions the javascript options for the picker booster plugin. The picker booster plugin
 	 * extends from the tooltip plugin.
 	 *
 	 * Note that picker has also a 'width' just in case we display AJAX'ed content.
 	 *
-	 * @see http://twitter.github.com/bootstrap/javascript.html#tooltips
+	 * @see http://twitter.github.com/booster/javascript.html#tooltips
 	 */
 	public $pickerOptions = array();
 

@@ -6,14 +6,14 @@
 /**
  *## TbTimePicker widget.
  *
- * @see http://jdewit.github.com/bootstrap-timepicker/
- * @see https://github.com/jdewit/bootstrap-timepicker
+ * @see http://jdewit.github.com/booster-timepicker/
+ * @see https://github.com/jdewit/booster-timepicker
  *
  * @since 1.0.3
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 
-Yii::import('bootstrap.widgets.TbBaseInputWidget');
+Yii::import('booster.widgets.TbBaseInputWidget');
 
 class TbTimePicker extends TbBaseInputWidget {
 	
@@ -23,8 +23,8 @@ class TbTimePicker extends TbBaseInputWidget {
 	public $form;
 
 	/**
-	 * @var array The options for the "bootstrap-timepicker" plugin.
-	 * @see http://jdewit.github.com/bootstrap-timepicker/
+	 * @var array The options for the "booster-timepicker" plugin.
+	 * @see http://jdewit.github.com/booster-timepicker/
 	 *
 	 * Available options:
 	 * template    string
@@ -88,7 +88,7 @@ class TbTimePicker extends TbBaseInputWidget {
 		}
 
 		// Adding essential class for timepicker to work.
-		$this->wrapperHtmlOptions = $this->injectClass($this->wrapperHtmlOptions, 'bootstrap-timepicker');
+		$this->wrapperHtmlOptions = $this->injectClass($this->wrapperHtmlOptions, 'booster-timepicker');
 
 		if (!$this->noAppend)
 			$this->wrapperHtmlOptions = $this->injectClass($this->wrapperHtmlOptions, 'input-group');

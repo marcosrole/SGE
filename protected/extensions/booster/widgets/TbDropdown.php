@@ -8,14 +8,14 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
 
-Yii::import('bootstrap.widgets.TbBaseMenu');
+Yii::import('booster.widgets.TbBaseMenu');
 
 /**
- *## Bootstrap dropdown menu.
+ *## booster dropdown menu.
  *
- * @see http://twitter.github.com/bootstrap/javascript.html#dropdowns
+ * @see http://twitter.github.com/booster/javascript.html#dropdowns
  *
- * @package bootstrap.widgets.navigation
+ * @package booster.widgets.navigation
  */
 class TbDropdown extends TbBaseMenu {
 	/**
@@ -58,8 +58,8 @@ class TbDropdown extends TbBaseMenu {
 			$item['linkOptions'] = array();
 		}
 
-		// TODO: Bootstrap 3 does not support submenu 
-		// http://stackoverflow.com/questions/18023493/bootstrap-3-dropdown-sub-menu-missing
+		// TODO: booster 3 does not support submenu 
+		// http://stackoverflow.com/questions/18023493/booster-3-dropdown-sub-menu-missing
 		// we may use this to support it 
 		/* if (isset($item['items']) && !empty($item['items']) && empty($item['url'])) {
 			$item['url'] = '#';

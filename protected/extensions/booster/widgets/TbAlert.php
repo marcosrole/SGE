@@ -6,15 +6,15 @@
  * @copyright Copyright &copy; Christoffer Niska 2011-
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
-Yii::import('bootstrap.widgets.TbWidget');
+Yii::import('booster.widgets.TbWidget');
 /**
- *## Bootstrap alert widget.
+ *## booster alert widget.
  *
- * Alert widget displays the messages set via CWebUser.setFlash() using the Twitter Bootstrap Alert widget.
+ * Alert widget displays the messages set via CWebUser.setFlash() using the Twitter booster Alert widget.
  *
- * @see http://twitter.github.com/bootstrap/javascript.html#alerts
+ * @see http://twitter.github.com/booster/javascript.html#alerts
  *
- * @package bootstrap.widgets.decoration
+ * @package booster.widgets.decoration
  */
 class TbAlert extends TbWidget {
 	
@@ -32,7 +32,7 @@ class TbAlert extends TbWidget {
 	 *   It defaults to the widget-level fade property value.
 	 * 'htmlOptions' (= array()) Attributes for the individual alert panels.
 	 *   Widget-level htmlOptions was for wrapper element around them.
-	 *   Note that the class attribute will be appended with classes required for alert to be Twitter Bootstrap alert.
+	 *   Note that the class attribute will be appended with classes required for alert to be Twitter booster alert.
 	 * 'closeText' (= widget value) The same as a global closeText property.
 	 *   If set to false, close button will be removed from this type of alert.
 	 *   It defaults to the widget-level closeText property value.

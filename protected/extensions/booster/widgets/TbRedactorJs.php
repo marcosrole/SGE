@@ -15,7 +15,7 @@
  *
  * For updates of Redactor library see <https://github.com/yiiext/imperavi-redactor-widget> by Sam Dark.
  *
- * @package bootstrap.widgets.forms.inputs.wysiwyg
+ * @package booster.widgets.forms.inputs.wysiwyg
  */
 class TbRedactorJS extends CInputWidget
 {

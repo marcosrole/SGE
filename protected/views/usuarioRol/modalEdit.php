@@ -18,13 +18,13 @@ $menu2=array(
 if(!isset($_GET['asModal'])){
 ?>
 <?php $box = $this->beginWidget(
-    'bootstrap.widgets.TbBox',
+    'booster.widgets.TbPanel',
     array(
         'title' => 'View Usuarios #'.$model->id,
         'headerIcon' => 'icon- fa fa-eye',
         'headerButtons' => array(
             array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
+                'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'buttons' => $menu2
@@ -36,7 +36,7 @@ if(!isset($_GET['asModal'])){
 }
 ?>
 		
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
+<?php $this->widget('booster.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
             array(
@@ -66,7 +66,7 @@ if(!isset($_GET['asModal'])){
 
             <?php /** @var TbActiveForm $form */
             $form = $this->beginWidget(
-                    'bootstrap.widgets.TbActiveForm',
+                    'booster.widgets.TbActiveForm',
                     array(
                             'id' => 'horizontalForm',
                             'type' => 'horizontal',
@@ -83,14 +83,14 @@ if(!isset($_GET['asModal'])){
                         ); ?>
 
                 <div style="float:right; margin-left: 5px">
-                    <?php $this->widget('bootstrap.widgets.TbButton', array(
+                    <?php $this->widget('booster.widgets.TbButton', array(
                                         'buttonType'=>'submit',
                                         'type'=>'success',
                                         'label'=>'Guardar',
                                 )); ?>
                 </div>
                 <div style="float:right">
-                    <?php $this->widget('bootstrap.widgets.TbButton', array(
+                    <?php $this->widget('booster.widgets.TbButton', array(
                                         'type'=>'default',
                                         'label'=>'Cerrar',
                                         'url' => '#',

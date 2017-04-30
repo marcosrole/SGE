@@ -10,9 +10,9 @@
 Yii::import('zii.widgets.CListView');
 
 /**
- * Bootstrap Zii list view.
+ * booster Zii list view.
  *
- * @package bootstrap.widgets.grouping
+ * @package booster.widgets.grouping
  */
 class TbListView extends CListView {
 	
@@ -23,9 +23,9 @@ class TbListView extends CListView {
 
 	/**
 	 * @var array the configuration for the pager.
-	 * Defaults to <code>array('class'=>'ext.bootstrap.widgets.TbPager')</code>.
+	 * Defaults to <code>array('class'=>'ext.booster.widgets.TbPager')</code>.
 	 */
-	public $pager = array('class' => 'bootstrap.widgets.TbPager');
+	public $pager = array('class' => 'booster.widgets.TbPager');
 
 	/**
 	 * @var string the URL of the CSS file used by this detail view.

@@ -8,17 +8,17 @@
  * @since 0.9.10
  * 
  * @author Amr Bedair <amr.bedair@gmail.com>
- * @since v4.0.0 - upgraded to bootstrap 3.1.1
+ * @since v4.0.0 - upgraded to booster 3.1.1
  */
 
-Yii::import('bootstrap.widgets.TbButton');
+Yii::import('booster.widgets.TbButton');
 
 /**
- *## Bootstrap button group widget.
+ *## booster button group widget.
  *
- * @see <http://twitter.github.com/bootstrap/components.html#buttonGroups>
+ * @see <http://twitter.github.com/booster/components.html#buttonGroups>
  *
- * @package bootstrap.widgets.forms.buttons
+ * @package booster.widgets.forms.buttons
  */
 class TbButtonGroup extends CWidget {
 	
@@ -146,7 +146,7 @@ class TbButtonGroup extends CWidget {
 				echo '<div class="btn-group">';
 			
 			$this->controller->widget(
-				'bootstrap.widgets.TbButton',
+				'booster.widgets.TbButton',
 				array(
 					'buttonType' => isset($button['buttonType']) ? $button['buttonType'] : $this->buttonType,
 					'context' => isset($button['context']) ? $button['context'] : $this->context,

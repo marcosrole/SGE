@@ -7,12 +7,12 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
 
-Yii::import('bootstrap.widgets.TbCollapse');
+Yii::import('booster.widgets.TbCollapse');
 
 /**
- *## Bootstrap navigation bar widget.
+ *## booster navigation bar widget.
  *
- * @package bootstrap.widgets.navigation
+ * @package booster.widgets.navigation
  * @since 0.9.7
  */
 class TbNavbar extends CWidget {
@@ -137,7 +137,7 @@ class TbNavbar extends CWidget {
 		
 		echo '<div class="navbar-header">';
 		if($this->collapse) {
-			$this->controller->widget('bootstrap.widgets.TbButton', array(
+			$this->controller->widget('booster.widgets.TbButton', array(
 				'label' => '<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>',
 				'encodeLabel' => false,
 				'htmlOptions' => array(

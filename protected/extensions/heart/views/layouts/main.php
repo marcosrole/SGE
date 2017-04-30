@@ -52,31 +52,35 @@ require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
 $actionNoShow = array('login','enviarMailActivacion', 'activarUsuario');
 $controllerNoShow = array('site');
 if( !(in_array($currController, $controllerNoShow) && in_array($currAction, $actionNoShow))){   
-    $this->widget('bootstrap.widgets.TbNavbar', array(
+    $this->widget('booster.widgets.TbNavbar', array(
             'type'=>null, // null or 'inverse'
-            'brand'=>'Inicio',
-            'brandUrl'=>'#',
+            'brand'=>'Sistema de Gestión del Estudiante',
+            'brandUrl'=>'',
             'collapse'=>true, // requires bootstrap-responsive.css
             'fixed' => false,
-            'fluid' => true,
+            'fluid' => false,
             'items'=>array(
                     array(
-                            'class'=> 'bootstrap.widgets.TbMenu',
+                            'class'=> 'booster.widgets.TbMenu',
+                            'type' => 'navbar',
                             'items'=> $menu,				
                     ),
-                    array(
-                            'class'=>'bootstrap.widgets.TbMenu',
-                            'htmlOptions'=>array('class'=>'pull-right'),
-                            'items'=>array(
-                                    array('label'=>'Iniciar Sesión', 'url'=>array('/site/login'), 'icon'=>'unlock', 'visible'=>Yii::app()->user->isGuest),
-                                    //'---',
-                                    array('label'=>'', 'url'=>'#', 'icon'=>'user', 'itemOptions' => array('class' => 'user'), 'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
-                                            array('label'=>'Ver perfil', 'url'=>array('site/logout'), 'icon'=>'icon-attach',),
-                                            array('label'=>'Cerrar sesión ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'icon'=>'icon-off',),
+               
+            array(
+                'class' => 'booster.widgets.TbMenu',
+                'type' => 'navbar',
+                'htmlOptions' => array('class' => 'pull-right'),
+                'items' => array(
+                    array('label'=>'Iniciar Sesión', 'url'=>array('/site/login'), 'icon'=>'unlock', 'visible'=>Yii::app()->user->isGuest),
+                    array('label'=>Yii::app()->user->name, 'url'=>'#', 'icon'=>'user', 'itemOptions' => array('class' => 'user'), 'visible'=>!Yii::app()->user->isGuest, 'items'=>array(
+                                array('label'=>'Ver perfil', 'url'=>array('site/logout'), 'icon'=>'glyphicon glyphicon-list-alt',),
+                                array('label'=>'Cerrar sesión ('.Yii::app()->user->name.')', 'url'=>array('site/logout'), 'icon'=>'glyphicon glyphicon-off',),
 
-                                    )),
-                            ),
+                        )),
+                    array('label'=>'', 'url'=>array('site/logout'), 'icon'=>'glyphicon glyphicon-off',),
                     ),
+                    
+                ),
             ),
     ));
 }
@@ -85,7 +89,7 @@ if( !(in_array($currController, $controllerNoShow) && in_array($currAction, $act
 <div class="container" id="page">
 	<?php 
 	if(isset($this->breadcrumbs)){
-		$this->widget('bootstrap.widgets.TbBreadcrumbs', array(
+		$this->widget('booster.widgets.TbBreadcrumbs', array(
 		    'links'=>$this->breadcrumbs,
 		));
 	}	
@@ -93,8 +97,11 @@ if( !(in_array($currController, $controllerNoShow) && in_array($currAction, $act
 	<?php echo $content; ?>
 	<div class="clearfix"></div>
         
+<!--        <div class="text-center bottom" style="font-family: initial; font-size: small;">
+		Copyright &copy; <?php echo date('Y'); ?> by Marcos Rolé. <a href="mailto:smarcosrole@gmail.com?Subject=SGE" target="_top">marcosrole@gmail.com</a><br/>
+	</div> footer -->
+        
 </div><!-- page -->
-
 
 </body>
     

@@ -8,10 +8,10 @@
 /**
  *## TbImageGallery widget
  *
- * Implementation of Bootstrap Image Gallery
- * @link https://github.com/blueimp/Bootstrap-Image-Gallery/
+ * Implementation of booster Image Gallery
+ * @link https://github.com/blueimp/booster-Image-Gallery/
  *
- * @package bootstrap.widgets.grouping
+ * @package booster.widgets.grouping
  */
 class TbImageGallery extends CWidget
 {
@@ -27,13 +27,13 @@ class TbImageGallery extends CWidget
 
 	/**
 	 * @var bool enable/disable Modal Gallery event listener
-	 * @see https://github.com/blueimp/Bootstrap-Image-Gallery/blob/master/README.md#deinitialize-the-click-event-listener
+	 * @see https://github.com/blueimp/booster-Image-Gallery/blob/master/README.md#deinitialize-the-click-event-listener
 	 */
 	public $eventListener = true;
 
 	/**
 	 * @var array htmlOptions for gallery div
-	 * @see https://github.com/blueimp/Bootstrap-Image-Gallery/blob/master/README.md#api
+	 * @see https://github.com/blueimp/booster-Image-Gallery/blob/master/README.md#api
 	 */
 	public $htmlOptions = array();
 
@@ -46,9 +46,9 @@ class TbImageGallery extends CWidget
 	public function init()
 	{
         $booster = Booster::getBooster();
-        $booster->registerAssetCss('bootstrap-image-gallery' . (!YII_DEBUG ? '.min' : '') . '.css');
+        $booster->registerAssetCss('booster-image-gallery' . (!YII_DEBUG ? '.min' : '') . '.css');
         $booster->registerAssetJs('fileupload/load-image.min.js');
-        $booster->registerAssetJs('bootstrap-image-gallery' . (!YII_DEBUG ? '.min' : '') . '.js');
+        $booster->registerAssetJs('booster-image-gallery' . (!YII_DEBUG ? '.min' : '') . '.js');
 		if ($this->fullScreen) {
 			Yii::app()->clientScript->registerScript(
 				$this->id,

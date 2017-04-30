@@ -7,8 +7,8 @@
 
 /**
  *## Class TbToggleButton
- * @see <http://www.bootstrap-switch.org/>
- * @package bootstrap.widgets.forms.buttons
+ * @see <http://www.booster-switch.org/>
+ * @package booster.widgets.forms.buttons
  * 
  */
 class TbSwitch extends CInputWidget {
@@ -37,7 +37,7 @@ class TbSwitch extends CInputWidget {
 	
 	/**
 	 * js widget options
-	 * @see <http://www.bootstrap-switch.org/> options part
+	 * @see <http://www.booster-switch.org/> options part
 	 * @var array to contain the widget js options
 	 */
 	public $options = array();
@@ -75,9 +75,9 @@ class TbSwitch extends CInputWidget {
 		$config = CJavaScript::encode($this->options);
 		
 		ob_start();
-		echo "$('#$id').bootstrapSwitch({$config})";
+		echo "$('#$id').boosterSwitch({$config})";
 		foreach ($this->events as $event => $handler) {
-			$event = $event.'.bootstrapSwitch';
+			$event = $event.'.boosterSwitch';
 			if (!$handler instanceof CJavaScriptExpression && strpos($handler, 'js:') === 0)
 				$handler = new CJavaScriptExpression($handler);
 			echo ".on('{$event}', " . $handler . ")";

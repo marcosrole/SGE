@@ -6,12 +6,12 @@
  * @copyright
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
-Yii::import('bootstrap.widgets.TbBaseInputWidget');
+Yii::import('booster.widgets.TbBaseInputWidget');
 /**
- * Bootstrap DateTimePicker widget
- * @see http://www.malot.fr/bootstrap-datetimepicker/
+ * booster DateTimePicker widget
+ * @see http://www.malot.fr/booster-datetimepicker/
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 class TbDateTimePicker extends TbBaseInputWidget {
 	
@@ -23,7 +23,7 @@ class TbDateTimePicker extends TbBaseInputWidget {
 	public $form;
 
 	/**
-	 * @var array the options for the Bootstrap JavaScript plugin.
+	 * @var array the options for the booster JavaScript plugin.
 	 */
 	public $options = array();
 
@@ -87,7 +87,7 @@ class TbDateTimePicker extends TbBaseInputWidget {
 	/**
 	 *### .registerClientScript()
 	 *
-	 * Registers required client script for bootstrap datepicker. It is not used through bootstrap->registerPlugin
+	 * Registers required client script for booster datepicker. It is not used through booster->registerPlugin
 	 * in order to attach events if any
 	 */
 	public function registerClientScript() {
@@ -98,14 +98,14 @@ class TbDateTimePicker extends TbBaseInputWidget {
 	public function registerLanguageScript() {
 		
 		if (isset($this->options['language']) && $this->options['language'] != 'en') {
-			$file = 'locales/bootstrap-datetimepicker.' . $this->options['language'] . '.js';
+			$file = 'locales/booster-datetimepicker.' . $this->options['language'] . '.js';
             $booster = Booster::getBooster();
-			if (@file_exists(Yii::getPathOfAlias('booster.assets.bootstrap-datetimepicker') . '/js/' . $file)) {
+			if (@file_exists(Yii::getPathOfAlias('booster.assets.booster-datetimepicker') . '/js/' . $file)) {
 				if ($booster->enableCdn) {
 					// Not in CDN yet
-                    $booster->registerAssetJs('../bootstrap-datetimepicker/' . '/js/' . $file);
+                    $booster->registerAssetJs('../booster-datetimepicker/' . '/js/' . $file);
 				} else {
-                    $booster->registerAssetJs('../bootstrap-datetimepicker/' . '/js/' . $file);
+                    $booster->registerAssetJs('../booster-datetimepicker/' . '/js/' . $file);
 				}
 			}
 		}

@@ -7,7 +7,7 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 
-Yii::import('bootstrap.widgets.TbDataColumn');
+Yii::import('booster.widgets.TbDataColumn');
 
 /**
  *## Class TbPickerColumn
@@ -15,24 +15,24 @@ Yii::import('bootstrap.widgets.TbDataColumn');
  * The TbPickerColumn works with TbJsonGridView and allows you to create a column that will display a picker element
  * The picker is a special plugin that renders a dropdown on click, which contents can be dynamically updated.
  *
- * @see <http://getbootstrap.com/javascript/#popovers>
+ * @see <http://getbooster.com/javascript/#popovers>
  * 
  * @todo
  * Known Issues:
  * - setting the content to a "js:finction(){ return 'Some Content!'; }" is not working
  * -
  * 
- * @package bootstrap.widgets.grids.columns
+ * @package booster.widgets.grids.columns
  */
 class TbPopoverColumn extends TbDataColumn {
 	
 	/**
-	 * @var array $pickerOptions the javascript options for the picker bootstrap plugin. The picker bootstrap plugin
+	 * @var array $pickerOptions the javascript options for the picker booster plugin. The picker booster plugin
 	 * extends from the tooltip plugin.
 	 *
 	 * Note that picker has also a 'width' just in case we display AJAX'ed content.
 	 *
-	 * @see http://getbootstrap.com/javascript/#popovers
+	 * @see http://getbooster.com/javascript/#popovers
 	 */
 	public $options = array();
 

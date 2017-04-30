@@ -10,15 +10,15 @@
  */
 
 /**
- *## Bootstrap collapse widget.
- * @see <http://twitter.github.com/bootstrap/javascript.html#collapse>
+ *## booster collapse widget.
+ * @see <http://twitter.github.com/booster/javascript.html#collapse>
  *
- * @package bootstrap.widgets.grouping
+ * @package booster.widgets.grouping
  * @todo is this really a widget!?
  */
 class TbCollapse extends CWidget {
 	
-	const CONTAINER_PREFIX = 'yii_bootstrap_collapse_';
+	const CONTAINER_PREFIX = 'yii_booster_collapse_';
 
 	/**
 	 * @var string the name of the collapse element. Defaults to 'div'.
@@ -36,7 +36,7 @@ class TbCollapse extends CWidget {
 	public $toggle = true;
 
 	/**
-	 * @var array the options for the Bootstrap Javascript plugin.
+	 * @var array the options for the booster Javascript plugin.
 	 */
 	public $options = array();
 

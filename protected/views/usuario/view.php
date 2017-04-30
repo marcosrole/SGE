@@ -18,13 +18,13 @@ $menu2=array(
 if(!isset($_GET['asModal'])){
 ?>
 <?php $box = $this->beginWidget(
-    'bootstrap.widgets.TbBox',
+    'booster.widgets.TbPanel',
     array(
         'title' => 'View Usuarios #'.$model->id,
         'headerIcon' => 'icon- fa fa-eye',
         'headerButtons' => array(
             array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
+                'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'buttons' => $menu2
@@ -36,7 +36,7 @@ if(!isset($_GET['asModal'])){
 }
 ?>
 
-		<?php $this->widget('bootstrap.widgets.TbAlert', array(
+		<?php $this->widget('booster.widgets.TbAlert', array(
 		    'block'=>false, // display a larger alert block?
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
@@ -49,7 +49,7 @@ if(!isset($_GET['asModal'])){
 		    ),
 		));
 		?>		
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
+<?php $this->widget('booster.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
 		'nombre',

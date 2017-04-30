@@ -4,13 +4,13 @@
  * @author Konstantin Popov <popovconstantine@gmail.com>
  * @copyright  Copyright &copy; Konstantin Popov 2013-
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php) 
- * @package bootstrap.widgets
+ * @package booster.widgets
  */
 
-Yii::import('bootstrap.widgets.TbToggleColumn');
+Yii::import('booster.widgets.TbToggleColumn');
 
 /**
- * Bootstrap toggle button column widget.
+ * booster toggle button column widget.
  * Used to set buttons to use Glyphicons instead of the defaults images.
  */
 class TbJsonToggleColumn extends TbToggleColumn

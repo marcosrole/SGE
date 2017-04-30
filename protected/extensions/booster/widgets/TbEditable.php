@@ -357,7 +357,7 @@ class TbEditable extends CWidget
                 //if date comes as object OR timestamp, format it to string
                 if($this->value instanceOf DateTime || is_long($this->value) || (is_string($this->value) && ctype_digit($this->value))) {
                     /*
-                    * unfortunatly bootstrap datepicker's format does not match 
+                    * unfortunatly booster datepicker's format does not match 
                     * Yii locale dateFormat, we need replacements below to convert 
                     * date correctly.
                     * 
@@ -365,10 +365,10 @@ class TbEditable extends CWidget
                     * http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns
                     * 
                     * Datepicker format: 
-                    * https://github.com/eternicode/bootstrap-datepicker#format
+                    * https://github.com/eternicode/booster-datepicker#format
                     * 
                     * Datetimepicker format: 
-                    * https://github.com/smalot/bootstrap-datetimepicker#format 
+                    * https://github.com/smalot/booster-datetimepicker#format 
                     */
                     //months: M --> MMM, m --> M
                     $count = 0;
@@ -537,7 +537,7 @@ class TbEditable extends CWidget
             /** @var $widget TbDatePicker */
             $widget = Yii::app()->widgetFactory->createWidget(
                 $this->getOwner(),
-                'bootstrap.widgets.TbDatePicker',
+                'booster.widgets.TbDatePicker',
                 array('options' => isset($this->options['datepicker']) ? $this->options['datepicker'] : array())
             );
             $widget->registerLanguageScript();
@@ -547,7 +547,7 @@ class TbEditable extends CWidget
             /** @var $widget TbDateTimePicker */
             $widget = Yii::app()->widgetFactory->createWidget(
                 $this->getOwner(),
-                'bootstrap.widgets.TbDateTimePicker',
+                'booster.widgets.TbDateTimePicker',
                 array('options' => $this->options['datetimepicker'])
             );
             $widget->registerLanguageScript();
@@ -569,18 +569,18 @@ class TbEditable extends CWidget
         $form = yii::app()->editable->form;
         $mode = $this->mode ? $this->mode : yii::app()->editable->defaults['mode'];
 
-        // bootstrap
-        if($form === EditableConfig::FORM_BOOTSTRAP) {
-            if (($bootstrap = yii::app()->getComponent('bootstrap'))) {
-                $bootstrap->registerCoreCss();
-                $bootstrap->registerCoreScripts();
+        // booster
+        if($form === EditableConfig::FORM_booster) {
+            if (($booster = yii::app()->getComponent('booster'))) {
+                $booster->registerCoreCss();
+                $booster->registerCoreScripts();
             } else {
-                throw new CException('You need to setup Yii-bootstrap extension first.');
+                throw new CException('You need to setup Yii-booster extension first.');
             }
 
-            $assetsUrl = $am->publish(Yii::getPathOfAlias('editable.assets.bootstrap-editable'));
-            $js = 'bootstrap-editable.js';
-            $css = 'bootstrap-editable.css';
+            $assetsUrl = $am->publish(Yii::getPathOfAlias('editable.assets.booster-editable'));
+            $js = 'booster-editable.js';
+            $css = 'booster-editable.css';
         // jqueryui
         } elseif($form === EditableConfig::FORM_JQUERYUI) {
             if($mode === EditableConfig::POPUP && Yii::getVersion() < '1.1.13' ) {
@@ -629,10 +629,10 @@ class TbEditable extends CWidget
             $cs->registerCssFile($select2Url.'/select2.css');        
         }  
         
-        //include bootstrap-datetimepicker
+        //include booster-datetimepicker
         if($this->type == 'datetime') {
-            $url = $am->publish(Yii::getPathOfAlias('editable.assets.bootstrap-datetimepicker'));
-            $cs->registerScriptFile($url.'/js/bootstrap-datetimepicker.js');  
+            $url = $am->publish(Yii::getPathOfAlias('editable.assets.booster-datetimepicker'));
+            $cs->registerScriptFile($url.'/js/booster-datetimepicker.js');  
             $cs->registerCssFile($url.'/css/datetimepicker.css');        
         }               
         
@@ -642,7 +642,7 @@ class TbEditable extends CWidget
         if ($this->type == 'date' && $this->language && substr($this->language, 0, 2) != 'en') {
              //todo: check compare dp locale name with yii's
              $localesUrl = Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('ext.editable.assets.js.locales'));
-             Yii::app()->clientScript->registerScriptFile($localesUrl . '/bootstrap-datepicker.'. str_replace('_', '-', $this->language).'.js', CClientScript::POS_END);
+             Yii::app()->clientScript->registerScriptFile($localesUrl . '/booster-datepicker.'. str_replace('_', '-', $this->language).'.js', CClientScript::POS_END);
         }
         */
     }

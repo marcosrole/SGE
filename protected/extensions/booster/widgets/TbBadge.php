@@ -6,13 +6,13 @@
  * @copyright  Copyright &copy; Christoffer Niska 2011-
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
-Yii::import('bootstrap.widgets.TbWidget');
+Yii::import('booster.widgets.TbWidget');
 /**
- *## Bootstrap badge widget.
+ *## booster badge widget.
  *
- * @see <http://twitter.github.com/bootstrap/components.html#badges>
+ * @see <http://twitter.github.com/booster/components.html#badges>
  *
- * @package bootstrap.widgets.decoration
+ * @package booster.widgets.decoration
  */
 class TbBadge extends TbWidget {
 	

@@ -9,7 +9,7 @@ if(!Yii::app()->user->isGuest){
     $menu=
 	array(
 		array('label'=>'Inicio', 'url'=>array('/site/index'), 'icon'=>'home','active'=>($currController=='site' and $currAction=='index' )),
-                array('label'=>'Usuarios', 'url'=>array('/usuario/admin'), 'icon'=>'icon-list','active'=>($currController=='usuario' and $currAction=='admin' ), 'visible'=>in_array("admin", Yii::app()->user->getState('rol'))),
+                array('label'=>'Usuarios', 'url'=>array('/usuario/admin'), 'icon'=>'glyphicon glyphicon-user','active'=>($currController=='usuario' and $currAction=='admin' ), 'visible'=>in_array("admin", Yii::app()->user->getState('rol'))),
 		array('label'=>'Admin', 'url'=>'#', 'icon'=>'', 'visible'=>!Yii::app()->user->isGuest, 'active'=> false ,'items'=>array(
 			array('label'=>'Generator Code', 'url'=>array('/gii/heart'), 'icon'=>'fa fa-refresh fa-fw', 'visible'=>!Yii::app()->user->isGuest),
 			//'---',

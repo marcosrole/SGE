@@ -10,10 +10,10 @@
 /**
  *## TbTags class
  *
- * Encapsulates the Bootstrap Tags plugin by Maxwells
- * @see <https://github.com/maxwells/bootstrap-tags>
+ * Encapsulates the booster Tags plugin by Maxwells
+ * @see <https://github.com/maxwells/booster-tags>
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 class TbTags extends CInputWidget {
 	
@@ -43,7 +43,7 @@ class TbTags extends CInputWidget {
 	 *    // ...
 	 * </pre>
 	 *
-	 * @see <https://github.com/maxwells/bootstrap-tags#overrideable-functions>
+	 * @see <https://github.com/maxwells/booster-tags#overrideable-functions>
 	 *
 	 */
 
@@ -182,8 +182,8 @@ class TbTags extends CInputWidget {
 	/**
 	 *### .registerClientScript()
 	 *
-	 * Registers required client script for bootstrap select2.
-	 * It is not used through bootstrap->registerPlugin
+	 * Registers required client script for booster select2.
+	 * It is not used through booster->registerPlugin
 	 * in order to attach events if any
 	 *
 	 * @param string $id
@@ -191,7 +191,7 @@ class TbTags extends CInputWidget {
 	public function registerClientScript($id) {
 		
         $booster = Booster::getBooster();
-        $booster->registerPackage('bootstrap-tags');
+        $booster->registerPackage('booster-tags');
 
 		$options = !empty($this->options) ? CJavaScript::encode($this->options) : '';
 

@@ -8,12 +8,12 @@
  */
 
 /**
- *## Bootstrap modal master widget.
+ *## booster modal master widget.
  *
- * @see https://github.com/jschr/bootstrap-modal/
+ * @see https://github.com/jschr/booster-modal/
  *
  * @since 0.9.3
- * @package bootstrap.widgets.modals
+ * @package booster.widgets.modals
  */
 class TbModalManager extends CWidget
 {
@@ -28,7 +28,7 @@ class TbModalManager extends CWidget
 	public $fade = true;
 
 	/**
-	 * @var array the options for the Bootstrap Javascript plugin.
+	 * @var array the options for the booster Javascript plugin.
 	 */
 	public $options = array();
 
@@ -89,8 +89,8 @@ class TbModalManager extends CWidget
 	public function registerClientScript($id)
 	{
         $booster = Booster::getBooster();
-        $booster->registerAssetJs('bootstrap-modalmanager.js', CClientScript::POS_HEAD);
-        $booster->registerAssetCss('bootstrap-modalmanager.css');
+        $booster->registerAssetJs('booster-modalmanager.js', CClientScript::POS_HEAD);
+        $booster->registerAssetCss('booster-modalmanager.css');
 
 		$options = !empty($this->format) ? CJavaScript::encode(array('format' => $this->format)) : '';
 

@@ -18,7 +18,7 @@ Yii::import('zii.widgets.jui.CJuiInputWidget');
  *
  * Modified version from the great implementation of XUpload Yii Extension
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 class TbFileUpload extends CJuiInputWidget
 {
@@ -72,7 +72,7 @@ class TbFileUpload extends CJuiInputWidget
 	public $downloadView = 'booster.views.fileupload.download';
 
 	/**
-	 * @var string name of the view to display images at bootstrap-slideshow
+	 * @var string name of the view to display images at booster-slideshow
 	 */
 	public $previewImagesView = 'booster.views.gallery.preview';
 
@@ -164,8 +164,8 @@ class TbFileUpload extends CJuiInputWidget
             $booster->registerAssetJs("fileupload/load-image.min.js", CClientScript::POS_END);
             $booster->registerAssetJs("fileupload/canvas-to-blob.min.js", CClientScript::POS_END);
 			// gallery :) and one smile from me ;)
-            $booster->registerAssetCss("bootstrap-image-gallery.min.css");
-            $booster->registerAssetJs("bootstrap-image-gallery.min.js", CClientScript::POS_END);
+            $booster->registerAssetCss("booster-image-gallery.min.css");
+            $booster->registerAssetJs("booster-image-gallery.min.js", CClientScript::POS_END);
 		}
 		//The Iframe Transport is required for browsers without support for XHR file uploads
         $booster->registerAssetJs('fileupload/jquery.iframe-transport.js');

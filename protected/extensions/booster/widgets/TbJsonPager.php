@@ -7,14 +7,14 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php) 
  */
 
-Yii::import('bootstrap.widgets.TbPager');
+Yii::import('booster.widgets.TbPager');
 
 /**
  *## Class TbJsonPager
  *
  * Use this specific pager for JSON grid, not the standard one!
  *
- * @package bootstrap.widgets.supplementary
+ * @package booster.widgets.supplementary
  */
 class TbJsonPager extends TbPager
 {

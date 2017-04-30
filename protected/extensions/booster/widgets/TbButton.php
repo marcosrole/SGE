@@ -8,15 +8,15 @@
  * @since 0.9.10
  * 
  * @author Amr Bedair <amr.bedair@gmail.com>
- * @since v4.0.0 - upgraded to bootstrap 3.1.1
+ * @since v4.0.0 - upgraded to booster 3.1.1
  */
-Yii::import('bootstrap.widgets.TbWidget');
+Yii::import('booster.widgets.TbWidget');
 /**
- * Bootstrap button widget.
+ * booster button widget.
  *
- * @see http://getbootstrap.com/css/#buttons
+ * @see http://getbooster.com/css/#buttons
  *
- * @package bootstrap.widgets.forms.buttons
+ * @package booster.widgets.forms.buttons
  */
 class TbButton extends TbWidget {
 	
@@ -272,7 +272,7 @@ class TbButton extends TbWidget {
 
             /**
              * Encode delay option
-             * @link http://getbootstrap.com/2.3.2/javascript.html#tooltips
+             * @link http://getbooster.com/2.3.2/javascript.html#tooltips
              */
             if (isset($this->htmlOptions['data-delay']) && is_array($this->htmlOptions['data-delay'])) {
                 $this->htmlOptions['data-delay'] = CJSON::encode($this->htmlOptions['data-delay']);
@@ -295,7 +295,7 @@ class TbButton extends TbWidget {
 			echo $this->createButton();
 		
 			$this->controller->widget(
-				'bootstrap.widgets.TbDropdown',
+				'booster.widgets.TbDropdown',
 				array(
 					'encodeLabel' => $this->encodeLabel,
 					'items' => $this->items,

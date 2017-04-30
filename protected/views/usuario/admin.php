@@ -1,3 +1,10 @@
+<?php
+    Yii::app()->clientScript->registerScript(
+       'myHideEffect',
+       '$(".alert-success").animate({opacity: 1.0}, 2000).fadeOut("slow");',
+       CClientScript::POS_READY
+    );
+?>
 <style>
     .usuario_bloqueado{
         color: red;
@@ -22,29 +29,28 @@ $this->menu=array(
 ?>
 
 <?php $box = $this->beginWidget(
-    'bootstrap.widgets.TbBox',
+    'booster.widgets.TbPanel',
     array(
         'title' => 'Usuarios',
         'headerIcon' => 'icon- fa fa-tasks',
         'headerButtons' => array(
             array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
-                'type' => 'success',
+                'class' => 'booster.widgets.TbButtonGroup',
+                'context' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'buttons' => $this->menu
             ),
         ) 
     )
-);?>		<?php $this->widget('bootstrap.widgets.TbAlert', array(
-		    'block'=>false, // display a larger alert block?
+);?>		<?php $this->widget('booster.widgets.TbAlert', array(
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
 		    'alerts'=>array( // configurations per alert type
-		        'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'success'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'info'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'warning'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'error'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'danger'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
 		    ),
 		));
 		?>
@@ -52,7 +58,6 @@ $this->menu=array(
 
 
 <?php echo CHtml::beginForm(array('export')); ?>
-
  <div style="float:left;padding:12px">
     <select name="fileType" style="width:150px;">
             <option value="Excel5">EXCEL 5 (xls)</option>
@@ -64,11 +69,12 @@ $this->menu=array(
 </div>
 <div style="float:left;padding-top:15px">
   <?php 
-      $this->widget('bootstrap.widgets.TbButton', array(
-              'buttonType'=>'submit', 'icon'=>'print','label'=>'', 'type'=> 'default'));
+      $this->widget('booster.widgets.TbButton', array(
+              'buttonType'=>'submit', 'icon'=>'print','label'=>'', 'context'=> 'default'));
       ?>
 </div>
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+
+<?php $this->widget('booster.widgets.TbGridView',array(
 	'id'=>'usuario-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -87,55 +93,27 @@ $this->menu=array(
                 'name'=> 'apellido',
                 'type'=>'raw',
                 'value' => '($data->apellido)',
-                'class' => 'bootstrap.widgets.TbEditableColumn',
-                'headerHtmlOptions' => array('style' => 'text-align:center'),
-                            'editable' => array(
-                                    'type'    => 'textarea',
-                                    'url'     => $this->createUrl('editable'),
-                                    'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-                            )
-		    ),
+                    ),
+            
 		array(
                 'header' => 'Nombre',
                 'name'=> 'nombre',
                 'type'=>'raw',
                 'value' => '($data->nombre)',
-                'class' => 'bootstrap.widgets.TbEditableColumn',
-                'headerHtmlOptions' => array('style' => 'text-align:center'),
-                            'editable' => array(
-                                    'type'    => 'textarea',
-                                    'url'     => $this->createUrl('editable'),
-                                    'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-                            )
 		    ),
             
                 array(
                 'header' => 'DNI',
                 'name'=> 'dni',
                 'type'=>'raw',
-                'value' => '($data->dni)',
-                'class' => 'bootstrap.widgets.TbEditableColumn',
-                'headerHtmlOptions' => array('style' => 'width: 100px; text-align:center'),
-                            'editable' => array(
-                                    'type'    => 'textarea',
-                                    'url'     => $this->createUrl('editable'),
-                                    'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-                            )
+                'value' => '($data->dni)',                
 		    ),
 			
                 array(
                 'header' => 'Email',
                 'name'=> 'email',
                 'type'=>'raw',
-                'value'=>'$data->email=="null@null.com" ? "Esperando habiltación" : $data->email',     
-                'class' => 'bootstrap.widgets.TbEditableColumn',
-                'headerHtmlOptions' => array(
-                            'style' => 'text-align:center'),
-                            'editable' => array(
-                                    'type'    => 'textarea',
-                                    'url'     => $this->createUrl('editable'),
-                                    'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-                            )
+                'value'=>'$data->email=="null@null.com" ? "Esperando habiltación" : $data->email',                   
 		    ),
 			
                 array(
@@ -144,34 +122,31 @@ $this->menu=array(
                 'type'=>'raw',                
                 'value' => '($data->estado)',
 		    ),				
-
-//                array(
-//                'header' => 'Último acceso ',
-//                'name'=> 'last_login',
-//                'type'=>'raw',                    
-//                'value' => '($data->last_login=="") ? "" : Yii::app()->dateFormatter->format("dd/MM/yyyy HH:mm:ss",strtotime($data->last_login))',
-//                ),		
+		
 	    array(
-                'class' => 'bootstrap.widgets.TbButtonColumn',
-                   // 'htmlOptions' => array('width' => '10'), //ancho de la columna
-                    'template' => '{view} {bloquear} {desbloquear}', // botones a mostrar
+                'class' => 'booster.widgets.TbButtonColumn',
+                    'template' => '{editar} {bloquear} {desbloquear}', // botones a mostrar
                     'buttons' => array(                        
                        'bloquear' => array(
                             'label' => 'Bloquear',
                             'visible'=> '($data->estado=="DESHABILITADO" || $data->estado=="ACTIVO") ? true : false',     
-                            'icon'=>'icon-lock',
+                            'icon'=>'glyphicon glyphicon-remove',
                              'click' => 'function(){return confirm("¿Desea Bloquear el usuario?");}',
-//                            'click' => 'function(){return confirm("Desea bloquear el usuario?");}',
                             'url'=> 'Yii::app()->createUrl("usuario/bloquear", array("id"=> ' . '$data["id"])) ',
                         ),
                         'desbloquear' => array(
                             'label' => 'Desbloquear',
-                            'icon'=>'icon-ok',
+                            'icon'=>'glyphicon glyphicon-ok',
                             'click' => 'function(){return confirm("Desea Desbloquear el usuario?");}',
                             'visible'=> '($data->estado=="BLOQUEADO") ? true : false',     
-//                            'click' => 'function(){return confirm("Desea bloquear el usuario?");}',
                             'url'=> 'Yii::app()->createUrl("usuario/bloquear", array("id"=> ' . '$data["id"])) ',
                         ),
+                        'editar' => array(
+                            'label' => 'Editar',
+                            'icon'=>'glyphicon glyphicon-pencil',    
+                            'url'=> 'Yii::app()->createUrl("usuario/update", array("id"=> ' . '$data["id"])) ',
+                        ),
+                        
                         'view' => array
                         (    
                                 'url' => '$data->id."|".$data->nombre',              
@@ -197,7 +172,7 @@ $this->menu=array(
 
 
 <?php  $this->beginWidget(
-    'bootstrap.widgets.TbModal',
+    'booster.widgets.TbModal',
     array('id' => 'myModal')
 ); ?>
  
@@ -212,7 +187,7 @@ $this->menu=array(
  
     <div class="modal-footer">
         <?php  $this->widget(
-            'bootstrap.widgets.TbButton',
+            'booster.widgets.TbButton',
             array(
                 'label' => 'Cerrar',
                 'url' => '#',

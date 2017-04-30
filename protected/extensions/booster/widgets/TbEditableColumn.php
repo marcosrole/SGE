@@ -8,8 +8,8 @@
  * @version 1.3.1
  */
 
-Yii::import('bootstrap.widgets.TbEditable');
-Yii::import('bootstrap.widgets.TbEditableField');
+Yii::import('booster.widgets.TbEditable');
+Yii::import('booster.widgets.TbEditableField');
 Yii::import('zii.widgets.grid.CDataColumn');
 
 /**
@@ -100,12 +100,12 @@ class TbEditableColumn extends CDataColumn
     }
     
     /*
-    Require this overwrite to show bootstrap sort icons
+    Require this overwrite to show booster sort icons
     */
     protected function renderHeaderCellContent()
     {
         /* TODO 
-         if(yii::app()->editable->form != 'bootstrap') {
+         if(yii::app()->editable->form != 'booster') {
             parent::renderHeaderCellContent();
             return;
         } */
@@ -135,12 +135,12 @@ class TbEditableColumn extends CDataColumn
     } 
     
     /*
-    Require this overwrite to show bootstrap filter field
+    Require this overwrite to show booster filter field
     */    
     public function renderFilterCell()
     {
         /* TODO
-        if(yii::app()->editable->form != 'bootstrap') {
+        if(yii::app()->editable->form != 'booster') {
             parent::renderFilterCell();
             return;
         } */

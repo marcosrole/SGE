@@ -5,17 +5,17 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
-Yii::setPathOfAlias('bootstrap', dirname(__FILE__) . DIRECTORY_SEPARATOR . '../extensions/booster');
+Yii::setPathOfAlias('booster', dirname(__FILE__) . DIRECTORY_SEPARATOR . '../extensions/booster');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'language'=>'es',
-	'sourceLanguage'=>'en',
+	'sourceLanguage'=>'es',
         'defaultController' => 'site/login', 
 	'name'=>'Sistema de Gestión del Estudiante',
 
 	
 	// preloading 'log' component
-	'preload'=>array('log', 'bootstrap'),
+	'preload'=>array('log', 'booster'),
 	'theme'=>'heart',
 
 	// autoloading model and component classes
@@ -96,7 +96,7 @@ return array(
 			),
 		),		
 		'booster'=>array(
-			'class'=>'booster.components.Bootstrap',
+			'class'=>'booster.components.Booster',
 			'responsiveCss' => true,
 			//'fontAwesomeCss'=>true,
 			//'minify'=>true,

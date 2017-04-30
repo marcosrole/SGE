@@ -33,13 +33,13 @@ Yii::app()->clientScript->registerScript('refreshGridView', "
 ?>
 
 <?php $box = $this->beginWidget(
-    'bootstrap.widgets.TbBox',
+    'booster.widgets.TbPanel',
     array(
         'title' => 'List Usuarios' ,
         'headerIcon' => 'icon- fa fa-list-ol',
         'headerButtons' => array(
             array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
+                'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'buttons' => $this->menu
@@ -47,11 +47,11 @@ Yii::app()->clientScript->registerScript('refreshGridView', "
         ) 
     )
 );?>
-<?php /** $this->widget('bootstrap.widgets.TbListView',array(
+<?php /** $this->widget('booster.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
 )); **/ ?>
-		<?php $this->widget('bootstrap.widgets.TbAlert', array(
+		<?php $this->widget('booster.widgets.TbAlert', array(
 		    'block'=>false, // display a larger alert block?
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
@@ -77,7 +77,7 @@ Yii::app()->clientScript->registerScript('refreshGridView', "
 </div><!-- search-form -->
 
 <?php echo CHtml::beginForm(array('export')); ?>
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+<?php $this->widget('booster.widgets.TbGridView',array(
 	'id'=>'usuario-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -141,7 +141,7 @@ Yii::app()->clientScript->registerScript('refreshGridView', "
 	    ),
 	    */
 		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
+			'class'=>'booster.widgets.TbButtonColumn',
 			'template'=>'{view}',
 			'buttons'=>array
             (
@@ -171,13 +171,13 @@ Yii::app()->clientScript->registerScript('refreshGridView', "
 <br>
 
 <?php 
-$this->widget('bootstrap.widgets.TbButton', array(
+$this->widget('booster.widgets.TbButton', array(
 	'buttonType'=>'submit', 'icon'=>'fa fa-print','label'=>'Export', 'type'=> 'primary'));
 ?>
 <?php echo CHtml::endForm(); ?>
 <?php $this->endWidget(); ?>
 <?php  $this->beginWidget(
-    'bootstrap.widgets.TbModal',
+    'booster.widgets.TbModal',
     array('id' => 'myModal')
 ); ?>
  
@@ -192,7 +192,7 @@ $this->widget('bootstrap.widgets.TbButton', array(
  
     <div class="modal-footer">
         <?php  $this->widget(
-            'bootstrap.widgets.TbButton',
+            'booster.widgets.TbButton',
             array(
                 'label' => 'Close',
                 'url' => '#',

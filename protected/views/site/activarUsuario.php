@@ -6,128 +6,171 @@
 </head>
 
 <body>
-    <?php $this->widget('bootstrap.widgets.TbAlert', array(
-        'block'=>false, // display a larger alert block?
+    <?php $this->widget('booster.widgets.TbAlert', array(
         'fade'=>true, // use transitions?
         'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
         'alerts'=>array( // configurations per alert type
-            'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-            'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-            'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-            'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-            'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'success'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'info'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'warning'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'error'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+            'danger'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
         ),
     ));
     ?>
-    
-    
-    <?php 
-
-$form = $this->beginWidget(
-            'bootstrap.widgets.TbActiveForm',
+     
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <?php $form = $this->beginWidget(
+            'booster.widgets.TbActiveForm',
             array(
                 'id' => 'verticalForm',
-                'htmlOptions' => array('class' => 'well'), // for inset effect
+//                'htmlOptions' => array('class' => 'well'), // for inset effect
             )
         );
          ?>
     
     <h3 class="text-info">Activación de usuario:</h3>
-    
+    <h3 class="text-info">DNI: <?php echo $model{'dni'}?> - <?php echo $model{'apellido'}?>, <?php echo $model{'nombre'}?> </h3>
+    <h4 class="text-info"><?php echo $model{'email'}?></h4>
     <?php echo $form->errorSummary($model); ?>
     
-                <div style="float:left;padding:10px">
-                    <?php echo $form->labelEx($model,'password'); ?>
-                    <?php echo $form->passwordField($model,'password',array('class'=>'span2','maxlength'=>20)); ?>
-                </div>
-                <div style="float:left;padding:10px">
-                    <?php echo $form->labelEx($model,'passwordAgain'); ?>
-                    <?php echo $form->passwordField($model,'passwordAgain',array('class'=>'span2','maxlength'=>20)); ?>
-                </div>
-                
-            <div class="clearfix"></div>
-                    
-                <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'dni',array('class'=>'span2','maxlength'=>20,'readonly' => true)); ?>
-                </div> 
-                <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'apellido',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
-                </div> 
-                <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'nombre',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
-                </div> 
-                <div style="float:left;padding:10px">
-                    <?php echo $form->labelEx($model,'sexo'); ?>
-                    <?php echo $form->dropDownList($model, 'sexo', array('MASCULINO'=>'Masculino', 'FEMENINO'=>'Femenino', 'OTRO'=>'Otro'), array('class'=>'span2','empty'=>array(NULL=>'-- Seleccione --'))); ?>                   
-                </div> 
-                                
-            <div class="clearfix"></div>
-            
-                
-                <div style="float:left;padding:10px">
-                    <?php echo $form->labelEx($model,'fecha_nacimiento'); ?>
-                    <?php  $this->widget('CMaskedTextField', array(
-                             'mask'=>'99/99/9999',
-                             'model'=>$model,
-                             'attribute'=>'fecha_nacimiento',
-                             )); ?>
-                </div>
-                
-                <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'domicilio',array('class'=>'span3','maxlength'=>20)); ?>
-                </div> 
-                <div style="float:left;padding:10px">
-                    <?php echo $form->labelEx($model,'id_provincia'); ?>
-                    <?php echo $form->dropDownList($model,'id_provincia', 
-                            CHtml::listData(Provincia::model()->findAll(),'id','provincia'),
-                           array(
-                               'options' => array('22'=>array('selected'=>true)),
-                               'class'=>'span2',
-                                'ajax'=>array(
-                                    'type'=>'POST',
-                                    'url'=>CController::createUrl('Usuario/SelectLocalidad'),
-                                    'update'=>'#' . CHtml::activeId($model, 'id_localidad')
-                                ),  'prompt'=>'-- Seleccione Provincia --'
-                            ));
-                            ?>                    
-                </div> 
-                <div style="float:left;padding:10px">
-                    <?php echo $form->labelEx($model,'id_localidad'); ?>
-                    <?php echo $form->dropDownList($model,'id_localidad', CHtml::listData(Localidad::model()->findAll(),'id','localidad'),
-                            array(
-                                'options' => array('2177'=>array('selected'=>true)),
-                                'class'=>'span2',
-                                'empty'=>array(NULL=>'-- Seleccione Localidad --'))); ?>                    
-                </div> 
-                
-            <div class="clearfix"></div>
-            
-                <div style="float:left;padding:10px">
-                    <?php echo $form->labelEx($model,'id_carrera'); ?>
-                    <?php echo $form->dropDownList($model,'id_carrera', CHtml::listData(Carrera::model()->findAll(),'id','fullname'),array('class'=>'span2','empty'=>array(NULL=>'-- Seleccione --'))); ?>                    
-                </div> 
-            
-                <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'celular',array('class'=>'span2','maxlength'=>20)); ?>
-                </div> 
-            
-                <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'email',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>                    
-                </div>
-            
-            <div class="clearfix"></div>
-            
-                
-                 
-                <div style="padding:10px">
-                    <?php $this->widget('bootstrap.widgets.TbButton', array(
-                                        'buttonType'=>'submit',
-                                        'type'=>'primary',
-                                        'label'=>'Activar',
-                                )); ?>
-                </div>
     
-                <?php $this->endWidget(); ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">Contraseña</div>
+        <div class="panel-body">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-lg-6">
+                    <?php echo $form->passwordFieldGroup($model,'password',array('maxlength'=>20)); ?>
+                </div>
+                <div class="col-lg-6">
+                    <?php echo $form->passwordFieldGroup($model,'passwordAgain',array('maxlength'=>20)); ?> 
+                </div>                  
+            </div>                    
+        </div>
+    </div>
+                
+    <div class="panel panel-default">
+        <div class="panel-heading">Datos personales</div>
+        <div class="panel-body">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-lg-4">
+                    <?php echo $form->datePickerGroup($model,'fecha_nacimiento',
+                           array(
+                                  'widgetOptions' => array(
+                                           'options' => array(
+                                                   'language' => Yii::app()->language,
+                                                   'format'=>'dd/mm/yyyy'
+                                           ),
+
+                                   ),                      
+                                   'hint' => ' ',
+                                   'prepend' => '<i class="glyphicon glyphicon-calendar"></i>'
+                           )
+                   ); ?>
+                </div>
+                <div class="col-lg-4">
+                    <?php echo $form->dropDownListGroup($model,	'sexo',
+                        array(
+                                'empty'=>'Seleccione sexo',
+                                'wrapperHtmlOptions' => array(
+                                ),
+                                'widgetOptions' => array(
+                                        'data' => array('MASCULINO'=>'Masculino', 'FEMENINO'=>'Femenino', 'OTRO'=>'Otro'),
+                                        'htmlOptions' => array(                                            
+                                        ),
+                                    ),
+                                )
+                        );
+                     ?>
+                </div>
+                <div class="col-lg-4">
+                    <?php echo $form->textFieldGroup($model,'celular',array('maxlength'=>20)); ?>
+                </div>
+            </div>
+            
+            <div class="col-lg-12">
+                <div class="col-lg-4">
+                    <?php echo $form->textFieldGroup($model,'domicilio',array('class'=>'span3','maxlength'=>20)); ?>
+                </div>
+                <div class="col-lg-4">
+                    <?php echo $form->dropDownListGroup($model,	'id_provincia',
+                                array(
+                                        'empty'=>'Seleccione una provincia',
+                                        'wrapperHtmlOptions' => array(
+                                                'class' => 'col-sm-5',
+                                        ),
+                                        'widgetOptions' => array(
+                                                'data' => CHtml::listData(Provincia::model()->findAll(),'id','provincia'),
+                                                'htmlOptions' => array(
+                                                    'options' => array('22'=>array('selected'=>true)),
+                                                    'ajax'=>array(
+                                                    'type'=>'POST',
+                                                    'url'=>CController::createUrl('Usuario/SelectLocalidad'),
+                                                    'update'=>'#' . CHtml::activeId($model, 'id_localidad')
+                                                ),
+                                            ),
+                                        )
+                                )
+                            ); ?>    
+                </div>
+                <div class="col-lg-4">
+                     <?php echo $form->dropDownListGroup($model,	'id_localidad',
+                                array(
+                                        'empty'=>'Seleccione una localidad',
+                                        'wrapperHtmlOptions' => array(
+                                                'class' => 'col-sm-5',
+                                        ),
+                                        'widgetOptions' => array(
+                                                'data' => CHtml::listData(Localidad::model()->findAll(),'id','localidad'),
+                                                'htmlOptions' => array(
+                                                    'options' => array('2177'=>array('selected'=>true)),                                            
+                                                ),
+                                            ),
+                                        )
+                                );
+                             ?>   
+                </div>
+            </div>   
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">Datos académicos</div>
+        <div class="panel-body">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-lg-12">
+                    <?php echo $form->dropDownListGroup($model,	'id_carrera',
+                        array(
+                                'empty'=>'Seleccione una carrera',
+                                'wrapperHtmlOptions' => array(
+                                        'class' => 'col-sm-5',
+                                ),
+                                'widgetOptions' => array(
+                                        'data' => CHtml::listData(Carrera::model()->findAll(),'id','fullname'),
+                                        'htmlOptions' => array(                                            
+                                        ),
+                                    ),
+                                )
+                        );
+                     ?>        
+                </div>                    
+            </div>              
+        </div>
+    </div>
+    
+               
+                 
+    <div style="float:right;padding:10px">
+        <?php $this->widget('booster.widgets.TbButton', array(
+                            'buttonType'=>'submit',
+                            'context'=>'primary',
+                            'label'=>'Activar',
+                    )); ?>
+    </div>
+    
+    <?php $this->endWidget(); ?>
+</div>
+    
             
     
 </body>

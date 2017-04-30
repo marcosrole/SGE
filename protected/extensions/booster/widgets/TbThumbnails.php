@@ -7,14 +7,14 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
 
-Yii::import('bootstrap.widgets.TbListView');
+Yii::import('booster.widgets.TbListView');
 
 /**
- *## Bootstrap thumbnails widget.
+ *## booster thumbnails widget.
  *
- * @see http://twitter.github.com/bootstrap/components.html#thumbnails
+ * @see http://twitter.github.com/booster/components.html#thumbnails
  *
- * @package bootstrap.widgets.grouping
+ * @package booster.widgets.grouping
  */
 class TbThumbnails extends TbListView {
 	

@@ -7,14 +7,14 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
 
-Yii::import('bootstrap.widgets.TbWidget');
+Yii::import('booster.widgets.TbWidget');
 
 /**
  * TbPanel widget.
  *
- *@see <http://getbootstrap.com/components/#panels>
+ *@see <http://getbooster.com/components/#panels>
  *
- * @package bootstrap.widgets.grouping
+ * @package booster.widgets.grouping
  */
 class TbPanel extends TbWidget {
 	
@@ -28,7 +28,7 @@ class TbPanel extends TbWidget {
 	/**
 	 * @var string
 	 * The class icon to display in the header title of the panel.
-	 * @see <http://twitter.github.com/bootstrap/base-css.html#icon>
+	 * @see <http://twitter.github.com/booster/base-css.html#icon>
 	 */
 	public $headerIcon;
 
@@ -65,13 +65,13 @@ class TbPanel extends TbWidget {
 	 * <pre>
 	 *     array(
 	 *        array(
-	 *          'class' => 'bootstrap.widgets.TbButton',
+	 *          'class' => 'booster.widgets.TbButton',
 	 *          'label' => '...',
 	 *          'size' => '...',
 	 *          ...
 	 *        ),
 	 *      array(
-	 *          'class' => 'bootstrap.widgets.TbButtonGroup',
+	 *          'class' => 'booster.widgets.TbButtonGroup',
 	 *          'buttons' => array( ... ),
 	 *          'size' => '...',
 	 *        ),
@@ -214,6 +214,6 @@ class TbPanel extends TbWidget {
 	 */
 	public function registerClientScript() {
 		
-		// Booster::getBooster()->registerAssetCss('bootstrap-panel.css');
+		// Booster::getBooster()->registerAssetCss('booster-panel.css');
 	}
 }

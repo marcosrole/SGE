@@ -7,14 +7,14 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
 
-Yii::import('bootstrap.widgets.TbMenu');
+Yii::import('booster.widgets.TbMenu');
 
 /**
- *## Bootstrap Javascript tabs widget.
+ *## booster Javascript tabs widget.
  *
- * @see <http://twitter.github.com/bootstrap/javascript.html#tabs>
+ * @see <http://twitter.github.com/booster/javascript.html#tabs>
  *
- * @package bootstrap.widgets.grouping
+ * @package booster.widgets.grouping
  */
 class TbTabs extends CWidget {
 	
@@ -28,7 +28,7 @@ class TbTabs extends CWidget {
 	 * @var string the type of tabs to display.
 	 *
 	 * Defaults to 'tabs'. Valid values are 'tabs' and 'pills'.
-	 * Please not that Javascript pills are not fully supported in Bootstrap yet!
+	 * Please not that Javascript pills are not fully supported in booster yet!
 	 * @see TbMenu::$type
 	 */
 	public $type = TbMenu::TYPE_TABS;
@@ -134,7 +134,7 @@ class TbTabs extends CWidget {
 
 		ob_start();
 		$this->controller->widget(
-			'bootstrap.widgets.TbMenu',
+			'booster.widgets.TbMenu',
 			array(
 				'stacked' => $this->stacked,
 				'justified' => $this->justified,

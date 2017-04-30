@@ -2,7 +2,7 @@
 <?php 
 
 $form = $this->beginWidget(
-    'bootstrap.widgets.TbActiveForm',
+    'booster.widgets.TbActiveForm',
     array(
         'id' => 'verticalForm',
 //        'htmlOptions' => array('class' => 'well'), // for inset effect
@@ -16,18 +16,18 @@ $form = $this->beginWidget(
 
                          
                 <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>
+                    <?php echo $form->textFieldGroup($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>
                 </div> 
                 <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'apellido',array('class'=>'span3','maxlength'=>20)); ?>
+                    <?php echo $form->textFieldGroup($model,'apellido',array('class'=>'span3','maxlength'=>20)); ?>
                 </div>                 
                 <div style="float:left;padding:10px">
-                     <?php echo $form->textFieldRow($model,'nombre',array('class'=>'span3','maxlength'=>20)); ?>
+                     <?php echo $form->textFieldGroup($model,'nombre',array('class'=>'span3','maxlength'=>20)); ?>
                 </div>
                 <div style="float:left;padding-top: 30px">
-                    <?php $this->widget('bootstrap.widgets.TbButton', array(
+                    <?php $this->widget('booster.widgets.TbButton', array(
                                         'buttonType'=>'submit',
-                                        'type'=>'primary',
+                                        'context'=>'primary',
                                         'label'=>$model->isNewRecord ? 'Guardar' : 'Guardar',
                                 )); ?>
                 </div>

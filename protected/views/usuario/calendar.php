@@ -27,13 +27,13 @@ Yii::app()->clientScript->registerScript('search', "
 ?>
 
 <?php  $box = $this->beginWidget(
-    'bootstrap.widgets.TbBox',
+    'booster.widgets.TbPanel',
     array(
         'title' => 'Calendar' ,
         'headerIcon' => 'icon- fa fa-calendar',
         'headerButtons' => array(
             array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
+                'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'buttons' => $this->menu
@@ -62,7 +62,7 @@ Yii::app()->clientScript->registerScript('search', "
 <?php  $this->endWidget(); ?>
 
 <?php  $this->beginWidget(
-    'bootstrap.widgets.TbModal',
+    'booster.widgets.TbModal',
     array('id' => 'myModal')
 ); ?>
  
@@ -77,7 +77,7 @@ Yii::app()->clientScript->registerScript('search', "
  
     <div class="modal-footer">
         <?php  $this->widget(
-            'bootstrap.widgets.TbButton',
+            'booster.widgets.TbButton',
             array(
                 'label' => 'Close',
                 'url' => '#',

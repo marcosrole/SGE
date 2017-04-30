@@ -8,7 +8,7 @@
  * @version 1.3.1
  */
 
-Yii::import('bootstrap.widgets.TbEditableField');
+Yii::import('booster.widgets.TbEditableField');
 Yii::import('zii.widgets.CDetailView');
 
 /**
@@ -42,10 +42,10 @@ class TbEditableDetailView extends CDetailView
             throw new CException('Property "data" should be of CModel class.');
         }
 
-        //set bootstrap css
-        /* TODO if(yii::app()->editable->form === 'bootstrap') { */
+        //set booster css
+        /* TODO if(yii::app()->editable->form === 'booster') { */
             $this->htmlOptions = array('class'=> 'table table-bordered table-striped table-hover');
-            //disable loading Yii's css for bootstrap
+            //disable loading Yii's css for booster
             $this->cssFile = false;
         // }
 

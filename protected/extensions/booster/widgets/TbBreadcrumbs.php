@@ -8,9 +8,9 @@
 Yii::import('zii.widgets.CBreadcrumbs');
 
 /**
- * Bootstrap breadcrumb widget.
- * @see http://twitter.github.io/bootstrap/components.html#breadcrumbs
- * @package bootstrap.widgets.navigation
+ * booster breadcrumb widget.
+ * @see http://twitter.github.io/booster/components.html#breadcrumbs
+ * @package booster.widgets.navigation
  */
 class TbBreadcrumbs extends CBreadcrumbs {
 	/**

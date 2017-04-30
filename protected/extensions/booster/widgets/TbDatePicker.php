@@ -8,13 +8,13 @@
  */
 
 /**
- * Bootstrap DatePicker widget
- * @see http://www.eyecon.ro/bootstrap-datepicker/
+ * booster DatePicker widget
+ * @see http://www.eyecon.ro/booster-datepicker/
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 
-Yii::import('bootstrap.widgets.TbBaseInputWidget');
+Yii::import('booster.widgets.TbBaseInputWidget');
 
 class TbDatePicker extends TbBaseInputWidget {
 	
@@ -26,7 +26,7 @@ class TbDatePicker extends TbBaseInputWidget {
 	public $form;
 
 	/**
-	 * @var array the options for the Bootstrap JavaScript plugin.
+	 * @var array the options for the booster JavaScript plugin.
 	 */
 	public $options = array();
 
@@ -60,7 +60,7 @@ class TbDatePicker extends TbBaseInputWidget {
 	public function run() {
 		
 		list($name, $id) = $this->resolveNameID();
-
+                
 		if ($this->hasModel()) {
 			if ($this->form) {
 				echo $this->form->textField($this->model, $this->attribute, $this->htmlOptions);
@@ -71,7 +71,7 @@ class TbDatePicker extends TbBaseInputWidget {
 		} else {
 			echo CHtml::textField($name, $this->value, $this->htmlOptions);
 		}
-
+                
 		$this->registerClientScript();
 		$this->registerLanguageScript();
 		$options = !empty($this->options) ? CJavaScript::encode($this->options) : '';
@@ -83,34 +83,34 @@ class TbDatePicker extends TbBaseInputWidget {
 		}
 
 		Yii::app()->getClientScript()->registerScript(__CLASS__ . '#' . $this->getId(), ob_get_clean() . ';');
-
+                
 	}
 
 	/**
 	 *### .registerClientScript()
 	 *
-	 * Registers required client script for bootstrap datepicker. It is not used through bootstrap->registerPlugin
+	 * Registers required client script for booster datepicker. It is not used through booster->registerPlugin
 	 * in order to attach events if any
 	 */
 	public function registerClientScript() {
-		
-        Booster::getBooster()->registerPackage('datepicker');
+            
+            Booster::getBooster()->registerPackage('datepicker');
 	}
 
 	/**
-	 * FIXME: this method delves too deeply into the internals of Bootstrap component
+	 * FIXME: this method delves too deeply into the internals of booster component
 	 */
 	public function registerLanguageScript() {
 		
 		$booster = Booster::getBooster();
 
 		if (isset($this->options['language']) && $this->options['language'] != 'en') {
-			$filename = '/bootstrap-datepicker/js/locales/bootstrap-datepicker.' . $this->options['language'] . '.js';
+			$filename = '/booster-datepicker/js/locales/booster-datepicker.' . $this->options['language'] . '.js';
 
 			if (file_exists(Yii::getPathOfAlias('booster.assets') . $filename)) {
 				if ($booster->enableCdn) {
 					Yii::app()->clientScript->registerScriptFile(
-						'//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/locales/bootstrap-datepicker.' . $this->options['language'] . '.js',
+						'//cdnjs.cloudflare.com/ajax/libs/booster-datepicker/1.2.0/js/locales/booster-datepicker.' . $this->options['language'] . '.js',
 						CClientScript::POS_HEAD
 					);
 				} else {

@@ -8,15 +8,15 @@
  * @license [New BSD License](http://www.opensource.org/licenses/bsd-license.php)
  */
 
-Yii::import('bootstrap.widgets.TbMenu');
+Yii::import('booster.widgets.TbMenu');
 
 /**
- *## Twitter Bootstrap Wizard widget
+ *## Twitter booster Wizard widget
  *
- * @see <https://github.com/VinceG/twitter-bootstrap-wizard>
- * @see <http://vadimg.com/twitter-bootstrap-wizard-example/>
+ * @see <https://github.com/VinceG/twitter-booster-wizard>
+ * @see <http://vadimg.com/twitter-booster-wizard-example/>
  *
- * @package bootstrap.widgets.grouping
+ * @package booster.widgets.grouping
  */
 class TbWizard extends CWidget
 {
@@ -29,7 +29,7 @@ class TbWizard extends CWidget
 	/**
 	 * @var string the type of tabs to display.
 	 * Defaults to 'tabs'. Valid values are 'tabs' and 'pills'.
-	 * Please not that Javascript pills are not fully supported in Bootstrap yet!
+	 * Please not that Javascript pills are not fully supported in booster yet!
 	 * @see TbMenu::$type
 	 */
 	public $type = TbMenu::TYPE_TABS;
@@ -66,7 +66,7 @@ class TbWizard extends CWidget
 	public $htmlOptions = array();
 
 	/**
-	 * @var array the JS options for the bootstrap wizard plugin
+	 * @var array the JS options for the booster wizard plugin
 	 */
 	public $options = array();
 
@@ -135,7 +135,7 @@ class TbWizard extends CWidget
 			echo '<div class="navbar"><div class="navbar-inner">';
 		}
 		$this->controller->widget(
-			'bootstrap.widgets.TbMenu',
+			'booster.widgets.TbMenu',
 			array(
 				'stacked' => $this->stacked,
 				'type' => $this->type,
@@ -162,7 +162,7 @@ class TbWizard extends CWidget
 		/** @var CClientScript $cs */
 		$cs = Yii::app()->getClientScript();
 
-		$cs->registerPackage('bootstrap.wizard');
+		$cs->registerPackage('booster.wizard');
 
 		// Override options
 		if ($this->type && !isset($this->options['class'])) {
@@ -171,7 +171,7 @@ class TbWizard extends CWidget
 
 		$options = CJavaScript::encode($this->options);
 
-		$cs->registerScript(__CLASS__ . '#' . $id, "jQuery('#{$id}').bootstrapWizard({$options});");
+		$cs->registerScript(__CLASS__ . '#' . $id, "jQuery('#{$id}').boosterWizard({$options});");
 
 		foreach ($this->events as $name => $handler) {
 			$handler = CJavaScript::encode($handler);

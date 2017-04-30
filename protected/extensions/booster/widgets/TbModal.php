@@ -8,12 +8,12 @@
  */
 
 /**
- *## Bootstrap modal widget.
+ *## booster modal widget.
  *
- * @see <http://twitter.github.com/bootstrap/javascript.html#modals>
+ * @see <http://twitter.github.com/booster/javascript.html#modals>
  *
  * @since 0.9.3
- * @package bootstrap.widgets.modals
+ * @package booster.widgets.modals
  */
 class TbModal extends CWidget {
 	
@@ -28,7 +28,7 @@ class TbModal extends CWidget {
 	public $fade = true;
 
 	/**
-	 * @var array the options for the Bootstrap Javascript plugin.
+	 * @var array the options for the booster Javascript plugin.
 	 */
 	public $options = array();
 

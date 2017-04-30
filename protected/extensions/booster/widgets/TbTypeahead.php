@@ -16,10 +16,10 @@
  * @see https://github.com/twitter/typeahead.js
  *
  * @since 4.0.0
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 
-Yii::import('bootstrap.widgets.TbBaseInputWidget');
+Yii::import('booster.widgets.TbBaseInputWidget');
 
 class TbTypeahead extends TbBaseInputWidget {
 	

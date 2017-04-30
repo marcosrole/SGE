@@ -13,7 +13,7 @@
  * Displays a clickable column that will make an ajax request and display its resulting data
  * into a new row.
  *
- * @package bootstrap.widgets.grids.columns
+ * @package booster.widgets.grids.columns
  */
 class TbRelationalColumn extends TbDataColumn {
 	
@@ -138,7 +138,7 @@ class TbRelationalColumn extends TbDataColumn {
 	 */
 	public function registerClientScript() {
 		
-        Booster::getBooster()->registerAssetCss('bootstrap-relational.css');
+        Booster::getBooster()->registerAssetCss('booster-relational.css');
 
 		/** @var $cs CClientScript */
 		$cs = Yii::app()->getClientScript();

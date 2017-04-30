@@ -12,7 +12,7 @@
  *
  * Modified version of jToggle column of Nikola Trifunović <http://www.trifunovic.me/>
  *
- * @package bootstrap.widgets.grids.columns
+ * @package booster.widgets.grids.columns
  */
 class TbToggleColumn extends TbDataColumn {
 
@@ -103,7 +103,7 @@ class TbToggleColumn extends TbDataColumn {
 
 	/**
 	 * @var string Name of the action to call and toggle values
-	 * @see bootstrap.action.TbToggleAction for an easy way to use with your controller
+	 * @see booster.action.TbToggleAction for an easy way to use with your controller
 	 */
 	public $toggleAction = 'toggle';
 
@@ -251,7 +251,7 @@ function() {
 			echo CHtml::link('<span class="glyphicon glyphicon-' . $button['icon'] . '"></span>', $button['url'], $button['htmlOptions']);
 		} else {
 			$button['label'] = $this->getButtonLabel($checked);
-			$button['class'] = 'bootstrap.widgets.TbButton';
+			$button['class'] = 'booster.widgets.TbButton';
 			$widget = Yii::createComponent($button);
 			$widget->init();
 			$widget->run();

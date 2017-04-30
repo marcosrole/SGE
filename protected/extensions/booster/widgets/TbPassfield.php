@@ -8,10 +8,10 @@
  */
 
 /**
- * Bootstrap Pass*Field widget
+ * booster Pass*Field widget
  * @see http://antelle.github.io/passfield/
  *
- * @package bootstrap.widgets.forms.inputs
+ * @package booster.widgets.forms.inputs
  */
 class TbPassfield extends CInputWidget
 {
@@ -23,7 +23,7 @@ class TbPassfield extends CInputWidget
 	public $form;
 
 	/**
-	 * @var array the options for the Bootstrap JavaScript plugin.
+	 * @var array the options for the booster JavaScript plugin.
 	 */
 	public $options = array();
 
@@ -86,7 +86,7 @@ class TbPassfield extends CInputWidget
 	/**
 	 *### .registerClientScript()
 	 *
-	 * Registers required client script for bootstrap datepicker. It is not used through bootstrap->registerPlugin
+	 * Registers required client script for booster datepicker. It is not used through booster->registerPlugin
 	 * in order to attach events if any
 	 */
 	public function registerClientScript()

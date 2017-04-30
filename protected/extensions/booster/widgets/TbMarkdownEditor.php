@@ -11,9 +11,9 @@
 /**
  *## Class TbMarkdownEditorJS
  *
- * @see <http://toopay.github.io/bootstrap-markdown/>
+ * @see <http://toopay.github.io/booster-markdown/>
  *
- * @package bootstrap.widgets.forms.inputs.wysiwyg
+ * @package booster.widgets.forms.inputs.wysiwyg
  * 
  * TODO: test [add] support of Events and Editor Panel
  * 
@@ -21,7 +21,7 @@
 class TbMarkdownEditor extends CInputWidget {
 	
 	/**
-	 * @see <http://toopay.github.io/bootstrap-markdown/>
+	 * @see <http://toopay.github.io/booster-markdown/>
 	 * @var Editor's Options
 	 */
 	public $options = array();

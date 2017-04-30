@@ -8,12 +8,12 @@
  */
 
 /**
- *## Bootstrap scrollspy widget.
+ *## booster scrollspy widget.
  *
- * @see <http://twitter.github.com/bootstrap/javascript.html#scrollspy>
+ * @see <http://twitter.github.com/booster/javascript.html#scrollspy>
  *
  * @since 1.0.0
- * @package bootstrap.widgets.supplementary
+ * @package booster.widgets.supplementary
  */
 class TbScrollSpy extends CWidget
 {

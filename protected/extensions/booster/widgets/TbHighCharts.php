@@ -14,7 +14,7 @@
  *
  * To use this widget, you may insert the following code in a view:
  * <pre>
- * $this->widget('bootstrap.widgets.TbHighCharts', array(
+ * $this->widget('booster.widgets.TbHighCharts', array(
  *    'options'=>array(
  *       'title' => array('text' => 'Fruit Consumption'),
  *       'xAxis' => array(
@@ -34,7 +34,7 @@
  * To find out more about the possible {@link $options} attribute please refer to
  * {@link http://www.hightcharts.com/ Highcharts site}
  *
-* @package bootstrap.widgets.charts
+* @package booster.widgets.charts
  */
 class TbHighCharts extends CWidget
 {

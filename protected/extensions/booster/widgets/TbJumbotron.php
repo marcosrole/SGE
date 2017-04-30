@@ -10,9 +10,9 @@
 /**
  *## Class TbJumbotron
  *
- * wrapper to the bootstrap Jumbotron component 
+ * wrapper to the booster Jumbotron component 
  *
- * @package bootstrap.widgets.decoration
+ * @package booster.widgets.decoration
  */
 class TbJumbotron extends CWidget {
 	/**

@@ -27,20 +27,20 @@ $('.search-form form').submit(function(){
 ?>
 
 <?php $box = $this->beginWidget(
-    'bootstrap.widgets.TbBox',
+    'booster.widgets.TbPanel',
     array(
         'title' => 'Roles de usuarios',
         'headerIcon' => 'icon- fa fa-tasks',
         'headerButtons' => array(
             array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
+                'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'buttons' => $this->menu
             ),
         ) 
     )
-);?>		<?php $this->widget('bootstrap.widgets.TbAlert', array(
+);?>		<?php $this->widget('booster.widgets.TbAlert', array(
 		    'block'=>false, // display a larger alert block?
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
@@ -58,7 +58,7 @@ $('.search-form form').submit(function(){
 
 <?php echo CHtml::beginForm(array('export')); ?>
 <?php               
-                    $this->widget('bootstrap.widgets.TbGridView', array(
+                    $this->widget('booster.widgets.TbGridView', array(
                         'id' => 'sucursal-grid',
                         'dataProvider'=>$model->search(), 
                         'columns' => array(                                                       
@@ -90,7 +90,7 @@ $('.search-form form').submit(function(){
                                                        
                             
                             array(
-                                'class' => 'bootstrap.widgets.TbButtonColumn',
+                                'class' => 'booster.widgets.TbButtonColumn',
                                 'template' => '{edit}', // botones a mostrar
                                 'buttons' => array(   
                                     'edit' => array
@@ -119,7 +119,7 @@ $('.search-form form').submit(function(){
 <?php $this->endWidget(); ?>
 
 <?php  $this->beginWidget(
-    'bootstrap.widgets.TbModal',
+    'booster.widgets.TbModal',
     array('id' => 'myModal')
 ); ?>
  
@@ -132,7 +132,7 @@ $('.search-form form').submit(function(){
         
         <?php 
             $form = $this->beginWidget(
-                'bootstrap.widgets.TbActiveForm',
+                'booster.widgets.TbActiveForm',
                 array(
                     'id' => 'verticalForm',
                 )

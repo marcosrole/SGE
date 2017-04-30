@@ -15,7 +15,7 @@
  *
  * @property TbJsonGridView $grid
  *
- * @package bootstrap.widgets.grids.columns.json
+ * @package booster.widgets.grids.columns.json
  */
 class TbJsonCheckBoxColumn extends CCheckBoxColumn
 {
