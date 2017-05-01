@@ -33438,3 +33438,241 @@ in C:\wamp64\www\SGE\index.php (13)
 in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\column1.php (2)
 in C:\wamp64\www\SGE\protected\controllers\SiteController.php (79)
 in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "booster" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (419)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (211)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.web.filters.CFilterChain] Running filter SiteController.filteraccessControl()
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "booster" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (419)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (211)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.web.filters.CFilterChain] Running filter SiteController.filteraccessControl()
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "coreMessages" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "booster" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (419)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (211)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:37 [trace] [system.web.filters.CFilterChain] Running filter SiteController.filteraccessControl()
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (344)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:37 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\site\login.php (49)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (344)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "booster" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (419)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (211)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "coreMessages" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "errorHandler" application component
+2017/04/30 17:52:37 [trace] [system.web.filters.CFilterChain] Running filter SiteController.filteraccessControl()
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "user" application component
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "session" application component
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (92)
+2017/04/30 17:52:37 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\extensions\heart\views\layouts\column1.php (2)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (92)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "booster" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (419)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (211)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.web.filters.CFilterChain] Running filter SiteController.filteraccessControl()
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "db" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `usuario`
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `usuario`
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (208)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:47 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\site\olvideMiContrasenia.php (19)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (208)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "booster" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (419)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (211)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.web.filters.CFilterChain] Running filter SiteController.filteraccessControl()
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "db" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `usuario`
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `usuario`
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.db.ar.CActiveRecord] Usuario.findByAttributes()
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (181)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `usuario` `t` WHERE `t`.`dni`=:yp0 LIMIT 1
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (181)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "log" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "booster" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "clientScript" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (419)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (211)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "assetManager" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "request" application component
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (412)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\packages.php (14)
+in C:\wamp64\www\SGE\protected\extensions\booster\components\Booster.php (259)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "urlManager" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.web.filters.CFilterChain] Running filter SiteController.filteraccessControl()
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "user" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "session" application component
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "db" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `usuario`
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `usuario`
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (176)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "themeManager" application component
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (208)
+in C:\wamp64\www\SGE\index.php (13)
+2017/04/30 14:52:58 [trace] [system.CModule] Loading "widgetFactory" application component
+in C:\wamp64\www\SGE\protected\views\site\olvideMiContrasenia.php (19)
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (208)
+in C:\wamp64\www\SGE\index.php (13)

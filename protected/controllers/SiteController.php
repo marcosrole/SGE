@@ -159,9 +159,7 @@ class SiteController extends Controller
                     $UsuarioActualizado->fecha_nacimiento = DateTime::createFromFormat('d/m/Y', $_POST['Usuario']['fecha_nacimiento'])->format('Y-m-d');
                     
                     Token::model()->validateToken($tokenParam, true);
-                    Yii::app()->user->setFlash('success', "Bienvenido " . $UsuarioActualizado{'nombre'});
-                    Yii::app()->user->logout();
-                    
+                    Yii::app()->user->setFlash('success', "Bienvenido " . $UsuarioActualizado{'nombre'});                    
                     $this->redirect(Yii::app()->homeUrl);
                 }else{ 
                      $Usuario = $UsuarioActualizado;
@@ -195,13 +193,14 @@ class SiteController extends Controller
                          //Genero el token
                         $NombreToken = "activarUsuario" . $usuario{'id'};
                         $token = Token::model()->createToken($NombreToken, 21600, array('idUsr'=>$usuario{'id'}));
-
+                        
                         //EnvioEmail
-                        // TODO: Hacer envio de email
-
-
-                        //Vuelvo al Login
-                        Yii::app()->user->setFlash('success', "Se ha enviado un mail a " . $_POST['Usuario']['email']);
+                        if($this->enviarMail('recuperarPasswordMail',$token,'Recuperar contraseña',$_POST['Usuario']['email'])){
+                            Yii::app()->user->setFlash('success', "Se ha enviado un mail a " . $_POST['Usuario']['email']);
+                        }else{
+                            Yii::app()->user->setFlash('error','Error al enviar el email: '.$this->enviarMail()->getError());
+                        }
+                        //Vuelvo al Login                        
                         $this->redirect(array('login'));
                     } 
                     
@@ -292,11 +291,15 @@ class SiteController extends Controller
                     $NombreToken = "activarUsuario" . $userLogin{'id'};
                     $token = Token::model()->createToken($NombreToken, 21600, array('idUsr'=>$userLogin{'id'}));
 
+                    
                     //EnvioEmail
-                    // TODO: Hacer envio de email
-
+                    if($this->enviarMail('activarUsuarioMail',$token,'Activación de usuario',$_POST['Usuario']['email'])){
+                        Yii::app()->user->setFlash('success', "Se ha enviado un mail a " . $_POST['Usuario']['email']);
+                    }else{
+                        Yii::app()->user->setFlash('error','Error al enviar el email: '.$this->enviarMail()->getError());
+                    }
                     //Vuelvo al Login
-                    Yii::app()->user->setFlash('success', "Se ha enviado un mail a " . $_POST['Usuario']['email']);
+                   
                     $this->redirect(array('login'));
                     
                 }
@@ -352,4 +355,13 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+        
+        public function enviarMail($view, $token, $subject, $to){
+            $mail = new YiiMailer($view, array('message' => "", 'token' => $token));
+            $mail->IsSMTP();                 
+            $mail->setFrom(Yii::app()->params['paramName'], 'Sistema de Gestion del Estudiante');
+            $mail->setTo($to);
+            $mail->setSubject($subject);
+            return $mail->send();
+        }
 }

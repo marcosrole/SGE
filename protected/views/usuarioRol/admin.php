@@ -34,22 +34,21 @@ $('.search-form form').submit(function(){
         'headerButtons' => array(
             array(
                 'class' => 'booster.widgets.TbButtonGroup',
-                'type' => 'success',
+                'context' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'buttons' => $this->menu
             ),
         ) 
     )
 );?>		<?php $this->widget('booster.widgets.TbAlert', array(
-		    'block'=>false, // display a larger alert block?
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
 		    'alerts'=>array( // configurations per alert type
-		        'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'success'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'info'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'warning'=>array( 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'error'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'danger'=>array( 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
 		    ),
 		));
 		?>
@@ -140,10 +139,10 @@ $('.search-form form').submit(function(){
              ?>
          <?php echo $form->errorSummary($model); ?>                         
                 <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'usuario_dni',array('class'=>'span2','maxlength'=>20, 'value'=>'custom value')); ?>
+                    <?php echo $form->textFieldGroup($model,'usuario_dni',array('class'=>'span2','maxlength'=>20, 'value'=>'custom value')); ?>
                 </div> 
                 <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldRow($model,'usuario_apellido',array('class'=>'span3','maxlength'=>20, 'value'=>'custom value')); ?>
+                    <?php echo $form->textFieldGroup($model,'usuario_apellido',array('class'=>'span3','maxlength'=>20, 'value'=>'custom value')); ?>
                 </div>    
         <?php $this->endWidget(); ?>
     </div>
