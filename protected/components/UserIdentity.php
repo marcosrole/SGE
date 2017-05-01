@@ -16,6 +16,8 @@ class UserIdentity extends CUserIdentity
                     $this->errorCode=self::ERROR_USERNAME_INVALID;
             elseif($user{'hased_paswword'}!=$password_hasedIngresado)
                     $this->errorCode=self::ERROR_PASSWORD_INVALID;
+            elseif($user{'estado'}=='BLOQUEADO')
+                    $this->errorCode=self::ERROR_USUARIO_BLOQUEADO;
             else                    
                     $this->errorCode=self::ERROR_NONE;                    
             if($this->errorCode==self::ERROR_NONE){
@@ -36,7 +38,7 @@ class UserIdentity extends CUserIdentity
                 
             }
                     
-            return !$this->errorCode;
+            return $this->errorCode;
 	}
         
         public function setDatos(){

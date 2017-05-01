@@ -27,19 +27,20 @@ $this->pageTitle=Yii::app()->name . ' - Login';
 
 		<div class="container">
 			<div class="row text-center">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-primary">
 					<H2 style="font-size: 28px; margin: 15px;">Ingreso al Sistema</H2>
 				</div>
+                                <h4 class="text-info">
+                                        <span class="tpicon tpicon-perfil"></span> Bienvenido
+                                </h4>
 			</div>
 			<div class="row" >
 				<div
 					class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4 margin-top-20">
 					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h4 class="panel-title">
-								<span class="tpicon tpicon-perfil"></span> Bienvenido
-							</h4>
-						</div>
+						
+							
+						
 						
 
                                                 <div class="panel-body">

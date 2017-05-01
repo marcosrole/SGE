@@ -57,13 +57,7 @@
             
                  <?php }else{ ?>
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-offset-4 col-lg-offset-4">
-                            <h4 class="text-info">Recupara contraseña</h4> 
-                            <div class="col-lg-12">
-                                <div class="col-lg-3">
-                                    <?php echo $form->labelEx($model,'Contraseña actual'); ?>
-                                    <?php echo $form->passwordFieldGroup($model,'password',array('labelOptions' => array("label" => false), 'class'=>'span2','maxlength'=>20)); ?>
-                                </div>
-                            </div>
+                            <h4 class="text-info">Recupara contraseña</h4>                             
                             <div class="col-lg-12">
                                 <div class="col-lg-3">
                                     <?php echo $form->labelEx($model,'Nueva contraseña'); ?>

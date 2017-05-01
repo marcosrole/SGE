@@ -265,19 +265,22 @@ class UsuarioController extends Controller
                     $transaction = Yii::app()->db->beginTransaction();
                     try{
                             $messageType = 'success';				
-                            if($model{'estado'}=='DESBLOQUEADO' || $model{'estado'}=='DESHABILITADO'){
+                            if($model{'estado'}=='ACTIVO'){
                                 $model->estado="BLOQUEADO";
                                 $message = "Se ha bloqueado el usuario ";
+                                $model{'last_update'} = date('Y-m-d H:i:s');
+                            }elseif ($model{'estado'}=='DESHABILITADO') {
+                                 Yii::app()->user->setFlash('error', "No se puede Bloquear el usuario. El usuario no se encuentra activo");
+                                 $this->redirect(array('admin'));
                             }else{
-                                $model->estado="DESHABILITADO";
-                                $model->hased_paswword=crypt($model->dni,Yii::app()->properties->hashPassword);  
-                                $message = "Se ha desbloqueado el usuario ";
+                                $model->estado="ACTIVO";  
+                                $message = "Se ha desbloqueado el usuario";
+                                $model{'last_update'} = date('Y-m-d H:i:s');
                             }      
                             
-                            $model{'last_update'} = date('Y-m-d H:i:s');
+                            
                             if($model->save(false)){  
-                                    $transaction->commit(); 
-                                    
+                                    $transaction->commit();                                     
                                     Yii::app()->user->setFlash($messageType, $message);
                                     $this->redirect(array('admin'));                     
 
@@ -396,23 +399,17 @@ class UsuarioController extends Controller
 
 		$exportType = $_POST['fileType'];
         $this->widget('ext.heart.export.EHeartExport', array(
-            'title'=>'List of Usuario',
+            'title'=>'Listado de Usuarios',
             'dataProvider' => $model->search(),
             'filter'=>$model,
             'grid_mode'=>'export',
             'exportType'=>$exportType,
             'columns' => array(
-	                
-					'id',
-					'nombre',
-					'apellido',
-					'dni',
-					'email',
-					'estado',
-					'hased_paswword',
-					'last_login',
-					//'created',
-					'last_update',
+                            'dni',
+                            'apellido',
+                            'nombre',
+                            'email',
+                            'estado',
 	            ),
         ));
     }

@@ -153,11 +153,12 @@ class SiteController extends Controller
                 $UsuarioActualizado->fecha_nacimiento = $_POST['Usuario']['fecha_nacimiento'];
                 $UsuarioActualizado->estado="ACTIVO";
                 $UsuarioActualizado->scenario = 'SITE_actionActivarUsuario';
-                $UsuarioActualizado{'last_login'} = date('Y-m-d H:i:s'); 
+                $UsuarioActualizado->last_login = date('Y-m-d H:i:s'); 
+                $UsuarioActualizado->last_update = date('Y-m-d H:i:s'); 
                 
                 if($UsuarioActualizado->validate()){
                     $UsuarioActualizado->fecha_nacimiento = DateTime::createFromFormat('d/m/Y', $_POST['Usuario']['fecha_nacimiento'])->format('Y-m-d');
-                    
+                    $UsuarioActualizado->save(false);
                     Token::model()->validateToken($tokenParam, true);
                     Yii::app()->user->setFlash('success', "Bienvenido " . $UsuarioActualizado{'nombre'});                    
                     $this->redirect(Yii::app()->homeUrl);
@@ -220,16 +221,10 @@ class SiteController extends Controller
                     $idUser = $idUser['idUsr'];
                     $Usuario = Usuario::model()->findByPk($idUser);
                     if(isset($_POST['Usuario'])){
-                        $passwordActual = $_POST['Usuario']['password'];
                         $passwordNew = $_POST['Usuario']['passwordNew'];
                         $passwordNewAgain = $_POST['Usuario']['passwordAgain'];
                         
-                        //Verifico password actual
-                        if($Usuario{'hased_paswword'}!=crypt($passwordActual,'SGE2017')){
-                            Yii::app()->user->setFlash('error', 'La contraseña actual no es correcta');
-                            $this->redirect('olvideMiContrasenia?token=' . $token{'token'},array('model'=>$model,'flagConToken'=>$flagConToken));
-                        }
-                        
+                                                
                         //Verifico nuevo password y el re-intento de password
                         if($passwordNew != $passwordNewAgain){
                             Yii::app()->user->setFlash('error', 'La nueva contraseña no coincide');
@@ -319,19 +314,13 @@ class SiteController extends Controller
 		{
 			$model->attributes=$_POST['LoginForm'];
 			$identity = new UserIdentity($model->username,(crypt($model->password,'SGE2017')));
-                        
-                        if($identity->authenticate()){
+                        if($identity->authenticate()==0){
                             Yii::app()->user->login($identity); 
                             $usuarioCorrecto = Usuario::model()->findByAttributes(array('dni'=>$model{'username'}));
                             
                             if($usuarioCorrecto{'estado'}=='DESHABILITADO'){
                                 $this->redirect(array('enviarMailActivacion'));
-                            }
-                            
-                            if($usuarioCorrecto{'estado'}=='BLOQEUADO'){
-                                Yii::app()->user->setFlash('error', "El usuario se encuentra bloqueado");
-                                $this->redirect(array('login'));
-                            }
+                            }                            
                             
                             $usuarioCorrecto{'last_login'} = date('Y-m-d H:i:s');
                             if(!$usuarioCorrecto->save(false)){ 
@@ -339,8 +328,12 @@ class SiteController extends Controller
                                  Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
                             }
                             $this->redirect(Yii::app()->user->returnUrl);
-                        }else{
-                            Yii::app()->user->setFlash('error', "Usuario o contraseña inválido");
+                        }else{                          
+                            if($identity->authenticate()==3){
+                                Yii::app()->user->setFlash('error', "El usuario se encuentra bloqueado");
+                            }else{
+                                Yii::app()->user->setFlash('error', "Usuario o contraseña inválido");   
+                            }
                         }	
 		}
 		// display the login form

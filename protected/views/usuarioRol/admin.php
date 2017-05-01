@@ -56,7 +56,7 @@ $('.search-form form').submit(function(){
 
 
 <?php echo CHtml::beginForm(array('export')); ?>
-<?php               
+<?php                var_dump($model->search()->getData()); die();           
                     $this->widget('booster.widgets.TbGridView', array(
                         'id' => 'sucursal-grid',
                         'dataProvider'=>$model->search(), 
