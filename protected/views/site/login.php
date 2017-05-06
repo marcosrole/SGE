@@ -1,91 +1,85 @@
+<head>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/SGEicon.png" type="image/x-icon" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-144-precomposed.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114"  href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-144-precomposed.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-72-precomposed.png" />
+        <link rel="apple-touch-icon-precomposed" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ico/apple-touch-icon-57-precomposed.png" />
+        
+    <?php
+        $cs = Yii::app()->clientScript;
+//        $cs->registerCssFile('/SGE/css/login/form-elements.css');
+//        $cs->registerCssFile('/SGE/css/login/style.css');
+     ?>
+</head>
 
-<?php
+<body>
+    <?php $this->pageTitle=Yii::app()->name . ' - Login';?>
 
-
-/* @var $this SiteController */
-/* @var $model LoginForm */
-/* @var $form CActiveForm  */
-
-
-
-$this->pageTitle=Yii::app()->name . ' - Login';
-
-?>
-
-                <nav class="navbar">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-xs-12 text-center padding-top-20 padding-bottom-20">
-						<img >
-					</div>
-				</div>
-				<div class="row">
-					<div class="tp-gradiente-colores"></div>
-				</div>
-			</div>
-		</nav>
-
-		<div class="container">
-			<div class="row text-center">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-primary">
-					<H2 style="font-size: 28px; margin: 15px;">Ingreso al Sistema</H2>
-				</div>
-                                <h4 class="text-info">
-                                        <span class="tpicon tpicon-perfil"></span> Bienvenido
-                                </h4>
-			</div>
-			<div class="row" >
-				<div
-					class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4 margin-top-20">
-					<div class="panel panel-default">
-						
-							
-						
-						
-
-                                                <div class="panel-body">
-                                                        <?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
+<!-- Top content -->
+        <div class="top-content">        	
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Sistema de Gestión del Estudiante</strong></h1> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+<!--                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>Bienvenido</h3>
+                            		<p>Ingrese su usuario y contraseña:</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-key"></i>
+                        		</div>
+                                        
+                                </div>-->
+                            <div class="form-bottom">
+                                <h3>Bienvenido</h3>
+                                <?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
                                                                 'id'=>'login',	
                                                                 'enableAjaxValidation'=>false,
                                                         )); ?>
-                                                                <div>
-                                                                    <?php echo $form->textFieldGroup($model,'username',array('class'=>'span3','maxlength'=>20),  array('label'=>'Usuario')); ?>
-
-                                                                    <?php echo $form->passwordFieldGroup($model,'password',array('class'=>'span3','maxlength'=>20), array('label'=>'Contraseña')); ?>
-                                                                </div>     
-                                                                
-                                                        
-                                                </div>
-
-                                                <div class="panel-footer">
-                                                        <a href="<?php echo $this->createUrl( 'site/Olvidemicontrasenia'); ?>">Olvidé mi constraseña</a>                                                       
-                                                        <div class="text-right">
-                                                                <?php $this->widget(
-                                                                    'booster.widgets.TbButton',
-                                                                        array('buttonType' => 'submit',
-                                                                            'context' => 'success', 
-                                                                            'label' => 'Entrar')
-                                                                ); ?>	
-                                                            
-                                                            <?php $this->endWidget(); ?>
-                                                        </div>
-                                                </div>
-					</div>
-                                        <?php $this->widget('booster.widgets.TbAlert', array(
-                                                    'fade'=>true, // use transitions?
-                                                    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
-                                                    'alerts'=>array( // configurations per alert type
-                                                        'success'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                                                        'info'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                                                        'warning'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                                                        'error'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                                                        'danger'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                                                    ),
-                                                ));
-                                                ?>
-				</div>
-			</div>
-
+                                
+                                    <form class="login-form">
+                                        <div class="form-group">
+                                                <?php echo $form->textFieldGroup($model,'username',array('class'=>'span3','maxlength'=>20),  array('label'=>'Usuario')); ?>
+                                        </div>
+                                        <div class="form-group">
+                                                <?php echo $form->passwordFieldGroup($model,'password',array('class'=>'span3','maxlength'=>20),  array('label'=>'Contraseña')); ?>
+                                        </div>
+                                        <?php $this->widget(
+                                            'booster.widgets.TbButton',
+                                                array('buttonType' => 'submit',
+                                                    'context' => 'success', 
+                                                    'label' => 'Entrar')
+                                        ); ?>
+                                         <a href="<?php echo $this->createUrl( 'site/Olvidemicontrasenia'); ?>">Olvidé mi constraseña</a>                                                       
+                                    </form>
+                                 <?php $this->endWidget(); ?>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+            </div>            
+            <?php $this->widget('booster.widgets.TbAlert', array(
+                  'fade'=>true, // use transitions?
+                  'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+                  'alerts'=>array( // configurations per alert type
+                      'success'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                      'info'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                      'warning'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                      'error'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                      'danger'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                  ),
+              ));
+              ?>            
+        </div>    
+</body>
 
 
-<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/booster.min.css">
+

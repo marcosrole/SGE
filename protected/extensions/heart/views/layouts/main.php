@@ -2,6 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+    
+    <?php 
+            $currController = Yii::app()->controller->id;
+            $currAction= Yii::app()->controller->action->id;   
+//            
+//            $validateControllerAndView = array(
+//                'site'=>array('login',),);
+            
+        ?> 
+   
     <?php
         $cs        = Yii::app()->clientScript;
         $themePath = Yii::app()->theme->baseUrl;
@@ -9,8 +19,21 @@
         /**
          * StyleSHeets
          */
+        
         $cs->registerCssFile('/SGE/css/bootstrap.css');
         $cs->registerCssFile('/SGE/css/bootstrap-theme.css');
+        $cs->registerCssFile('/SGE/css/font-awesome.css');
+        
+        
+        if($currController=='site' && $currAction=='login'){
+            $cs->registerCssFile('/SGE/css/login/style.css');
+            $cs->registerCssFile('/SGE/css/login/form-elements.css');            
+        }
+        
+       
+       
+        
+        
 
         /**
          * JavaScripts
@@ -29,17 +52,11 @@
         echo Yii::app()->theme->baseUrl . '/SGE/js/respond.min.js';
         ?>"></script>
         <![endif]-->
-	<?php 
-            $currController = Yii::app()->controller->id;
-            $currAction= Yii::app()->controller->action->id;   
-//            
-//            $validateControllerAndView = array(
-//                'site'=>array('login',),);
-            
-        ?> 
+	
                       
         <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/images/SGEicon.png" type="image/x-icon" />
        
+        
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
 
@@ -53,7 +70,7 @@ $actionNoShow = array('login','enviarMailActivacion', 'activarUsuario');
 $controllerNoShow = array('site');
 if( !(in_array($currController, $controllerNoShow) && in_array($currAction, $actionNoShow))){   
     $this->widget('booster.widgets.TbNavbar', array(
-            'type'=>null, // null or 'inverse'
+            'type'=>'inverse', // null or 'inverse'
             'brand'=>'Sistema de Gestión del Estudiante',
             'brandUrl'=>'',
             'collapse'=>true, // requires bootstrap-responsive.css
