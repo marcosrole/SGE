@@ -99,6 +99,17 @@ if( !(in_array($currController, $controllerNoShow) && in_array($currAction, $act
                 ),
             ),
     ));
+}else if (!($currController=='site' && $currAction=='login')){
+    $this->widget('booster.widgets.TbNavbar', array(
+            'type'=>'inverse', // null or 'inverse'
+            'brand'=>'Sistema de Gestión del Estudiante',
+            'brandUrl'=>'',
+            'collapse'=>true, // requires bootstrap-responsive.css
+            'fixed' => false,
+            'fluid' => false,
+            'items'=>array(
+            ),
+    ));
 }
 ?>
 

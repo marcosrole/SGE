@@ -59,25 +59,28 @@
                                                     'label' => 'Entrar')
                                         ); ?>
                                          <a href="<?php echo $this->createUrl( 'site/Olvidemicontrasenia'); ?>">Olvidé mi constraseña</a>                                                       
+                                         
+                                          <?php $this->widget('booster.widgets.TbAlert', array(
+                                            'fade'=>true, // use transitions?
+                                            'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+                                            'alerts'=>array( // configurations per alert type
+                                                'success'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                                'info'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                                'warning'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                                'error'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                                'danger'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+                                            ),
+                                        ));
+                                        ?>  
+                                         
+                                         
                                     </form>
                                  <?php $this->endWidget(); ?>
                             </div>
                         </div>
                     </div>                    
                 </div>
-            </div>            
-            <?php $this->widget('booster.widgets.TbAlert', array(
-                  'fade'=>true, // use transitions?
-                  'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
-                  'alerts'=>array( // configurations per alert type
-                      'success'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                      'info'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                      'warning'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                      'error'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                      'danger'=>array('fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-                  ),
-              ));
-              ?>            
+            </div>   
         </div>    
 </body>
 

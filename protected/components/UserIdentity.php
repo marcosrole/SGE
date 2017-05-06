@@ -18,6 +18,8 @@ class UserIdentity extends CUserIdentity
                     $this->errorCode=self::ERROR_PASSWORD_INVALID;
             elseif($user{'estado'}=='BLOQUEADO')
                     $this->errorCode=self::ERROR_USUARIO_BLOQUEADO;
+            elseif($user{'estado'}=='DESHABILITADO')
+                    $this->errorCode=self::USUARIO_ACTIVACION;
             else                    
                     $this->errorCode=self::ERROR_NONE;                    
             if($this->errorCode==self::ERROR_NONE){

@@ -35,16 +35,10 @@
     
                 <div style="float:left;padding:10px">
                     <?php echo $form->textFieldGroup($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>
-                </div>           
-                <?php if($usuarioExistente){ ?>
-                    <div style="float:left;padding:10px">
-                        <?php echo $form->textFieldGroup($model,'email',array('class'=>'span3','maxlength'=>20,'readonly' => true)); ?>
-                    </div> 
-                <?php }else{ ?>
-                    <div style="float:left;padding:10px">
-                        <?php echo $form->textFieldGroup($model,'email',array('class'=>'span3','maxlength'=>20)); ?>
-                    </div>
-                <?php } ?>
+                </div>   
+                <div style="float:left;padding:10px">
+                    <?php echo $form->textFieldGroup($model,'email',array('class'=>'span3','maxlength'=>20)); ?>
+                </div>                
                 
                 <br>
                 <div style="padding:10px">

@@ -70,7 +70,7 @@ $this->menu=array(
 <div style="float:left;padding-top:15px">
   <?php 
       $this->widget('booster.widgets.TbButton', array(
-              'buttonType'=>'submit', 'icon'=>'print','label'=>'', 'context'=> 'default'));
+              'buttonType'=>'submit', 'icon'=>'print','label'=>'', 'context'=> 'primary'));
       ?>
 </div>
 
@@ -78,6 +78,7 @@ $this->menu=array(
 	'id'=>'usuario-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
+        'responsiveTable' => true,
 	'type' => 'striped hover', //bordered condensed
         'rowCssClassExpression' => '($data->estado == "DESHABILITADO") ? "usuario_deshabilitado" : (($data->estado == "BLOQUEADO") ? "usuario_bloqueado" : "") ',
 	'columns'=>array(

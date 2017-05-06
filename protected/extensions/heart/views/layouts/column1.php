@@ -6,13 +6,13 @@
 	$currAction			= Yii::app()->controller->action->id;
         
 	if($currController=='site' && ($currAction=='enviarMailActivacion' || $currAction=='activarUsuario')){
-		$box = $this->beginWidget(
-		    'booster.widgets.TbPanel',
-		    array(
-		        'title' => ($currAction=='enviarMailActivacion')?'Envío de mail de activacion':'Datos del usuario',
-		        'headerIcon' => 'icon-envelope'
-		    )
-		);
+//		$box = $this->beginWidget(
+//		    'booster.widgets.TbPanel',
+//		    array(
+//		        'title' => ($currAction=='enviarMailActivacion')?'Envío de mail de activacion':'Datos del usuario',
+//		        'headerIcon' => 'icon-envelope'
+//		    )
+//		);
 	}
 	?>
 	
@@ -20,7 +20,7 @@
 
 	<?php
 	if($currController=='site' && ($currAction=='enviarMailActivacion' || $currAction=='activarUsuario')){
-		$this->endWidget();
+//		$this->endWidget();
 	}
 	?>
 </div><!-- content -->

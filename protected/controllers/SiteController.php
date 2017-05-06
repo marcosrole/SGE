@@ -160,8 +160,8 @@ class SiteController extends Controller
                     $UsuarioActualizado->fecha_nacimiento = DateTime::createFromFormat('d/m/Y', $_POST['Usuario']['fecha_nacimiento'])->format('Y-m-d');
                     $UsuarioActualizado->save(false);
                     Token::model()->validateToken($tokenParam, true);
-                    Yii::app()->user->setFlash('success', "Bienvenido " . $UsuarioActualizado{'nombre'});                    
-                    $this->redirect(Yii::app()->homeUrl);
+                    Yii::app()->user->setFlash('success', $UsuarioActualizado{'nombre'} . ", tu usuario ha sido activado con éxito.");                    
+                    $this->redirect(array('login'));
                 }else{ 
                      $Usuario = $UsuarioActualizado;
                  }                
@@ -173,6 +173,7 @@ class SiteController extends Controller
         public function actionOlvideMiContrasenia($token = null){
             date_default_timezone_set('America/Argentina/Buenos_Aires');
             $model = new Usuario();
+            $model{'email'}="";
             $flagConToken = false;
             
             if($token == NULL){
@@ -253,22 +254,14 @@ class SiteController extends Controller
         public function actionEnviarMailActivacion()
 	{
                 date_default_timezone_set('America/Argentina/Buenos_Aires');
-		$idUserLogin = Yii::app()->user->getId(); 
-                $userLogin = Usuario::model()->findByPk($idUserLogin);
-                $usuarioExistente = true;
-                //Si el usuario ya inició sesión anteriormente, muestro el correo electronico
-                if( !($userLogin{'last_login'}!=null && $userLogin{'last_login'}!="" )){
-                    $userLogin{'email'}="";
-                    $usuarioExistente = false;
-                }
-                
-                $userLogin{'dni'}="";
+		$user = new Usuario();
+                $user{'email'}="";
                 
                 
                 if(isset($_POST['Usuario'])){
-                    $userLoginTemp = Usuario::model()->findByPk($idUserLogin);                   
-                    //Verifico el DNI si es igual al Loggueado
-                    if($_POST['Usuario']['dni']!=$userLoginTemp{'dni'}){
+                    $userLoginTemp = Usuario::model()->findByAttributes(array('dni'=>$_POST['Usuario']['dni']));                   
+                    //Verifico si el usuario existe
+                    if($userLoginTemp==NULL){
                         Yii::app()->user->setFlash('error', "El DNI ingresado es incorrecto");
                         $this->redirect(array('EnviarMailActivacion'));
                     }
@@ -279,12 +272,19 @@ class SiteController extends Controller
                         $this->redirect(array('EnviarMailActivacion'));
                     }
                     
+                    //Verifico que el usuario se encuentre DESHABILITADO
+                    if($userLoginTemp{'estado'}=='ACTIVO' || $userLoginTemp{'estado'}=='BLOQUEADO'){
+                        Yii::app()->user->setFlash('error', "El usuario ya se encuentra activo");
+                        $this->redirect(array('EnviarMailActivacion'));
+                    }
+                    
+                    
                     //Guardo el mail en el usuario
                     $userLoginTemp->email=$_POST['Usuario']['email'];
                     $userLoginTemp->save(false);
                     //Genero el token
-                    $NombreToken = "activarUsuario" . $userLogin{'id'};
-                    $token = Token::model()->createToken($NombreToken, 21600, array('idUsr'=>$userLogin{'id'}));
+                    $NombreToken = "activarUsuario" . $userLoginTemp{'id'};
+                    $token = Token::model()->createToken($NombreToken, 21600, array('idUsr'=>$userLoginTemp{'id'}));
 
                     
                     //EnvioEmail
@@ -299,7 +299,7 @@ class SiteController extends Controller
                     
                 }
                 
-                $this->render('enviarMailActivacion',array('model'=>$userLogin, 'usuarioExistente'=>$usuarioExistente));
+                $this->render('enviarMailActivacion',array('model'=>$user,));
         }
 
 	/**
@@ -314,27 +314,31 @@ class SiteController extends Controller
 		{
 			$model->attributes=$_POST['LoginForm'];
 			$identity = new UserIdentity($model->username,(crypt($model->password,'SGE2017')));
-                        if($identity->authenticate()==0){
-                            Yii::app()->user->login($identity); 
-                            $usuarioCorrecto = Usuario::model()->findByAttributes(array('dni'=>$model{'username'}));
-                            
-                            if($usuarioCorrecto{'estado'}=='DESHABILITADO'){
-                                $this->redirect(array('enviarMailActivacion'));
-                            }                            
-                            
-                            $usuarioCorrecto{'last_login'} = date('Y-m-d H:i:s');
-                            if(!$usuarioCorrecto->save(false)){ 
-                                 Yii::log('actionLogin', "ERROR", '');
-                                 Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
-                            }
-                            $this->redirect(Yii::app()->user->returnUrl);
-                        }else{                          
-                            if($identity->authenticate()==3){
+                        switch ($identity->authenticate()) {
+                            case 0:
+                                Yii::app()->user->login($identity); 
+                                $usuarioCorrecto = Usuario::model()->findByAttributes(array('dni'=>$model{'username'}));
+                                $usuarioCorrecto{'last_login'} = date('Y-m-d H:i:s');
+                                if(!$usuarioCorrecto->save(false)){ 
+                                     Yii::log('actionLogin', "ERROR", '');
+                                     Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
+                                }
+                                $this->redirect(Yii::app()->user->returnUrl);
+                                
+                                break;
+                            case 1:
+                                Yii::app()->user->setFlash('error', "Usuario o contraseña inválido");
+                                break;
+                            case 2:
+                                Yii::app()->user->setFlash('error', "Usuario o contraseña inválido");
+                                break;
+                            case 3:
                                 Yii::app()->user->setFlash('error', "El usuario se encuentra bloqueado");
-                            }else{
-                                Yii::app()->user->setFlash('error', "Usuario o contraseña inválido");   
-                            }
-                        }	
+                                break;
+                            case 40:
+                                $this->redirect(array('enviarMailActivacion'));
+                                break;
+                        }                       	
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));

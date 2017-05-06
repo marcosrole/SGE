@@ -36,7 +36,7 @@
     
     
     <div class="panel panel-default">
-        <div class="panel-heading">Contraseña</div>
+        <div class="panel-heading">Nueva Contraseña</div>
         <div class="panel-body">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="col-lg-6">

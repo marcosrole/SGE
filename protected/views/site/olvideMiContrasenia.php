@@ -31,21 +31,21 @@
                  ?>
 
                  <?php if($flagConToken == false) { ?>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-offset-4 col-lg-offset-4">
-                        <h4 class="text-info">Ingrese DNI y su correo electrónico</h4> 
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h4 class="text-info col-md-offset-4 col-lg-offset-4">Ingrese DNI y su correo electrónico</h4> 
                         <div class="col-lg-12">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-md-offset-4 col-lg-offset-4">
                                 <?php echo $form->textFieldGroup($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>
                             </div>
                         </div>
                         <div class="col-lg-12">
-                            <div class="col-lg-3">
+                            <div class="col-lg-3 col-md-offset-4 col-lg-offset-4">
                                 <?php echo $form->textFieldGroup($model,'email',array('class'=>'span3','value'=>'', 'maxlength'=>20)); ?>
                             </div>
                         </div>
                         
                         <div class="col-lg-12">
-                            <div class="col-lg-3 text-right">
+                            <div class="col-lg-3 text-right col-md-offset-4 col-lg-offset-4">
                                 <?php $this->widget('booster.widgets.TbButton', array(
                                                 'buttonType'=>'submit',
                                                 'context'=>'primary',
@@ -56,22 +56,22 @@
                     </div>
             
                  <?php }else{ ?>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-md-offset-4 col-lg-offset-4">
-                            <h4 class="text-info">Recupara contraseña</h4>                             
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h4 class="text-info col-md-offset-4 col-lg-offset-4">Recupara contraseña</h4>                             
                             <div class="col-lg-12">
-                                <div class="col-lg-3">
+                                <div class="col-lg-3 col-md-offset-4 col-lg-offset-4">
                                     <?php echo $form->labelEx($model,'Nueva contraseña'); ?>
                                     <?php echo $form->passwordFieldGroup($model,'passwordNew',array('labelOptions' => array("label" => false), 'class'=>'span2','maxlength'=>20)); ?>
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                                <div class="col-lg-3">
+                                <div class="col-lg-3 col-md-offset-4 col-lg-offset-4">
                                     <?php echo $form->passwordFieldGroup($model,'passwordAgain',array('class'=>'span2','maxlength'=>20)); ?>
                                 </div>
                             </div>  
                             
                             <div class="col-lg-12">
-                                <div class="col-lg-3 text-right">
+                                <div class="col-lg-3 text-right col-md-offset-4 col-lg-offset-4">
                                      <?php $this->widget('booster.widgets.TbButton', array(
                                                     'buttonType'=>'submit',
                                                     'context'=>'primary',
