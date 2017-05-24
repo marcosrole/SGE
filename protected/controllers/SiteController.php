@@ -1,7 +1,7 @@
 <?php
 
 class SiteController extends Controller
-{
+{   
     
         public function filters()
 	{
@@ -125,6 +125,7 @@ class SiteController extends Controller
             date_default_timezone_set('America/Argentina/Buenos_Aires');
             //Verifico token 
             if(!Token::model()->validateToken($tokenParam, false)){
+                Yii::log("usr" . Yii::app()->user->id . " Token no existe", "warning", "application.controllers.SiteController");
                 Yii::app()->user->setFlash('error', "El token no existe");
                 $this->redirect(array('login'));
             }
@@ -160,6 +161,7 @@ class SiteController extends Controller
                     $UsuarioActualizado->fecha_nacimiento = DateTime::createFromFormat('d/m/Y', $_POST['Usuario']['fecha_nacimiento'])->format('Y-m-d');
                     $UsuarioActualizado->save(false);
                     Token::model()->validateToken($tokenParam, true);
+                    Yii::log("usr" . Yii::app()->user->id . " Usuario activado", "info", "application.controllers.SiteController");
                     Yii::app()->user->setFlash('success', $UsuarioActualizado{'nombre'} . ", tu usuario ha sido activado con éxito.");                    
                     $this->redirect(array('login'));
                 }else{ 
@@ -183,11 +185,13 @@ class SiteController extends Controller
                         //Valido el dni
                         if($usuario==NULL){
                             Yii::app()->user->setFlash('error', 'El DNI ingresado es incorrecto');
+                            Yii::log("usr" . Yii::app()->user->id . " DNI incorrecto", "warning", "application.controllers.SiteController");
                             $this->redirect('olvideMiContrasenia',array('model'=>$model,'flagConToken'=>$flagConToken));
                         }
 
                         //Valido el email ingresado
                         if(strtoupper($_POST['Usuario']['email']) != strtoupper($usuario{'email'})){
+                            Yii::log("usr" . Yii::app()->user->id . " email incorrecto", "warning", "application.controllers.SiteController");
                             Yii::app()->user->setFlash('error', 'El usuario no posee asociado el email ingresado');
                             $this->redirect('olvideMiContrasenia',array('model'=>$model,'flagConToken'=>$flagConToken));
                         }
@@ -198,8 +202,10 @@ class SiteController extends Controller
                         
                         //EnvioEmail
                         if($this->enviarMail('recuperarPasswordMail',$token,'Recuperar contraseña',$_POST['Usuario']['email'])){
+                            Yii::log("usr" . Yii::app()->user->id . " Mail enviado", "info", "application.controllers.SiteController");
                             Yii::app()->user->setFlash('success', "Se ha enviado un mail a " . $_POST['Usuario']['email']);
                         }else{
+                            Yii::log("usr" . Yii::app()->user->id . " No se envió el mail", "error", "application.controllers.SiteController");
                             Yii::app()->user->setFlash('error','Error al enviar el email: '.$this->enviarMail()->getError());
                         }
                         //Vuelvo al Login                        
@@ -228,6 +234,7 @@ class SiteController extends Controller
                                                 
                         //Verifico nuevo password y el re-intento de password
                         if($passwordNew != $passwordNewAgain){
+                            Yii::log("usr" . Yii::app()->user->id . " contraseña no coinciden", "warning", "application.controllers.SiteController");
                             Yii::app()->user->setFlash('error', 'La nueva contraseña no coincide');
                             $this->redirect('olvideMiContrasenia?token=' . $token{'token'},array('model'=>$model,'flagConToken'=>$flagConToken));
                         }
@@ -238,6 +245,7 @@ class SiteController extends Controller
                         //Guardo nueva contraseña
                         $Usuario{'hased_paswword'} = crypt($passwordNew,'SGE2017');
                         if($Usuario->save(false)){
+                            Yii::log("usr" . Yii::app()->user->id . " contraseña actualizada", "info", "application.controllers.SiteController");
                             Yii::app()->user->setFlash('success', "Se ha actualizado su contraseña");
                              $this->redirect(array('login'));
                         }
@@ -256,24 +264,27 @@ class SiteController extends Controller
                 date_default_timezone_set('America/Argentina/Buenos_Aires');
 		$user = new Usuario();
                 $user{'email'}="";
-                
+                Yii::log("usr" . Yii::app()->user->id . " Enviar de Activacion", "trace", "application.controllers.SiteController");
                 
                 if(isset($_POST['Usuario'])){
                     $userLoginTemp = Usuario::model()->findByAttributes(array('dni'=>$_POST['Usuario']['dni']));                   
                     //Verifico si el usuario existe
                     if($userLoginTemp==NULL){
+                        Yii::log("usr" . Yii::app()->user->id . " DNI incorrecto", "warning", "application.controllers.SiteController");
                         Yii::app()->user->setFlash('error', "El DNI ingresado es incorrecto");
                         $this->redirect(array('EnviarMailActivacion'));
                     }
                     
                     //Valido el e-mail
                     if(!filter_var($_POST['Usuario']['email'], FILTER_VALIDATE_EMAIL)){
+                        Yii::log("usr" . Yii::app()->user->id . " Email no valido", "warning", "application.controllers.SiteController");
                         Yii::app()->user->setFlash('error', "El e-mail ingresado no es válido");
                         $this->redirect(array('EnviarMailActivacion'));
                     }
                     
                     //Verifico que el usuario se encuentre DESHABILITADO
                     if($userLoginTemp{'estado'}=='ACTIVO' || $userLoginTemp{'estado'}=='BLOQUEADO'){
+                        Yii::log("usr" . Yii::app()->user->id . " El usuario se encuentra activo", "warning", "application.controllers.SiteController");
                         Yii::app()->user->setFlash('error', "El usuario ya se encuentra activo");
                         $this->redirect(array('EnviarMailActivacion'));
                     }
@@ -285,12 +296,14 @@ class SiteController extends Controller
                     //Genero el token
                     $NombreToken = "activarUsuario" . $userLoginTemp{'id'};
                     $token = Token::model()->createToken($NombreToken, 21600, array('idUsr'=>$userLoginTemp{'id'}));
-
+                    Yii::log("usr" . Yii::app()->user->id . " Token: " + $token, "debug", "application.controllers.SiteController");
                     
                     //EnvioEmail
                     if($this->enviarMail('activarUsuarioMail',$token,'Activación de usuario',$_POST['Usuario']['email'])){
+                        Yii::log("usr" . Yii::app()->user->id . " Mail enviado", "info", "application.controllers.SiteController");
                         Yii::app()->user->setFlash('success', "Se ha enviado un mail a " . $_POST['Usuario']['email']);
                     }else{
+                        Yii::log("usr" . Yii::app()->user->id . " No se envió el mail", "error", "application.controllers.SiteController");
                         Yii::app()->user->setFlash('error','Error al enviar el email: '.$this->enviarMail()->getError());
                     }
                     //Vuelvo al Login
@@ -309,7 +322,7 @@ class SiteController extends Controller
 	{
 		$model=new LoginForm;    
                 date_default_timezone_set('America/Argentina/Buenos_Aires');
-                
+                Yii::log("actionLogin", "trace", "application.controllers.SiteController");
 		if(isset($_POST['LoginForm']))
 		{
 			$model->attributes=$_POST['LoginForm'];
@@ -323,19 +336,23 @@ class SiteController extends Controller
                                      Yii::log('actionLogin', "ERROR", '');
                                      Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
                                 }
-                                $this->redirect(Yii::app()->user->returnUrl);
-                                
+                                Yii::log("Login con éxito: " . Yii::app()->user->id, "info", "application.controllers.SiteController");
+                                $this->redirect(Yii::app()->user->returnUrl);                                
                                 break;
                             case 1:
+                                Yii::log("usr" . Yii::app()->user->id . " Usuario incorrecto", "warning", "application.controllers.SiteController");
                                 Yii::app()->user->setFlash('error', "Usuario o contraseña inválido");
                                 break;
                             case 2:
+                                Yii::log("usr" . Yii::app()->user->id . " password incorrecto", "warning", "application.controllers.SiteController");
                                 Yii::app()->user->setFlash('error', "Usuario o contraseña inválido");
                                 break;
                             case 3:
+                                Yii::log("usr" . Yii::app()->user->id . " Usuario bloqueado", "warning", "application.controllers.SiteController");
                                 Yii::app()->user->setFlash('error', "El usuario se encuentra bloqueado");
                                 break;
                             case 40:
+                                Yii::log("usr" . Yii::app()->user->id . " activacion usuario", "warning", "application.controllers.SiteController");
                                 $this->redirect(array('enviarMailActivacion'));
                                 break;
                         }                       	
@@ -349,6 +366,7 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
+                Yii::log("usr" . Yii::app()->user->id . " Cierre sesion", "info", "application.controllers.SiteController");
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
@@ -359,6 +377,7 @@ class SiteController extends Controller
             $mail->setFrom(Yii::app()->params['paramName'], 'Sistema de Gestion del Estudiante');
             $mail->setTo($to);
             $mail->setSubject($subject);
+            
             return $mail->send();
         }
 }

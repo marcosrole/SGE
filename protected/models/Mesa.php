@@ -1,24 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "carrera".
+ * This is the model class for table "mesa".
  *
- * The followings are the available columns in table 'carrera':
- * @property string $id
- * @property string $plan
- * @property string $nombre
+ * The followings are the available columns in table 'mesa':
+ * @property integer $id
+ * @property integer $cantTurnos
+ * @property string $fechaInicio
+ * @property string $fechaFin
+ * @property string $periodo
+ * @property integer $anio
  * @property string $created
  * @property string $last_update
  */
-class Carrera extends CActiveRecord
+class Mesa extends CActiveRecord
 {
-   
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'carrera';
+		return 'mesa';
 	}
 
 	/**
@@ -29,9 +31,9 @@ class Carrera extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, plan, nombre', 'required'),
-			array('id', 'length', 'max'=>10),
-			array('plan, nombre', 'length', 'max'=>20),
+			array('cantTurnos, fechaInicio, fechaFin, periodo, anio', 'required'),
+			array('cantTurnos, anio', 'numerical', 'integerOnly'=>true),
+			array('periodo', 'length', 'max'=>30),
 			array('created, last_update', 'safe'),
 			/*
 			//Example username
@@ -42,7 +44,7 @@ class Carrera extends CActiveRecord
           	*/
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, plan, nombre, created, last_update', 'safe', 'on'=>'search'),
+			array('id, cantTurnos, fechaInicio, fechaFin, periodo, anio, created, last_update', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +56,6 @@ class Carrera extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'materias'=>array(self::HAS_MANY, 'Materia', 'id_carrera'),
 		);
 	}
 
@@ -65,8 +66,11 @@ class Carrera extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'plan' => 'Plan',
-			'nombre' => 'Nombre',
+			'cantTurnos' => 'Cant Turnos',
+			'fechaInicio' => 'Fecha Inicio',
+			'fechaFin' => 'Fecha Fin',
+			'periodo' => 'Periodo',
+			'anio' => 'Anio',
 			'created' => 'Created',
 			'last_update' => 'Last Update',
 		);
@@ -90,9 +94,12 @@ class Carrera extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('plan',$this->plan,true);
-		$criteria->compare('nombre',$this->nombre,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('cantTurnos',$this->cantTurnos);
+		$criteria->compare('fechaInicio',$this->fechaInicio,true);
+		$criteria->compare('fechaFin',$this->fechaFin,true);
+		$criteria->compare('periodo',$this->periodo,true);
+		$criteria->compare('anio',$this->anio);
 		$criteria->compare('created',$this->created,true);
 		$criteria->compare('last_update',$this->last_update,true);
 
@@ -100,22 +107,23 @@ class Carrera extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
-        
-        public function getFullName()
-        {
-            return $this->plan .' - '. $this->nombre;
-        }
 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Carrera the static model class
+	 * @return Mesa the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
+        
+        public function dentroPeriodo($today){
+            $criteria = new CDbCriteria;
+            $criteria->condition = "fechaInicio <= '$today' AND fechaFin >= '$today'";
+            return Mesa::model()->find($criteria);
+        }
 	
 	public function beforeSave() 
     {

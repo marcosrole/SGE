@@ -92,6 +92,7 @@ class Usuario extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'carrera'=>array(self::BELONGS_TO, 'Carrera', 'id_carrera'),
 		);
 	}
 

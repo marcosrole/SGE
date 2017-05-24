@@ -28,6 +28,7 @@ class UserIdentity extends CUserIdentity
                 $this->setState('fullName',$user{'nombre'} . " " . $user{'apellido'});
                 $UsuarioRol = UsuarioRol::model ()->findByAttributes (array('id_usuario'=>$user{'id'})); 
                 
+                /* Roles en jerarquia */
                 if($UsuarioRol{'id_rol'}=='superadmin'){
                    $this->setState('rol', array('superadmin','admin','alumno')); 
                 }
@@ -37,6 +38,10 @@ class UserIdentity extends CUserIdentity
                 if($UsuarioRol{'id_rol'}=='alumno'){
                    $this->setState('rol', array('alumno')); 
                 }
+                
+                /*Rol del usuario*/
+                $this->setState('rolUsuario', $UsuarioRol{'id_rol'}); 
+                
                 
             }
                     

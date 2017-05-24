@@ -1,25 +1,15 @@
 <?php
-/**
- * The following variables are available in this template:
- * - $this: the CrudCode object
- */
-?>
-<?php echo "<?php\n"; ?>
-/* @var $this <?php echo $this->getControllerClass(); ?> */
-/* @var $model <?php echo $this->getModelClass(); ?> */
-<?php
-$nameColumn=$this->guessNameColumn($this->tableSchema->columns);
-$label=$this->pluralize($this->class2name($this->modelClass));
-echo "\$this->breadcrumbs=array(
-    '$label'=>array('index'),
+/* @var $this InscripcionmateriaController */
+/* @var $model Inscripcionmateria */
+$this->breadcrumbs=array(
+    'Inscripcionmaterias'=>array('index'),
     'Calendar',
-);\n";
-?>
+);
 
 $menu=array();
 require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
 $this->menu=array(
-	array('label'=>'<?php echo $this->modelClass; ?>','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
+	array('label'=>'Inscripcionmateria','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -36,7 +26,7 @@ Yii::app()->clientScript->registerScript('search', "
 ");
 ?>
 
-<?php echo "<?php"; ?>  $box = $this->beginWidget(
+<?php  $box = $this->beginWidget(
     'booster.widgets.TbPanel',
     array(
         'title' => 'Calendar' ,
@@ -52,7 +42,7 @@ Yii::app()->clientScript->registerScript('search', "
     )
 );?>
 
-<?php echo "<?php"; ?>  $this->widget('ext.heart.calendar.EHeartCalendar', array(
+<?php  $this->widget('ext.heart.calendar.EHeartCalendar', array(
 	//'themeCssFile'=>'cupertino/jquery-ui.min.css',
 	'options'=>array(
 		'header'=>array(
@@ -69,9 +59,9 @@ Yii::app()->clientScript->registerScript('search', "
 	)));
 ?>
 
-<?php echo "<?php"; ?>  $this->endWidget(); ?>
+<?php  $this->endWidget(); ?>
 
-<?php echo "<?php"; ?>  $this->beginWidget(
+<?php  $this->beginWidget(
     'booster.widgets.TbModal',
     array('id' => 'myModal')
 ); ?>
@@ -86,7 +76,7 @@ Yii::app()->clientScript->registerScript('search', "
     </div>
  
     <div class="modal-footer">
-        <?php echo "<?php"; ?>  $this->widget(
+        <?php  $this->widget(
             'booster.widgets.TbButton',
             array(
                 'label' => 'Close',
@@ -96,4 +86,4 @@ Yii::app()->clientScript->registerScript('search', "
         ); ?>
     </div>
  
-<?php echo "<?php"; ?>  $this->endWidget(); ?>
+<?php  $this->endWidget(); ?>

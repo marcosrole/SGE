@@ -156,35 +156,6 @@ class UsuarioController extends Controller
 			}
 			
 		}
-              
-                
-//                require ('extensions/phpmailer/class.phpmailer.php');
-//                $mail = new PHPMailer(); $mail->IsSMTP(); 
-//                $mail->Host = 'smtp.gmail.com'; 
-//                $mail->SMTPAuth = true;                
-//                $mail->SMTPSecure = true; 
-//                $mail->Username = 'marcosrole@gmail.com'; 
-//                $mail->Port = 465; 
-//                $mail->Password = 'vera2016'; 
-//                $mail->SMTPKeepAlive = true;  
-//                $mail->Mailer = "smtp"; 
-//                $mail->IsSMTP(); // telling the class to use SMTP  
-//                $mail->SMTPAuth   = true;  
-//                $mail->CharSet = 'utf-8';  
-//                $mail->SMTPDebug  = 0;
-//                $mail->SetFrom('marcosrole@gmail.com', 'myname'); 
-//                $mail->Subject = 'PHPMailer Test Subject via GMail, basic with authentication'; 
-//                $mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; 
-//                $mail->MsgHTML('<h1>JUST A TEST!</h1>'); 
-//                $mail->AddAddress('marcosrole@gmail.com', 'John Doe'); $mail->Send();
-//                if($mail->Send()){
-//                    Yii::app()->user->setFlash('error','Thank you for... as possible.');
-//                }else{
-//                    Yii::app()->user->setFlash('error',$mail->ErrorInfo);
-//                }
-//                
-                
-
 		$this->render('create',array(
 			'model'=>$model,
 					));

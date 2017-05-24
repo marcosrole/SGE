@@ -4,7 +4,7 @@
  * - $this: the BootCrudCode object
  */
 ?>
-<?php echo "<?php \$form=\$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+<?php echo "<?php \$form=\$this->beginWidget('booster.widgets.TbActiveForm',array(
 	'id'=>'" . $this->class2id($this->modelClass) . "-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
@@ -57,7 +57,7 @@ echo $form->select2Row($model, 'group', array(
 ?>
 
 <div class="form-actions">
-	<?php echo "<?php \$this->widget('bootstrap.widgets.TbButton', array(
+	<?php echo "<?php \$this->widget('booster.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
 			'label'=>\$model->isNewRecord ? 'Create' : 'Save',

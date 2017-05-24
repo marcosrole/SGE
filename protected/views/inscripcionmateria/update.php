@@ -1,46 +1,33 @@
 <?php
-/**
- * The following variables are available in this template:
- * - $this: the BootCrudCode object
- */
-?>
-<?php
-echo "<?php\n";
-$nameColumn = $this->guessNameColumn($this->tableSchema->columns);
-$label = $this->pluralize($this->class2name($this->modelClass));
-echo "\$this->breadcrumbs=array(
-	'$label'=>array('index'),
-	\$model->{$nameColumn}=>array('view','id'=>\$model->{$this->tableSchema->primaryKey}),
+$this->breadcrumbs=array(
+	'Inscripcionmaterias'=>array('index'),
+	$model->id=>array('view','id'=>$model->id),
 	'Update',
-);\n";
-?>
+);
 
 $menu=array();
 require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
 $this->menu=array(
-	array('label'=>'<?php echo $this->modelClass; ?>','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
+	array('label'=>'Inscripcionmateria','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
 );
 ?>
 
-<?php
-echo "<?php \$box = \$this->beginWidget(
+<?php $box = $this->beginWidget(
     'booster.widgets.TbPanel',
     array(
-        'title' => 'Update ".$label. " #'.\$model->{$this->tableSchema->primaryKey}".",
+        'title' => 'Update Inscripcionmaterias #'.$model->id,
         'headerIcon' => 'icon- fa fa-pencil',
         'headerButtons' => array(
             array(
                 'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-                'buttons' => \$this->menu
+                'buttons' => $this->menu
             ),
         ) 
     )
-);?>";
-?>
-
-		<?php echo"<?php \$this->widget('booster.widgets.TbAlert', array(
+);?>
+		<?php $this->widget('booster.widgets.TbAlert', array(
 		    'block'=>false, // display a larger alert block?
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
@@ -52,7 +39,5 @@ echo "<?php \$box = \$this->beginWidget(
 		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
 		    ),
 		));
-		?>"; ?>
-<?php echo "<?php echo \$this->renderPartial('_form',array('model'=>\$model)); ?>"; ?>
-
-<?php echo"<?php \$this->endWidget(); ?>"; ?>
+		?><?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+<?php $this->endWidget(); ?>

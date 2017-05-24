@@ -51,13 +51,13 @@ if(!isset($_GET['asModal'])){
 ?>
 <?php
 echo "<?php \$box = \$this->beginWidget(
-    'bootstrap.widgets.TbBox',
+    'booster.widgets.TbPanel',
     array(
         'title' => 'View ".$label. " #'.\$model->{$this->tableSchema->primaryKey}".",
         'headerIcon' => 'icon- fa fa-eye',
         'headerButtons' => array(
             array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
+                'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'buttons' => \$menu2
@@ -71,7 +71,7 @@ echo "<?php \$box = \$this->beginWidget(
 }
 ?>
 
-		<?php echo"<?php \$this->widget('bootstrap.widgets.TbAlert', array(
+		<?php echo"<?php \$this->widget('booster.widgets.TbAlert', array(
 		    'block'=>false, // display a larger alert block?
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
@@ -85,7 +85,7 @@ echo "<?php \$box = \$this->beginWidget(
 		));
 		?>"; ?>
 		
-<?php echo "<?php"; ?> $this->widget('bootstrap.widgets.TbDetailView',array(
+<?php echo "<?php"; ?> $this->widget('booster.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
 	<?php

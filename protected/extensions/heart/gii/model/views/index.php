@@ -46,7 +46,7 @@ $('.form .row.model-class').toggle($('#{$class}_tableName').val().substring($('#
 ?>
 
 <?php $box = $this->beginWidget(
-	'bootstrap.widgets.TbBox',
+	'booster.widgets.TbPanel',
 	array(
 		'title' => 'Heart Model Generator',
 		'headerIcon' => 'icon- fa fa-rocket'

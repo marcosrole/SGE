@@ -586,7 +586,7 @@ class <?php echo $this->controllerClass; ?> extends <?php echo $this->baseContro
 	}
 
 	public function actionEditable(){
-		Yii::import('bootstrap.widgets.TbEditableSaver'); 
+		Yii::import('booster.widgets.TbEditableSaver'); 
 	    $es = new TbEditableSaver('<?php echo $this->modelClass; ?>'); 
 		<?php
 		$fieldModified=false;

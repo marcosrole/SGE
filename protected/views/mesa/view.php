@@ -1,46 +1,42 @@
 <?php
-/**
- * The following variables are available in this template:
- * - $this: the BootCrudCode object
- */
-?>
-<?php
-echo "<?php\n";
-$nameColumn = $this->guessNameColumn($this->tableSchema->columns);
-$label = $this->pluralize($this->class2name($this->modelClass));
-echo "\$this->breadcrumbs=array(
-	'$label'=>array('index'),
-	\$model->{$nameColumn}=>array('view','id'=>\$model->{$this->tableSchema->primaryKey}),
-	'Update',
-);\n";
-?>
+/* @var $this MesaController */
+/* @var $model Mesa */
+
+$this->breadcrumbs=array(
+	'Mesas'=>array('index'),
+	$model->id,
+);
 
 $menu=array();
 require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
-$this->menu=array(
-	array('label'=>'<?php echo $this->modelClass; ?>','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
-);
-?>
 
-<?php
-echo "<?php \$box = \$this->beginWidget(
+
+$menu2=array(
+	array('label'=>'Mesa','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
+);
+
+if(!isset($_GET['asModal'])){
+?>
+<?php $box = $this->beginWidget(
     'booster.widgets.TbPanel',
     array(
-        'title' => 'Update ".$label. " #'.\$model->{$this->tableSchema->primaryKey}".",
-        'headerIcon' => 'icon- fa fa-pencil',
+        'title' => 'View Mesas #'.$model->id,
+        'headerIcon' => 'icon- fa fa-eye',
         'headerButtons' => array(
             array(
                 'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-                'buttons' => \$this->menu
+                'buttons' => $menu2
             ),
         ) 
     )
-);?>";
+);?>
+<?php
+}
 ?>
 
-		<?php echo"<?php \$this->widget('booster.widgets.TbAlert', array(
+		<?php $this->widget('booster.widgets.TbAlert', array(
 		    'block'=>false, // display a larger alert block?
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
@@ -52,7 +48,40 @@ echo "<?php \$box = \$this->beginWidget(
 		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
 		    ),
 		));
-		?>"; ?>
-<?php echo "<?php echo \$this->renderPartial('_form',array('model'=>\$model)); ?>"; ?>
+		?>		
+<?php $this->widget('booster.widgets.TbDetailView',array(
+	'data'=>$model,
+	'attributes'=>array(
+			'id',
+		'cantTurnos',
+		'fechaInicio',
+		'fechaFin',
+		'periodo',
+		'anio',
+					
+			array(
+		        'name'=> 'created',
+		        'type'=>'raw',
+		        'value' => date("d M Y H:i:s",strtotime($model->created)),
+		    ),
+			
+		'last_update',
+		/*
+		//CONTOH
+		array(
+	        'header' => 'Level',
+	        'name'=> 'ref_level_id',
+	        'type'=>'raw',
+	        'value' => ($model->Level->name),
+	        // 'value' => ($model->status)?"on":"off",
+	        // 'value' => @Admin::model()->findByPk($model->createdBy)->username,
+	    ),
 
-<?php echo"<?php \$this->endWidget(); ?>"; ?>
+	    */
+	),
+)); ?>
+
+<?php
+if(!isset($_GET['asModal'])){
+	$this->endWidget();}
+?>

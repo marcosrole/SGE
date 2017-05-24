@@ -1,0 +1,39 @@
+2017/05/24 16:01:48 [trace] [application.controllers.SiteController] actionLogin
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (312)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:02:01 [trace] [application.controllers.SiteController] actionLogin
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (312)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:02:01 [info] [application.controllers.SiteController] Login con éxito: 10
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (326)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:56:55 [info] [application.controllers.SiteController] usr10 Cierre sesion
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (369)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:56:55 [trace] [application.controllers.SiteController] actionLogin
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:57:02 [trace] [application.controllers.SiteController] actionLogin
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:57:03 [info] [application.controllers.SiteController] Login con éxito: 21
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (339)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:58:46 [info] [application.controllers.SiteController] usr21 Cierre sesion
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (369)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:58:46 [trace] [application.controllers.SiteController] actionLogin
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:59:02 [trace] [application.controllers.SiteController] actionLogin
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:59:02 [warning] [application.controllers.SiteController] usr Usuario incorrecto
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (343)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:59:10 [trace] [application.controllers.SiteController] actionLogin
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
+in C:\wamp64\www\SGE\index.php (13)
+2017/05/24 16:59:10 [info] [application.controllers.SiteController] Login con éxito: 10
+in C:\wamp64\www\SGE\protected\controllers\SiteController.php (339)
+in C:\wamp64\www\SGE\index.php (13)

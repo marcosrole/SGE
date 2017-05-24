@@ -1,24 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "carrera".
+ * This is the model class for table "materia".
  *
- * The followings are the available columns in table 'carrera':
- * @property string $id
- * @property string $plan
+ * The followings are the available columns in table 'materia':
+ * @property integer $id
+ * @property integer $id_carrera
  * @property string $nombre
+ * @property integer $anio
  * @property string $created
  * @property string $last_update
  */
-class Carrera extends CActiveRecord
+class Materia extends CActiveRecord
 {
-   
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'carrera';
+		return 'materia';
 	}
 
 	/**
@@ -29,9 +29,9 @@ class Carrera extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, plan, nombre', 'required'),
-			array('id', 'length', 'max'=>10),
-			array('plan, nombre', 'length', 'max'=>20),
+			array('id_carrera, nombre, anio', 'required'),
+			array('id_carrera, anio', 'numerical', 'integerOnly'=>true),
+			array('nombre', 'length', 'max'=>255),
 			array('created, last_update', 'safe'),
 			/*
 			//Example username
@@ -42,7 +42,7 @@ class Carrera extends CActiveRecord
           	*/
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, plan, nombre, created, last_update', 'safe', 'on'=>'search'),
+			array('id, id_carrera, nombre, anio, created, last_update', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +54,6 @@ class Carrera extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                    'materias'=>array(self::HAS_MANY, 'Materia', 'id_carrera'),
 		);
 	}
 
@@ -65,8 +64,9 @@ class Carrera extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'plan' => 'Plan',
+			'id_carrera' => 'Id Carrera',
 			'nombre' => 'Nombre',
+			'anio' => 'Anio',
 			'created' => 'Created',
 			'last_update' => 'Last Update',
 		);
@@ -90,27 +90,26 @@ class Carrera extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('plan',$this->plan,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('id_carrera',$this->id_carrera);
 		$criteria->compare('nombre',$this->nombre,true);
+		$criteria->compare('anio',$this->anio);
 		$criteria->compare('created',$this->created,true);
 		$criteria->compare('last_update',$this->last_update,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+                        'sort' => array(
+                            'defaultOrder' => 'anio ASC, nombre ASC',
+                            ), 
 		));
 	}
-        
-        public function getFullName()
-        {
-            return $this->plan .' - '. $this->nombre;
-        }
 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Carrera the static model class
+	 * @return Materia the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

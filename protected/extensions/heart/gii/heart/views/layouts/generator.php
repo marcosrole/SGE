@@ -12,14 +12,14 @@ $currAction			= Yii::app()->controller->action->id;
 $currRoute 			= Yii::app()->controller->getRoute();
 $currRoutes			= explode('/', $currRoute);
 
-$this->widget('bootstrap.widgets.TbNavbar', array(
+$this->widget('booster.widgets.TbNavbar', array(
 	'type'=>null, // null or 'inverse'
 	'brand'=>CHtml::encode('Heart Gii!'),
 	'brandUrl'=>'#',
 	'collapse'=>true, // requires bootstrap-responsive.css
 	'items'=>array(
 		array(
-			'class'=>'bootstrap.widgets.TbMenu',
+			'class'=>'booster.widgets.TbMenu',
 			'items'=>array(
 					array('label'=>'Back To Website', 'url'=>Yii::app()->baseUrl, 'icon'=>'fa fa-home'),
 					array('label'=>'Heart Gii', 'url'=>array('index'), 'icon'=>'fa fa-rocket','active'=>(@$currController=='heart')),
@@ -35,7 +35,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 	<div class="span2">
 		<div id="sidebar">
 		<?php $box = $this->beginWidget(
-		    'bootstrap.widgets.TbBox',
+		    'booster.widgets.TbPanel',
 		    array(
 		        'title' => 'Generators',
 		        'headerIcon' => 'icon- fa fa-list-alt'
@@ -49,7 +49,7 @@ $this->widget('bootstrap.widgets.TbNavbar', array(
 			$menu[]=array('label'=>'Crud','url'=>array('crud/index'),'icon'=>'fa fa-chevron-circle-right','active'=>(@$currController=='crud'));
 			
 			$this->widget(
-				'bootstrap.widgets.TbTabs',
+				'booster.widgets.TbTabs',
 				array(
 					'type' => 'pills',
 					'stacked' => true,

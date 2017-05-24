@@ -67,7 +67,7 @@ else{
 
 ?>
 <?php $box = $this->beginWidget(
-	'bootstrap.widgets.TbBox',
+	'booster.widgets.TbPanel',
 	array(
 		'title' => 'Heart Crud Generator',
 		'headerIcon' => 'icon- fa fa-rocket'
@@ -78,7 +78,7 @@ else{
 
 <?php $form=$this->beginWidget('CCodeForm', array('model'=>$model)); ?>
 
-<?php $collapse = $this->beginWidget('bootstrap.widgets.TbCollapse'); ?>
+<?php $collapse = $this->beginWidget('booster.widgets.TbCollapse'); ?>
     <div class="accordion-group">
         <div class="accordion-heading">
             <a class="accordion-toggle" data-toggle="collapse"

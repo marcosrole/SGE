@@ -2,7 +2,7 @@
 $this->layout="ext.heart.gii.heart.views.layouts.generator";
 ?>
 <?php $box = $this->beginWidget(
-	'bootstrap.widgets.TbBox',
+	'booster.widgets.TbPanel',
 	array(
 		'title' => 'Heart Generator',
 		'headerIcon' => 'icon- fa fa-rocket'
@@ -10,7 +10,7 @@ $this->layout="ext.heart.gii.heart.views.layouts.generator";
 );?>
 
 <?php $this->beginWidget(
-    'bootstrap.widgets.TbHeroUnit',
+    'booster.widgets.TbHeroUnit',
     array(
         'heading' => 'Heart Gii!',
     )
@@ -19,9 +19,9 @@ $this->layout="ext.heart.gii.heart.views.layouts.generator";
     <p>Heart Generator is High Performance Generator Tools. It to easy create professional web application in minutes!!.</p>
  
     <p><?php $this->widget(
-            'bootstrap.widgets.TbButton',
+            'booster.widgets.TbButton',
             array(
-                'type' => 'primary',
+                'context' => 'primary',
                 'size' => 'large',
                 'label' => 'Are You Ready?',
             )

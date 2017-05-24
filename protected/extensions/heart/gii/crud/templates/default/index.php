@@ -43,13 +43,13 @@ Yii::app()->clientScript->registerScript('refreshGridView', "
 
 <?php
 echo "<?php \$box = \$this->beginWidget(
-    'bootstrap.widgets.TbBox',
+    'booster.widgets.TbPanel',
     array(
         'title' => 'List ".$label."' ,
         'headerIcon' => 'icon- fa fa-list-ol',
         'headerButtons' => array(
             array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
+                'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
                 'buttons' => \$this->menu
@@ -59,11 +59,11 @@ echo "<?php \$box = \$this->beginWidget(
 );?>";
 ?>
 
-<?php echo "<?php"; ?> /** $this->widget('bootstrap.widgets.TbListView',array(
+<?php echo "<?php"; ?> /** $this->widget('booster.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
 'itemView'=>'_view',
 )); **/ ?>
-		<?php echo"<?php \$this->widget('bootstrap.widgets.TbAlert', array(
+		<?php echo"<?php \$this->widget('booster.widgets.TbAlert', array(
 		    'block'=>false, // display a larger alert block?
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
@@ -92,7 +92,7 @@ echo "<?php \$box = \$this->beginWidget(
 
 <?php echo "<?php echo CHtml::beginForm(array('export')); ?>"; ?>
 
-<?php echo "<?php"; ?> $this->widget('bootstrap.widgets.TbGridView',array(
+<?php echo "<?php"; ?> $this->widget('booster.widgets.TbGridView',array(
 	'id'=>'<?php echo $this->class2id($this->modelClass); ?>-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -180,7 +180,7 @@ if(empty($name)) $name=$name2;
 	    ),
 	    */
 		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
+			'class'=>'booster.widgets.TbButtonColumn',
 			'template'=>'{view}<?php if($this->modelType=="2"){ ?> {detail}<?php } ?>',
 			'buttons'=>array
             (
@@ -221,7 +221,7 @@ if(empty($name)) $name=$name2;
 <br>
 
 <?php echo"<?php 
-\$this->widget('bootstrap.widgets.TbButton', array(
+\$this->widget('booster.widgets.TbButton', array(
 	'buttonType'=>'submit', 'icon'=>'fa fa-print','label'=>'Export', 'type'=> 'primary'));
 ?>"; ?>
 
@@ -230,7 +230,7 @@ if(empty($name)) $name=$name2;
 <?php echo"<?php \$this->endWidget(); ?>"; ?>
 
 <?php echo "<?php"; ?>  $this->beginWidget(
-    'bootstrap.widgets.TbModal',
+    'booster.widgets.TbModal',
     array('id' => 'myModal')
 ); ?>
  
@@ -245,7 +245,7 @@ if(empty($name)) $name=$name2;
  
     <div class="modal-footer">
         <?php echo "<?php"; ?>  $this->widget(
-            'bootstrap.widgets.TbButton',
+            'booster.widgets.TbButton',
             array(
                 'label' => 'Close',
                 'url' => '#',

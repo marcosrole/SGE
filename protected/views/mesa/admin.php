@@ -1,25 +1,16 @@
 <?php
-/**
- * The following variables are available in this template:
- * - $this: the CrudCode object
- */
-?>
-<?php echo "<?php\n"; ?>
-/* @var $this <?php echo $this->getControllerClass(); ?> */
-/* @var $model <?php echo $this->getModelClass(); ?> */
+/* @var $this MesaController */
+/* @var $model Mesa */
 
-<?php
-$label=$this->pluralize($this->class2name($this->modelClass));
-echo "\$this->breadcrumbs=array(
-	'$label'=>array('index'),
+$this->breadcrumbs=array(
+	'Mesas'=>array('index'),
 	'Manage',
-);\n";
-?>
+);
 
 $menu=array();
 require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
 $this->menu=array(
-	array('label'=>'<?php echo $this->modelClass; ?>','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
+	array('label'=>'Mesa','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -28,7 +19,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#<?php echo $this->class2id($this->modelClass); ?>-grid').yiiGridView('update', {
+	$('#mesa-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -36,24 +27,21 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<?php
-echo "<?php \$box = \$this->beginWidget(
+<?php $box = $this->beginWidget(
     'booster.widgets.TbPanel',
     array(
-        'title' => 'Manage ".$label."',
+        'title' => 'Manage Mesas',
         'headerIcon' => 'icon- fa fa-tasks',
         'headerButtons' => array(
             array(
                 'class' => 'booster.widgets.TbButtonGroup',
                 'type' => 'success',
                 // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-                'buttons' => \$this->menu
+                'buttons' => $this->menu
             ),
         ) 
     )
-);?>";
-?>
-		<?php echo"<?php \$this->widget('booster.widgets.TbAlert', array(
+);?>		<?php $this->widget('booster.widgets.TbAlert', array(
 		    'block'=>false, // display a larger alert block?
 		    'fade'=>true, // use transitions?
 		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
@@ -65,116 +53,37 @@ echo "<?php \$box = \$this->beginWidget(
 		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
 		    ),
 		));
-		?>"; ?>
-
+		?>
 <p>
 	You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>
 		&lt;&gt;</b>
 	or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
 </p>
 
-<?php echo "<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>"; ?>
-
+<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button btn')); ?>
 <div class="search-form" style="display:none">
-	<?php echo "<?php \$this->renderPartial('_search',array(
-	'model'=>\$model,
-)); ?>\n"; ?>
+	<?php $this->renderPartial('_search',array(
+	'model'=>$model,
+)); ?>
 </div><!-- search-form -->
 
-<?php echo "<?php echo CHtml::beginForm(array('export')); ?>"; ?>
-
-<?php echo "<?php"; ?> $this->widget('booster.widgets.TbGridView',array(
-	'id'=>'<?php echo $this->class2id($this->modelClass); ?>-grid',
+<?php echo CHtml::beginForm(array('export')); ?>
+<?php $this->widget('booster.widgets.TbGridView',array(
+	'id'=>'mesa-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'type' => 'striped hover', //bordered condensed
 	'columns'=>array(
-<?php
-$count = 0;
-$name="";
-$name2="";
-foreach ($this->tableSchema->columns as $column) {
-	if(in_array($column->name, array('name','title'))){
-		if(empty($name)) $name=$column->name;
-	}
-	if($column->name=='id'){
-		echo "\t\t" . 
-			"array(".
-				"'header'=>'No',".
-				"'value'=>'(\$this->grid->dataProvider->pagination->currentPage*
-					 \$this->grid->dataProvider->pagination->pageSize
-					)+ (\$row+1)',
-				'htmlOptions' => array('style' =>'width: 25px; text-align:center;'),\n" .
-			"\t\t),\n";
-	}
-	else if(substr($column->name,0,4)=='ref_' or substr($column->name,0,3)=='tb_' or in_array($column->name, array('created','createdBy','modified','modifiedBy','deleted','deletedBy'))){
-		echo "\t\t//'" . $column->name . "',\n";
-	}
-	else if (preg_match('/^(password|pass|passwd|passcode)$/i', $column->name)) {
-		echo "\t\t//'" . $column->name . "',\n";	
-	}
-	else{
-		if ($count>5) echo "/*\n";
-
-		if($column->dbType=='tinyint(1)'){
-			?>
+		array('header'=>'No','value'=>'($this->grid->dataProvider->pagination->currentPage*
+					 $this->grid->dataProvider->pagination->pageSize
+					)+ ($row+1)',
+				'htmlOptions' => array('style' =>'width: 25px; text-align:center;'),
+		),
 			array(
-                'class' => 'booster.widgets.TbToggleColumn',
-                'toggleAction' => '<?php echo $this->controller; ?>/toggle',
-                'headerHtmlOptions' => array('style' => 'width:25px;text-align:center'),
-                'name' => '<?php echo $column->name; ?>',
-                'header' => '<?php echo ucfirst($column->name); ?>'
-            ),
-			<?php
-			echo "\n";
-		}
-		else if (substr($column->dbType,0,3) === 'int') { 
-			?>
-			array(
-		        'header' => '<?php echo ucfirst($column->name); ?>',
-		        'name'=> '<?php echo $column->name; ?>',
+		        'header' => 'CantTurnos',
+		        'name'=> 'cantTurnos',
 		        'type'=>'raw',
-		        'value' => '($data-><?php echo $column->name; ?>)',
-		        'class' => 'booster.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'text-align:center'),
-				'editable' => array(
-					'type'    => 'text',
-					'url'     => $this->createUrl('editable'),
-					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-				)
-		    ),
-			<?php
-			echo "\n";
-		}
-		else if($column->dbType=='date'){
-			?>
-			array(
-		        'header' => '<?php echo ucfirst($column->name); ?>',
-		        'name'=> '<?php echo $column->name; ?>',
-		        'type'=>'raw',
-		        'value' => '(date("d-M-Y",strtotime($data-><?php echo $column->name; ?>)))',
-		        'class' => 'booster.widgets.TbEditableColumn',
-	            'headerHtmlOptions' => array('style' => 'width:100px;text-align:center;'),
-	            'htmlOptions' => array('style' => 'text-align:center;'),
-				'editable' => array(
-					'type'          => 'date',
-					'format'		=> 'yyyy-mm-dd', //sent to server
-                  	'viewformat'    => 'dd-M-yyyy', //view user
-					'url'     => $this->createUrl('editable'),
-					'placement'     => 'right',
-					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
-				)
-		    ),
-			<?php
-			echo "\n";
-		}
-		else if($column->dbType=='text' or $column->dbType=='varchar(255)'){
-			?>
-			array(
-		        'header' => '<?php echo ucfirst($column->name); ?>',
-		        'name'=> '<?php echo $column->name; ?>',
-		        'type'=>'raw',
-		        'value' => '($data-><?php echo $column->name; ?>)',
+		        'value' => '($data->cantTurnos)',
 		        'class' => 'booster.widgets.TbEditableColumn',
 	            'headerHtmlOptions' => array('style' => 'text-align:center'),
 				'editable' => array(
@@ -183,37 +92,78 @@ foreach ($this->tableSchema->columns as $column) {
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
 		    ),
-			<?php
-			if(empty($name2)) $name2=$column->name;
-			echo "\n";
-		}
-		else{
-			?>
+			
 			array(
-		        'header' => '<?php echo ucfirst($column->name); ?>',
-		        'name'=> '<?php echo $column->name; ?>',
+		        'header' => 'FechaInicio',
+		        'name'=> 'fechaInicio',
 		        'type'=>'raw',
-		        'value' => '($data-><?php echo $column->name; ?>)',
+		        'value' => '($data->fechaInicio)',
 		        'class' => 'booster.widgets.TbEditableColumn',
 	            'headerHtmlOptions' => array('style' => 'text-align:center'),
 				'editable' => array(
-					'type'    => 'text',
+					'type'    => 'textarea',
 					'url'     => $this->createUrl('editable'),
 					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
 				)
 		    ),
-			<?php
-			if(empty($name2)) $name2=$column->name;
-			echo "\n";
-		}
-
-		if ($count>5) echo "*/\n";
-		++$count;
-	}
-}
-
-if(empty($name)) $name=$name2;
-?>
+			
+			array(
+		        'header' => 'FechaFin',
+		        'name'=> 'fechaFin',
+		        'type'=>'raw',
+		        'value' => '($data->fechaFin)',
+		        'class' => 'booster.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'text-align:center'),
+				'editable' => array(
+					'type'    => 'textarea',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+			array(
+		        'header' => 'Periodo',
+		        'name'=> 'periodo',
+		        'type'=>'raw',
+		        'value' => '($data->periodo)',
+		        'class' => 'booster.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'text-align:center'),
+				'editable' => array(
+					'type'    => 'textarea',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+			array(
+		        'header' => 'Anio',
+		        'name'=> 'anio',
+		        'type'=>'raw',
+		        'value' => '($data->anio)',
+		        'class' => 'booster.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'text-align:center'),
+				'editable' => array(
+					'type'    => 'textarea',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
+		//'created',
+			array(
+		        'header' => 'Last_update',
+		        'name'=> 'last_update',
+		        'type'=>'raw',
+		        'value' => '($data->last_update)',
+		        'class' => 'booster.widgets.TbEditableColumn',
+	            'headerHtmlOptions' => array('style' => 'text-align:center'),
+				'editable' => array(
+					'type'    => 'textarea',
+					'url'     => $this->createUrl('editable'),
+					'params' => array('YII_CSRF_TOKEN' => Yii::app()->request->csrfToken),
+				)
+		    ),
+			
 		/*
 		//Contoh
 		array(
@@ -230,7 +180,7 @@ if(empty($name)) $name=$name2;
             (
                 'view' => array
                 (    
-                	'url' => '$data-><?php echo $this->tableSchema->primaryKey; ?>."|".$data-><?php if(!empty($name)) echo $name; else echo  $this->tableSchema->primaryKey; ?>',              
+                	'url' => '$data->id."|".$data->cantTurnos',              
                 	'click' => 'function(){
                 		data=$(this).attr("href").split("|")
                 		$("#myModalHeader").html(data[1]);
@@ -253,21 +203,19 @@ if(empty($name)) $name=$name2;
 </select>
 <br>
 
-<?php echo"<?php 
-\$this->widget('booster.widgets.TbButton', array(
+<?php 
+$this->widget('booster.widgets.TbButton', array(
 	'buttonType'=>'submit', 'icon'=>'fa fa-print','label'=>'Export', 'type'=> 'primary'));
-?>"; ?>
-
-<?php echo "<?php echo CHtml::endForm(); ?>"; ?>
-
-<?php echo "<?php"; ?> $box = $this->beginWidget(
+?>
+<?php echo CHtml::endForm(); ?>
+<?php $box = $this->beginWidget(
     'booster.widgets.TbPanel',
     array(
         'title' => 'Import Data',
         'htmlOptions' => array('style' => 'width:25%; text-align:center;margin-top:-100px', 'class'=>'pull-right'),
     )
 );?>
-	<?php echo "<?php"; ?> $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
+	<?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
 		'id'=>'import-admin-form',
 		'type' => 'inline',
 		'enableAjaxValidation'=>false,
@@ -276,8 +224,8 @@ if(empty($name)) $name=$name2;
 		),
 		'action' => $this->createUrl('import'),  //<- your form action here
 	)); ?>
-	<?php echo "<?php"; ?> echo $form->fileFieldRow($model,'fileImport'); ?> 
-	<?php echo "<?php"; ?> $this->widget('booster.widgets.TbButton', array(
+	<?php echo $form->fileFieldRow($model,'fileImport'); ?> 
+	<?php $this->widget('booster.widgets.TbButton', array(
 		'buttonType'=>'submit',
 		'type'=>'primary',
 		'label'=>'Import',
@@ -285,12 +233,11 @@ if(empty($name)) $name=$name2;
 	)); ?>
 	<br>
 	(file type permitted: xls, xlsx, ods only)
-	<?php echo "<?php"; ?> $this->endWidget(); ?>
-<?php echo "<?php"; ?> $this->endWidget(); ?>
+	<?php $this->endWidget(); ?>
+<?php $this->endWidget(); ?>
 
-<?php echo "<?php \$this->endWidget(); ?>"; ?>
-
-<?php echo "<?php"; ?>  $this->beginWidget(
+<?php $this->endWidget(); ?>
+<?php  $this->beginWidget(
     'booster.widgets.TbModal',
     array('id' => 'myModal')
 ); ?>
@@ -305,7 +252,7 @@ if(empty($name)) $name=$name2;
     </div>
  
     <div class="modal-footer">
-        <?php echo "<?php"; ?>  $this->widget(
+        <?php  $this->widget(
             'booster.widgets.TbButton',
             array(
                 'label' => 'Close',
@@ -315,4 +262,4 @@ if(empty($name)) $name=$name2;
         ); ?>
     </div>
  
-<?php echo "<?php"; ?>  $this->endWidget(); ?>
+<?php  $this->endWidget(); ?>

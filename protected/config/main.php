@@ -12,6 +12,7 @@ return array(
 	'sourceLanguage'=>'es',
         'defaultController' => 'site/login', 
 	'name'=>'Sistema de Gestión del Estudiante',
+        'timeZone' => 'America/Argentina/Buenos_Aires',
 
 	
 	// preloading 'log' component
@@ -85,8 +86,10 @@ return array(
 				array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'trace, info, error, warning',
-                                        'categories'=>'system.*',
+                                        'categories'=>'application.*',
                                         'logFile' => date('Ymd').'.log',
+//                                        'logPath' => [pathLog]
+                                        'maxFileSize' => '100000', //[kilobytes] cuando es mayor a maxFileSize, se crea de nuevo el archivo
 				),
 				// uncomment the following to show log messages on web pages
 				/*
