@@ -123,30 +123,40 @@ class SiteController extends Controller
         public function actionActivarUsuario($tokenParam)
 	{
             date_default_timezone_set('America/Argentina/Buenos_Aires');
+            $Alumno = new Alumno();
+            
             //Verifico token 
             if(!Token::model()->validateToken($tokenParam, false)){
                 Yii::log("usr" . Yii::app()->user->id . " Token no existe", "warning", "application.controllers.SiteController");
                 Yii::app()->user->setFlash('error', "El token no existe");
                 $this->redirect(array('login'));
             }
-            $Usuario = new Usuario();
-            $Usuario->unsetAttributes();
-            $Usuario->scenario = 'SITE_actionActivarUsuario';
             
-            //Busco el id del usuario por el token
+             //Busco el id del usuario por el token
             $token = Token::model()->findByAttributes(array('token'=>$tokenParam));
             $idUser = unserialize($token{'informacion'});
             $idUser = $idUser['idUsr'];
             $Usuario = Usuario::model()->findByPk($idUser);
             
-             if(isset($_POST['Usuario'])){
+            //Verifico si es un DOCENTE o ALUMNO
+            $Usuario->scenario = 'SITE_actionActivarUsuario';
+            
+            $isDocente = true;
+            $UsuarioRol = UsuarioRol::model()->findByAttributes(array('id_usuario'=>$Usuario{'id'}));
+            if($UsuarioRol{'id_rol'} == "alumno"){
+                $isDocente = FALSE;
+            }else {
+                $isDocente = TRUE;
+            }
+            
+            
+            if(isset($_POST['Usuario'])){
                  
                 $UsuarioActualizado = $Usuario;
                 $UsuarioActualizado->password=$_POST['Usuario']['password'];
                 $UsuarioActualizado->passwordAgain=$_POST['Usuario']['passwordAgain'];
                 $UsuarioActualizado->hased_paswword= crypt($_POST['Usuario']['password'],'SGE2017');
                 $UsuarioActualizado->celular=$_POST['Usuario']['celular'];
-                $UsuarioActualizado->id_carrera = $_POST['Usuario']['id_carrera'];
                 $UsuarioActualizado->id_provincia = $_POST['Usuario']['id_provincia'];
                 $UsuarioActualizado->id_localidad = $_POST['Usuario']['id_localidad'];
                 $UsuarioActualizado->sexo = $_POST['Usuario']['sexo'];
@@ -155,21 +165,39 @@ class SiteController extends Controller
                 $UsuarioActualizado->estado="ACTIVO";
                 $UsuarioActualizado->scenario = 'SITE_actionActivarUsuario';
                 $UsuarioActualizado->last_login = date('Y-m-d H:i:s'); 
-                $UsuarioActualizado->last_update = date('Y-m-d H:i:s'); 
                 
-                if($UsuarioActualizado->validate()){
-                    $UsuarioActualizado->fecha_nacimiento = DateTime::createFromFormat('d/m/Y', $_POST['Usuario']['fecha_nacimiento'])->format('Y-m-d');
-                    $UsuarioActualizado->save(false);
-                    Token::model()->validateToken($tokenParam, true);
-                    Yii::log("usr" . Yii::app()->user->id . " Usuario activado", "info", "application.controllers.SiteController");
-                    Yii::app()->user->setFlash('success', $UsuarioActualizado{'nombre'} . ", tu usuario ha sido activado con éxito.");                    
-                    $this->redirect(array('login'));
-                }else{ 
-                     $Usuario = $UsuarioActualizado;
-                 }                
+                $transaction = Yii::app()->db->beginTransaction();
+                    try{
+                        if($UsuarioActualizado->validate()){
+                        if(!$isDocente){
+                            $Alumno->id_usuario = $Usuario{'id'};
+                            $Alumno->id_carrera = $_POST['Alumno']['id_carrera'];
+                            if($Alumno->validate()){
+                                $Alumno->save();
+                                 Yii::log("Alumno activado: " + $UsuarioActualizado{'dni'}, "info", "application.controllers.SiteController");
+                            }
+                        }
+                        $UsuarioActualizado->fecha_nacimiento = DateTime::createFromFormat('d/m/Y', $_POST['Usuario']['fecha_nacimiento'])->format('Y-m-d');
+                        $UsuarioActualizado->save(false);
+                        Token::model()->validateToken($tokenParam, true);
+                        Yii::log("usr" . Yii::app()->user->id . " Usuario activado", "info", "application.controllers.SiteController");
+                        Yii::app()->user->setFlash('success', $UsuarioActualizado{'nombre'} . ", tu usuario ha sido activado con éxito.");                    
+                        $this->redirect(array('login'));
+                    }else{ 
+                         $Usuario = $UsuarioActualizado;
+                     }  
+                     
+                    } catch (Exception $ex) {
+                        $transaction->rollBack();
+                        Yii::log("usrID:" . Yii::app()->user->id . " Usuario no activado " + $e->getMessage(), "error", "application.controllers.UsuarioController");
+                        Yii::app()->user->setFlash('error', Yii::app()->properties->messageERROR_INTERNO);
+                    }        
              }     
-            
-            $this->render('activarUsuario',array('model'=>$Usuario));
+           
+            $this->render('activarUsuario',array(
+                'model'=>$Usuario,
+                'Alumno' =>$Alumno,
+                'isDocente' => $isDocente));
         }
         
         public function actionOlvideMiContrasenia($token = null){
@@ -253,10 +281,7 @@ class SiteController extends Controller
                     }
                     
                     $this->render('olvideMiContrasenia',array('model'=>$model, 'flagConToken'=>$flagConToken));
-            }    
-
-            
-            
+            } 
         }
         
         public function actionEnviarMailActivacion()

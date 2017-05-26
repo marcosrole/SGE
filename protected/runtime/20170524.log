@@ -1,39 +1,394 @@
-2017/05/24 16:01:48 [trace] [application.controllers.SiteController] actionLogin
-in C:\wamp64\www\SGE\protected\controllers\SiteController.php (312)
-in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:02:01 [trace] [application.controllers.SiteController] actionLogin
-in C:\wamp64\www\SGE\protected\controllers\SiteController.php (312)
-in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:02:01 [info] [application.controllers.SiteController] Login con éxito: 10
-in C:\wamp64\www\SGE\protected\controllers\SiteController.php (326)
-in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:56:55 [info] [application.controllers.SiteController] usr10 Cierre sesion
-in C:\wamp64\www\SGE\protected\controllers\SiteController.php (369)
-in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:56:55 [trace] [application.controllers.SiteController] actionLogin
+2017/05/24 17:18:14 [info] [application] User: Guest (ID: )
+
+$_COOKIE=array (
+  'PHPSESSID' => 'me6sovbh2cdr4pi833q5jbv9b2',
+)
+
+$_SESSION=array (
+  '7eabd8875436fb8a60c86ce1e177b0f6__returnUrl' => '/SGE/',
+)
+
+$_SERVER=array (
+  'REDIRECT_STATUS' => '200',
+  'HTTP_HOST' => 'localhost',
+  'HTTP_CONNECTION' => 'keep-alive',
+  'HTTP_CACHE_CONTROL' => 'max-age=0',
+  'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+  'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+  'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'HTTP_REFERER' => 'http://localhost/SGE/',
+  'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br',
+  'HTTP_ACCEPT_LANGUAGE' => 'es,en-US;q=0.8,en;q=0.6',
+  'HTTP_COOKIE' => 'PHPSESSID=me6sovbh2cdr4pi833q5jbv9b2',
+  'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\gs\\gs9.10\\bin;C:\\Program Files\\gs\\gs9.10\\lib;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\wamp64\\bin\\php\\php5.6.25;C:\\ProgramData\\ComposerSetup\\bin;',
+  'SystemRoot' => 'C:\\Windows',
+  'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe',
+  'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+  'WINDIR' => 'C:\\Windows',
+  'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win64) PHP/5.6.25 Server at localhost Port 80</address>
+',
+  'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) PHP/5.6.25',
+  'SERVER_NAME' => 'localhost',
+  'SERVER_ADDR' => '::1',
+  'SERVER_PORT' => '80',
+  'REMOTE_ADDR' => '::1',
+  'DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'REQUEST_SCHEME' => 'http',
+  'CONTEXT_PREFIX' => '',
+  'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'SERVER_ADMIN' => 'wampserver@wampserver.invalid',
+  'SCRIPT_FILENAME' => 'C:/wamp64/www/SGE/index.php',
+  'REMOTE_PORT' => '54978',
+  'REDIRECT_URL' => '/SGE/login',
+  'GATEWAY_INTERFACE' => 'CGI/1.1',
+  'SERVER_PROTOCOL' => 'HTTP/1.1',
+  'REQUEST_METHOD' => 'GET',
+  'QUERY_STRING' => '',
+  'REQUEST_URI' => '/SGE/login',
+  'SCRIPT_NAME' => '/SGE/index.php',
+  'PHP_SELF' => '/SGE/index.php',
+  'REQUEST_TIME_FLOAT' => 1495657094.4289999,
+  'REQUEST_TIME' => 1495657094,
+)
+2017/05/24 17:18:14 [trace] [application.controllers.SiteController] actionLogin
 in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
 in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:57:02 [trace] [application.controllers.SiteController] actionLogin
+2017/05/24 17:21:09 [info] [application] User: 34360877 (ID: 10)
+
+$_POST=array (
+  'LoginForm' => 
+  array (
+    'username' => '34360877',
+    'password' => '1',
+  ),
+  'yt0' => '',
+)
+
+$_COOKIE=array (
+  'PHPSESSID' => 'me6sovbh2cdr4pi833q5jbv9b2',
+)
+
+$_SESSION=array (
+  '7eabd8875436fb8a60c86ce1e177b0f6__returnUrl' => '/SGE/',
+  '7eabd8875436fb8a60c86ce1e177b0f6__id' => '10',
+  '7eabd8875436fb8a60c86ce1e177b0f6__name' => '34360877',
+  '7eabd8875436fb8a60c86ce1e177b0f6fullName' => 'Marcos Role',
+  '7eabd8875436fb8a60c86ce1e177b0f6rol' => 
+  array (
+    0 => 'admin',
+    1 => 'alumno',
+  ),
+  '7eabd8875436fb8a60c86ce1e177b0f6rolUsuario' => 'admin',
+  '7eabd8875436fb8a60c86ce1e177b0f6__states' => 
+  array (
+    'fullName' => true,
+    'rol' => true,
+    'rolUsuario' => true,
+  ),
+)
+
+$_SERVER=array (
+  'REDIRECT_STATUS' => '200',
+  'HTTP_HOST' => 'localhost',
+  'HTTP_CONNECTION' => 'keep-alive',
+  'CONTENT_LENGTH' => '63',
+  'HTTP_CACHE_CONTROL' => 'max-age=0',
+  'HTTP_ORIGIN' => 'http://localhost',
+  'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+  'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+  'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+  'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'HTTP_REFERER' => 'http://localhost/SGE/login',
+  'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+  'HTTP_ACCEPT_LANGUAGE' => 'es,en-US;q=0.8,en;q=0.6',
+  'HTTP_COOKIE' => 'PHPSESSID=me6sovbh2cdr4pi833q5jbv9b2',
+  'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\gs\\gs9.10\\bin;C:\\Program Files\\gs\\gs9.10\\lib;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\wamp64\\bin\\php\\php5.6.25;C:\\ProgramData\\ComposerSetup\\bin;',
+  'SystemRoot' => 'C:\\Windows',
+  'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe',
+  'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+  'WINDIR' => 'C:\\Windows',
+  'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win64) PHP/5.6.25 Server at localhost Port 80</address>
+',
+  'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) PHP/5.6.25',
+  'SERVER_NAME' => 'localhost',
+  'SERVER_ADDR' => '::1',
+  'SERVER_PORT' => '80',
+  'REMOTE_ADDR' => '::1',
+  'DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'REQUEST_SCHEME' => 'http',
+  'CONTEXT_PREFIX' => '',
+  'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'SERVER_ADMIN' => 'wampserver@wampserver.invalid',
+  'SCRIPT_FILENAME' => 'C:/wamp64/www/SGE/index.php',
+  'REMOTE_PORT' => '55216',
+  'REDIRECT_URL' => '/SGE/login',
+  'GATEWAY_INTERFACE' => 'CGI/1.1',
+  'SERVER_PROTOCOL' => 'HTTP/1.1',
+  'REQUEST_METHOD' => 'POST',
+  'QUERY_STRING' => '',
+  'REQUEST_URI' => '/SGE/login',
+  'SCRIPT_NAME' => '/SGE/index.php',
+  'PHP_SELF' => '/SGE/index.php',
+  'REQUEST_TIME_FLOAT' => 1495657269.5780001,
+  'REQUEST_TIME' => 1495657269,
+)
+2017/05/24 17:21:09 [trace] [application.controllers.SiteController] actionLogin
 in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
 in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:57:03 [info] [application.controllers.SiteController] Login con éxito: 21
+2017/05/24 17:21:09 [info] [application.controllers.SiteController] Login con éxito: 10
 in C:\wamp64\www\SGE\protected\controllers\SiteController.php (339)
 in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:58:46 [info] [application.controllers.SiteController] usr21 Cierre sesion
+2017/05/24 17:22:20 [info] [application] User: Guest (ID: )
+
+$_COOKIE=array (
+  'PHPSESSID' => 'orcr1tppp6hkrgpg2hv55c0tl3',
+)
+
+$_SERVER=array (
+  'REDIRECT_STATUS' => '200',
+  'HTTP_HOST' => 'localhost',
+  'HTTP_CONNECTION' => 'keep-alive',
+  'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+  'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+  'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'HTTP_REFERER' => 'http://localhost/SGE/usuario/admin',
+  'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br',
+  'HTTP_ACCEPT_LANGUAGE' => 'es,en-US;q=0.8,en;q=0.6',
+  'HTTP_COOKIE' => 'PHPSESSID=orcr1tppp6hkrgpg2hv55c0tl3',
+  'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\gs\\gs9.10\\bin;C:\\Program Files\\gs\\gs9.10\\lib;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\wamp64\\bin\\php\\php5.6.25;C:\\ProgramData\\ComposerSetup\\bin;',
+  'SystemRoot' => 'C:\\Windows',
+  'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe',
+  'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+  'WINDIR' => 'C:\\Windows',
+  'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win64) PHP/5.6.25 Server at localhost Port 80</address>
+',
+  'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) PHP/5.6.25',
+  'SERVER_NAME' => 'localhost',
+  'SERVER_ADDR' => '::1',
+  'SERVER_PORT' => '80',
+  'REMOTE_ADDR' => '::1',
+  'DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'REQUEST_SCHEME' => 'http',
+  'CONTEXT_PREFIX' => '',
+  'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'SERVER_ADMIN' => 'wampserver@wampserver.invalid',
+  'SCRIPT_FILENAME' => 'C:/wamp64/www/SGE/index.php',
+  'REMOTE_PORT' => '55282',
+  'REDIRECT_URL' => '/SGE/logout',
+  'GATEWAY_INTERFACE' => 'CGI/1.1',
+  'SERVER_PROTOCOL' => 'HTTP/1.1',
+  'REQUEST_METHOD' => 'GET',
+  'QUERY_STRING' => '',
+  'REQUEST_URI' => '/SGE/logout',
+  'SCRIPT_NAME' => '/SGE/index.php',
+  'PHP_SELF' => '/SGE/index.php',
+  'REQUEST_TIME_FLOAT' => 1495657340.069,
+  'REQUEST_TIME' => 1495657340,
+)
+2017/05/24 17:22:20 [info] [application.controllers.SiteController] usr10 Cierre sesion
 in C:\wamp64\www\SGE\protected\controllers\SiteController.php (369)
 in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:58:46 [trace] [application.controllers.SiteController] actionLogin
+2017/05/24 17:22:20 [info] [application] User: Guest (ID: )
+
+$_COOKIE=array (
+  'PHPSESSID' => 'orcr1tppp6hkrgpg2hv55c0tl3',
+)
+
+$_SESSION=array (
+  '7eabd8875436fb8a60c86ce1e177b0f6__returnUrl' => '/SGE/',
+)
+
+$_SERVER=array (
+  'REDIRECT_STATUS' => '200',
+  'HTTP_HOST' => 'localhost',
+  'HTTP_CONNECTION' => 'keep-alive',
+  'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+  'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+  'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'HTTP_REFERER' => 'http://localhost/SGE/usuario/admin',
+  'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br',
+  'HTTP_ACCEPT_LANGUAGE' => 'es,en-US;q=0.8,en;q=0.6',
+  'HTTP_COOKIE' => 'PHPSESSID=orcr1tppp6hkrgpg2hv55c0tl3',
+  'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\gs\\gs9.10\\bin;C:\\Program Files\\gs\\gs9.10\\lib;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\wamp64\\bin\\php\\php5.6.25;C:\\ProgramData\\ComposerSetup\\bin;',
+  'SystemRoot' => 'C:\\Windows',
+  'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe',
+  'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+  'WINDIR' => 'C:\\Windows',
+  'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win64) PHP/5.6.25 Server at localhost Port 80</address>
+',
+  'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) PHP/5.6.25',
+  'SERVER_NAME' => 'localhost',
+  'SERVER_ADDR' => '::1',
+  'SERVER_PORT' => '80',
+  'REMOTE_ADDR' => '::1',
+  'DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'REQUEST_SCHEME' => 'http',
+  'CONTEXT_PREFIX' => '',
+  'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'SERVER_ADMIN' => 'wampserver@wampserver.invalid',
+  'SCRIPT_FILENAME' => 'C:/wamp64/www/SGE/index.php',
+  'REMOTE_PORT' => '55282',
+  'REDIRECT_URL' => '/SGE/login',
+  'GATEWAY_INTERFACE' => 'CGI/1.1',
+  'SERVER_PROTOCOL' => 'HTTP/1.1',
+  'REQUEST_METHOD' => 'GET',
+  'QUERY_STRING' => '',
+  'REQUEST_URI' => '/SGE/login',
+  'SCRIPT_NAME' => '/SGE/index.php',
+  'PHP_SELF' => '/SGE/index.php',
+  'REQUEST_TIME_FLOAT' => 1495657340.1819999,
+  'REQUEST_TIME' => 1495657340,
+)
+2017/05/24 17:22:20 [trace] [application.controllers.SiteController] actionLogin
 in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
 in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:59:02 [trace] [application.controllers.SiteController] actionLogin
+2017/05/24 17:54:23 [info] [application] User: Guest (ID: )
+
+$_COOKIE=array (
+  'PHPSESSID' => 'jgodlfi6jjaeqq9ovbuvku8qe1',
+)
+
+$_SESSION=array (
+  '7eabd8875436fb8a60c86ce1e177b0f6__returnUrl' => '/SGE/',
+  'gii__returnUrl' => '/SGE/gii/model/index',
+  'gii__id' => 'yiier',
+  'gii__name' => 'yiier',
+  'gii__states' => 
+  array (
+  ),
+)
+
+$_SERVER=array (
+  'REDIRECT_STATUS' => '200',
+  'HTTP_HOST' => 'localhost',
+  'HTTP_CONNECTION' => 'keep-alive',
+  'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+  'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+  'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch, br',
+  'HTTP_ACCEPT_LANGUAGE' => 'es,en-US;q=0.8,en;q=0.6',
+  'HTTP_COOKIE' => 'PHPSESSID=jgodlfi6jjaeqq9ovbuvku8qe1',
+  'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\gs\\gs9.10\\bin;C:\\Program Files\\gs\\gs9.10\\lib;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\wamp64\\bin\\php\\php5.6.25;C:\\ProgramData\\ComposerSetup\\bin;',
+  'SystemRoot' => 'C:\\Windows',
+  'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe',
+  'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+  'WINDIR' => 'C:\\Windows',
+  'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win64) PHP/5.6.25 Server at localhost Port 80</address>
+',
+  'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) PHP/5.6.25',
+  'SERVER_NAME' => 'localhost',
+  'SERVER_ADDR' => '::1',
+  'SERVER_PORT' => '80',
+  'REMOTE_ADDR' => '::1',
+  'DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'REQUEST_SCHEME' => 'http',
+  'CONTEXT_PREFIX' => '',
+  'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'SERVER_ADMIN' => 'wampserver@wampserver.invalid',
+  'SCRIPT_FILENAME' => 'C:/wamp64/www/SGE/index.php',
+  'REMOTE_PORT' => '55549',
+  'REDIRECT_URL' => '/SGE/login',
+  'GATEWAY_INTERFACE' => 'CGI/1.1',
+  'SERVER_PROTOCOL' => 'HTTP/1.1',
+  'REQUEST_METHOD' => 'GET',
+  'QUERY_STRING' => '',
+  'REQUEST_URI' => '/SGE/login',
+  'SCRIPT_NAME' => '/SGE/index.php',
+  'PHP_SELF' => '/SGE/index.php',
+  'REQUEST_TIME_FLOAT' => 1495659263.8659999,
+  'REQUEST_TIME' => 1495659263,
+)
+2017/05/24 17:54:23 [trace] [application.controllers.SiteController] actionLogin
 in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
 in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:59:02 [warning] [application.controllers.SiteController] usr Usuario incorrecto
-in C:\wamp64\www\SGE\protected\controllers\SiteController.php (343)
-in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:59:10 [trace] [application.controllers.SiteController] actionLogin
+2017/05/24 17:54:27 [info] [application] User: 34360877 (ID: 10)
+
+$_POST=array (
+  'LoginForm' => 
+  array (
+    'username' => '34360877',
+    'password' => '1',
+  ),
+  'yt0' => '',
+)
+
+$_COOKIE=array (
+  'PHPSESSID' => 'jgodlfi6jjaeqq9ovbuvku8qe1',
+)
+
+$_SESSION=array (
+  '7eabd8875436fb8a60c86ce1e177b0f6__returnUrl' => '/SGE/',
+  'gii__returnUrl' => '/SGE/gii/model/index',
+  'gii__id' => 'yiier',
+  'gii__name' => 'yiier',
+  'gii__states' => 
+  array (
+  ),
+  '7eabd8875436fb8a60c86ce1e177b0f6__id' => '10',
+  '7eabd8875436fb8a60c86ce1e177b0f6__name' => '34360877',
+  '7eabd8875436fb8a60c86ce1e177b0f6fullName' => 'Marcos Role',
+  '7eabd8875436fb8a60c86ce1e177b0f6rol' => 
+  array (
+    0 => 'admin',
+    1 => 'alumno',
+  ),
+  '7eabd8875436fb8a60c86ce1e177b0f6rolUsuario' => 'admin',
+  '7eabd8875436fb8a60c86ce1e177b0f6__states' => 
+  array (
+    'fullName' => true,
+    'rol' => true,
+    'rolUsuario' => true,
+  ),
+)
+
+$_SERVER=array (
+  'REDIRECT_STATUS' => '200',
+  'HTTP_HOST' => 'localhost',
+  'HTTP_CONNECTION' => 'keep-alive',
+  'CONTENT_LENGTH' => '63',
+  'HTTP_CACHE_CONTROL' => 'max-age=0',
+  'HTTP_ORIGIN' => 'http://localhost',
+  'HTTP_UPGRADE_INSECURE_REQUESTS' => '1',
+  'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36',
+  'CONTENT_TYPE' => 'application/x-www-form-urlencoded',
+  'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+  'HTTP_REFERER' => 'http://localhost/SGE/login',
+  'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br',
+  'HTTP_ACCEPT_LANGUAGE' => 'es,en-US;q=0.8,en;q=0.6',
+  'HTTP_COOKIE' => 'PHPSESSID=jgodlfi6jjaeqq9ovbuvku8qe1',
+  'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Git\\cmd;C:\\Program Files\\gs\\gs9.10\\bin;C:\\Program Files\\gs\\gs9.10\\lib;C:\\Program Files (x86)\\Windows Live\\Shared;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\wamp64\\bin\\php\\php5.6.25;C:\\ProgramData\\ComposerSetup\\bin;',
+  'SystemRoot' => 'C:\\Windows',
+  'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe',
+  'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+  'WINDIR' => 'C:\\Windows',
+  'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win64) PHP/5.6.25 Server at localhost Port 80</address>
+',
+  'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win64) PHP/5.6.25',
+  'SERVER_NAME' => 'localhost',
+  'SERVER_ADDR' => '::1',
+  'SERVER_PORT' => '80',
+  'REMOTE_ADDR' => '::1',
+  'DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'REQUEST_SCHEME' => 'http',
+  'CONTEXT_PREFIX' => '',
+  'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp64/www',
+  'SERVER_ADMIN' => 'wampserver@wampserver.invalid',
+  'SCRIPT_FILENAME' => 'C:/wamp64/www/SGE/index.php',
+  'REMOTE_PORT' => '55549',
+  'REDIRECT_URL' => '/SGE/login',
+  'GATEWAY_INTERFACE' => 'CGI/1.1',
+  'SERVER_PROTOCOL' => 'HTTP/1.1',
+  'REQUEST_METHOD' => 'POST',
+  'QUERY_STRING' => '',
+  'REQUEST_URI' => '/SGE/login',
+  'SCRIPT_NAME' => '/SGE/index.php',
+  'PHP_SELF' => '/SGE/index.php',
+  'REQUEST_TIME_FLOAT' => 1495659267.6300001,
+  'REQUEST_TIME' => 1495659267,
+)
+2017/05/24 17:54:27 [trace] [application.controllers.SiteController] actionLogin
 in C:\wamp64\www\SGE\protected\controllers\SiteController.php (325)
 in C:\wamp64\www\SGE\index.php (13)
-2017/05/24 16:59:10 [info] [application.controllers.SiteController] Login con éxito: 10
+2017/05/24 17:54:27 [info] [application.controllers.SiteController] Login con éxito: 10
 in C:\wamp64\www\SGE\protected\controllers\SiteController.php (339)
 in C:\wamp64\www\SGE\index.php (13)

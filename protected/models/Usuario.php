@@ -24,6 +24,7 @@
 class Usuario extends CActiveRecord
 {
     public $esAdmin;
+    public $isDocente;
     public $id_provincia;
     public $password;
     public $passwordNew;
@@ -42,10 +43,10 @@ class Usuario extends CActiveRecord
 		// will receive user inputs.
 		return array(
                     //generales
-                        array('dni, nombre, apellido, domicilio, id_localidad, id_provincia, id_carrera, sexo, celular, email, fecha_nacimiento', 'required'),
+                        array('dni, nombre, apellido, domicilio, id_localidad, id_provincia, sexo, celular, email, fecha_nacimiento', 'required'),
                         array('dni', 'numerical', 'integerOnly'=>true, 'min'=>5),
                         array('dni', 'length', 'min'=>5, 'max'=>9),
-                        array('id_localidad, id_carrera, id_provincia', 'numerical', 'integerOnly'=>true),
+                        array('id_localidad, id_provincia', 'numerical', 'integerOnly'=>true),
                         array('nombre, apellido, email, hased_paswword', 'length', 'max'=>50),
                         array('email','email'),
                         array('sexo', 'length', 'max'=>9),
@@ -120,7 +121,7 @@ class Usuario extends CActiveRecord
 			'domicilio' => 'Domicilio',
 			'id_localidad' => 'Localidad',
                         'id_provincia' => 'Provincia',
-			'id_carrera' => 'Carrera',
+                        'isDocente' => 'Docente',
                         $this->esAdmin => 'esAdmin'
 		);
 	}
@@ -158,7 +159,6 @@ class Usuario extends CActiveRecord
 		$criteria->compare('celular',$this->celular,true);
 		$criteria->compare('domicilio',$this->domicilio,true);
 		$criteria->compare('id_localidad',$this->id_localidad);
-		$criteria->compare('id_carrera',$this->id_carrera);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -189,11 +189,7 @@ class Usuario extends CActiveRecord
             $provincia = Provincia::model()->findByPk($localidad{'id_provincia'});
             return $this->domicilio . ' - ' . $localidad{'localidad'} . '(' . $provincia{'provincia'} .')';
         }
-        public function getNombreCarrera()
-        {
-            $carrera = Carrera::model()->findByPk($this->id_carrera);
-            return $carrera{'plan'} . " - " . $carrera{'nombre'};
-        }
+       
 	
 	public function beforeSave() 
     {

@@ -133,30 +133,31 @@
             </div>   
         </div>
     </div>
-    
-    <div class="panel panel-default">
-        <div class="panel-heading">Datos académicos</div>
-        <div class="panel-body">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="col-lg-12">
-                    <?php echo $form->dropDownListGroup($model,	'id_carrera',
-                        array(
-                                'empty'=>'Seleccione una carrera',
-                                'wrapperHtmlOptions' => array(
-                                        'class' => 'col-sm-5',
-                                ),
-                                'widgetOptions' => array(
-                                        'data' => CHtml::listData(Carrera::model()->findAll(),'id','fullname'),
-                                        'htmlOptions' => array(                                            
-                                        ),
+    <?php if(!$isDocente) { ?>
+        <div class="panel panel-default">
+            <div class="panel-heading">Datos académicos</div>
+            <div class="panel-body">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-lg-12">
+                        <?php echo $form->dropDownListGroup($Alumno,	'id_carrera',
+                            array(
+                                    'empty'=>'Seleccione una carrera',
+                                    'wrapperHtmlOptions' => array(
+                                            'class' => 'col-sm-5',
                                     ),
-                                )
-                        );
-                     ?>        
-                </div>                    
-            </div>              
+                                    'widgetOptions' => array(
+                                            'data' => CHtml::listData(Carrera::model()->findAll(),'id','fullname'),
+                                            'htmlOptions' => array(                                            
+                                            ),
+                                        ),
+                                    )
+                            );
+                         ?>        
+                    </div>                    
+                </div>              
+            </div>
         </div>
-    </div>
+    <?php } ?>
     
                
                  

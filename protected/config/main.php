@@ -90,6 +90,16 @@ return array(
                                         'logFile' => date('Ymd').'.log',
 //                                        'logPath' => [pathLog]
                                         'maxFileSize' => '100000', //[kilobytes] cuando es mayor a maxFileSize, se crea de nuevo el archivo
+                                        'filter'=>array(
+                                        'class'=>'CLogFilter',
+                                            'prefixSession'=>false,
+                                            'prefixUser'=>false,
+                                            'logUser'=>true,
+//                                            'logVars' =>array(array('_SERVER','REMOTE_ADDR'),
+//                                                        array('_SERVER', 'REDIRECT_URL'),
+//                                                        '_GET',
+//                                            ),
+                                ),
 				),
 				// uncomment the following to show log messages on web pages
 				/*

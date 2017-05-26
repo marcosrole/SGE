@@ -15,22 +15,37 @@ $form = $this->beginWidget(
 	<?php echo $form->errorSummary($model); ?>
 
                          
-                <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldGroup($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>
-                </div> 
-                <div style="float:left;padding:10px">
-                    <?php echo $form->textFieldGroup($model,'apellido',array('class'=>'span3','maxlength'=>20)); ?>
-                </div>                 
-                <div style="float:left;padding:10px">
-                     <?php echo $form->textFieldGroup($model,'nombre',array('class'=>'span3','maxlength'=>20)); ?>
-                </div>
-                <div style="float:left;padding-top: 30px">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-lg-2">
+                <?php echo $form->textFieldGroup($model,'dni',array('class'=>'span2','maxlength'=>20)); ?>            
+            </div>
+            <div class="col-lg-3">
+                <?php echo $form->textFieldGroup($model,'apellido',array('class'=>'span3','maxlength'=>20)); ?>  
+            </div>
+            <div class="col-lg-3">
+                 <?php echo $form->textFieldGroup($model,'nombre',array('class'=>'span3','maxlength'=>20)); ?>
+            </div>
+            <div class="col-lg-2">
+                <?php echo $form->checkboxGroup($model,'isDocente',array('class'=>'span3','maxlength'=>20)); ?>
+            </div>    
+             <div class="col-lg-2">
+                <div style="float: left">
                     <?php $this->widget('booster.widgets.TbButton', array(
-                                        'buttonType'=>'submit',
-                                        'context'=>'primary',
-                                        'label'=>$model->isNewRecord ? 'Guardar' : 'Guardar',
-                                )); ?>
+                                            'buttonType'=>'submit',
+                                            'context'=>'primary',
+                                            'label'=>$model->isNewRecord ? 'Guardar' : 'Guardar',
+                                    )); ?>
                 </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            
+        </div>
+        
+       
+                    
+                
+               
 	
 
 

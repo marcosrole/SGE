@@ -84,11 +84,12 @@ class UsuarioController extends Controller
 	{
 		date_default_timezone_set('America/Argentina/Buenos_Aires');		
 		$model=new Usuario;
-                
+                $UsuarioRol = new UsuarioRol();
+                Yii::log("usrID:" . Yii::app()->user->id . " Crear usuario", "trace", "application.controllers.UsuarioController");
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Usuario']))
+		if(isset($_POST['Usuario'])) 
 		{                    
 			$transaction = Yii::app()->db->beginTransaction();
 			try{
@@ -111,7 +112,6 @@ class UsuarioController extends Controller
                                 $model->fecha_nacimiento='29/04/1990';
                                 
                                 $model->scenario = 'USUARIO_actionCreate';
-                                
 				if($model->validate()){
                                     
                                     //Pasan a ser NULL
@@ -125,23 +125,29 @@ class UsuarioController extends Controller
                                     
                                         //Verifico si no existe otro usuario con el mismo DNI
                                         $usuarioAux = new Usuario();
-                                        $usuarioAux = Usuario::model()->findAllByAttributes(array('dni'=>$model{'dni'}));
+                                        $usuarioAux = Usuario::model()->findAllByAttributes(array('dni'=>$model{'dni'}));                                       
                                         if($usuarioAux==null){
-                                             $model->save(false);
+                                            $model->save(false);
                                             
-                                            $UsuarioRol = new UsuarioRol();
-                                            $UsuarioRol->id_rol='alumno';
+                                            if($_POST['Usuario']['isDocente'] == "1"){
+                                               $UsuarioRol->id_rol='docente'; 
+                                               Yii::log("usrID:" . Yii::app()->user->id . " Nuevo usuario: Docente: " + $model{'dni'}, "info", "application.controllers.UsuarioController");
+                                            }else{
+                                                $UsuarioRol->id_rol='alumno';
+                                                Yii::log("usrID:" . Yii::app()->user->id . " Nuevo usuario: Alumno: " + $model{'dni'}, "info", "application.controllers.UsuarioController");
+                                            }                                            
                                             $UsuarioRol->id_usuario=$model{'id'};
                                             $UsuarioRol->save();
 
                                             $messageType = 'success';
                                             $message = "Se ha guardado el usuario con éxito";
                                             $transaction->commit();
-                                            Yii::log('Usuario guardado con exito', "INFO", '');
+                                            Yii::log("usrID:" . Yii::app()->user->id . " Nuevo usuario. DNI: " + $model{'dni'}, "info", "application.controllers.UsuarioController");
                                             Yii::app()->user->setFlash($messageType, $message);
                                             $this->redirect(array('create'));
                                         }else{
                                             $messageType = 'warning';
+                                            Yii::log("usrID:" . Yii::app()->user->id . " Existe usuario con el mismo DNI", "warning", "application.controllers.UsuarioController");
                                             $message = "Ya existe un usuario con el DNI: " . $model{'dni'};
                                             $transaction->rollBack();                                            
                                             Yii::app()->user->setFlash($messageType, $message);
@@ -150,12 +156,13 @@ class UsuarioController extends Controller
 			}
 			catch (Exception $e){
 				$transaction->rollBack();
-                                Yii::log('Usuario no guardado: ' + $e->getMessage(), "error", '');
+                                 Yii::log("usrID:" . Yii::app()->user->id . " Usuario no almacenado " + $e->getMessage(), "error", "application.controllers.UsuarioController");
 				Yii::app()->user->setFlash('error', "{$e->getMessage()}");
 				//$this->refresh();
 			}
 			
 		}
+                
 		$this->render('create',array(
 			'model'=>$model,
 					));
@@ -204,12 +211,14 @@ class UsuarioController extends Controller
                                     if($model->save(false)){                                    
                                        $transaction->commit(); 
                                        Yii::app()->user->setFlash($messageType, $message);
+                                       Yii::log("usrID:" . Yii::app()->user->id . " Se actualizó el usuario: " + $model{'dni'}, "info", "application.controllers.UsuarioController");
                                        $this->redirect('admin');
                                    }   
                                 }
 			}
 			catch (Exception $e){
 				$transaction->rollBack();
+                                Yii::log("usrID:" . Yii::app()->user->id . " Usuario no actualizado " + $e->getMessage(), "error", "application.controllers.UsuarioController");
 				Yii::app()->user->setFlash('error', "{$e->getMessage()}");
 				// $this->refresh(); 
 			}
@@ -231,6 +240,7 @@ class UsuarioController extends Controller
                 $message = Yii::app()->properties->msgERROR_INTERNO;
                 if(Yii::app()->user->getId() == $id){
                     Yii::app()->user->setFlash('warning', "El usuario se encuentra en sesión"); 
+                    Yii::log("El usuario " + $model{'dni'} + " se encuentra en sesiòn ", "warning", "application.controllers.UsuarioController");
                     $this->redirect(array('admin'));
                 }else{
                     $transaction = Yii::app()->db->beginTransaction();
@@ -239,12 +249,14 @@ class UsuarioController extends Controller
                             if($model{'estado'}=='ACTIVO'){
                                 $model->estado="BLOQUEADO";
                                 $message = "Se ha bloqueado el usuario ";
+                                Yii::log("Usuario " + $model{'dni'} + " bloqueado ", "info", "application.controllers.UsuarioController");
                                 $model{'last_update'} = date('Y-m-d H:i:s');
                             }elseif ($model{'estado'}=='DESHABILITADO') {
                                  Yii::app()->user->setFlash('error', "No se puede Bloquear el usuario. El usuario no se encuentra activo");
                                  $this->redirect(array('admin'));
                             }else{
                                 $model->estado="ACTIVO";  
+                                Yii::log("Usuario " + $model{'dni'} + " està activo ", "info", "application.controllers.UsuarioController");
                                 $message = "Se ha desbloqueado el usuario";
                                 $model{'last_update'} = date('Y-m-d H:i:s');
                             }      
@@ -262,7 +274,7 @@ class UsuarioController extends Controller
                     }
                     catch (Exception $e){
                             $transaction->rollBack();
-                            Yii::log('actionBloquear', "ERROR", '');
+                            Yii::log("No se bloquedo/activo el usuario " + $model{'dni'} + ". " + $e->getMessage(), "error", "application.controllers.UsuarioController");
                             Yii::app()->user->setFlash('error', Yii::app()->properties->msgERROR_INTERNO);
                             // $this->refresh(); 
                     }	
@@ -273,26 +285,7 @@ class UsuarioController extends Controller
 		
         }
 
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
-
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
-
+	
 	/**
 	 * Lists all models.
 	 */
